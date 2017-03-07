@@ -57,4 +57,34 @@ class PrincipalController extends Controller
         ));
     }
 
+    /**
+     * @Route("/validFrais")
+     */
+    public function validFraisAction()
+    {
+        return $this->render('GSBBundle:Principal:valid_frais.html.twig', array(
+            // ...
+        ));
+    }
+
+    /**
+     * @Route("/consultFrais")
+     */
+    public function consultFraisAction()
+    {
+        return $this->render('GSBBundle:Principal:consult_frais.html.twig', array(
+            // ...
+        ));
+    }
+
+    /**
+     * @Route("/saisieFrais")
+     */
+    public function saisieFraisAction()
+    {
+        return $this->render('GSBBundle:Principal:saisie_frais.html.twig', array(
+            // ...
+        ));
+    }
+
 }
