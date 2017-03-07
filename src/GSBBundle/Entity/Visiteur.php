@@ -5,12 +5,12 @@ namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Visiteur
+ * visiteur
  *
  * @ORM\Table(name="visiteur")
- * @ORM\Entity(repositoryClass="GSBBundle\Repository\VisiteurRepository")
+ * @ORM\Entity(repositoryClass="GSBBundle\Repository\visiteurRepository")
  */
-class Visiteur
+class visiteur
 {
     /**
      * @var int
@@ -93,7 +93,7 @@ class Visiteur
      *
      * @param string $nom
      *
-     * @return Visiteur
+     * @return visiteur
      */
     public function setNom($nom)
     {
@@ -117,7 +117,7 @@ class Visiteur
      *
      * @param string $prenom
      *
-     * @return Visiteur
+     * @return visiteur
      */
     public function setPrenom($prenom)
     {
@@ -141,7 +141,7 @@ class Visiteur
      *
      * @param string $login
      *
-     * @return Visiteur
+     * @return visiteur
      */
     public function setLogin($login)
     {
@@ -165,7 +165,7 @@ class Visiteur
      *
      * @param string $mdp
      *
-     * @return Visiteur
+     * @return visiteur
      */
     public function setMdp($mdp)
     {
@@ -189,7 +189,7 @@ class Visiteur
      *
      * @param string $adresse
      *
-     * @return Visiteur
+     * @return visiteur
      */
     public function setAdresse($adresse)
     {
@@ -213,7 +213,7 @@ class Visiteur
      *
      * @param string $cp
      *
-     * @return Visiteur
+     * @return visiteur
      */
     public function setCp($cp)
     {
@@ -237,7 +237,7 @@ class Visiteur
      *
      * @param string $ville
      *
-     * @return Visiteur
+     * @return visiteur
      */
     public function setVille($ville)
     {
@@ -261,7 +261,7 @@ class Visiteur
      *
      * @param \DateTime $dateembauche
      *
-     * @return Visiteur
+     * @return visiteur
      */
     public function setDateembauche($dateembauche)
     {
@@ -280,4 +280,3 @@ class Visiteur
         return $this->dateembauche;
     }
 }
-

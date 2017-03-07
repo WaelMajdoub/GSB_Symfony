@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class fichefrais
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="idvisiteur", type="string", length=4)
@@ -218,4 +209,3 @@ class fichefrais
         return $this->idetat;
     }
 }
-

@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class lignefraisforfait
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="idvisiteur", type="string", length=4)
@@ -156,4 +147,3 @@ class lignefraisforfait
         return $this->quantite;
     }
 }
-
