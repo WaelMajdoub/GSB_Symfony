@@ -1,190 +1,41 @@
 <?php
-
-namespace GSBBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * lignefraishorsforfait
- *
- * @ORM\Table(name="lignefraishorsforfait")
- * @ORM\Entity(repositoryClass="GSBBundle\Repository\lignefraishorsforfaitRepository")
+ * @ORM\Entity
  */
 class lignefraishorsforfait
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="idvisiteur", type="string", length=4)
-     */
-    private $idvisiteur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mois", type="string", length=6)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $mois;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="libelle", type="string", length=100, nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $libelle;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="datefraishf", type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $datefraishf;
+    private $date;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="montant", type="decimal", precision=10, scale=2, nullable=true)
+     * @ORM\Column(type="decimal", nullable=true)
      */
     private $montant;
 
-
     /**
-     * Get id
-     *
-     * @return int
+     * @ORM\ManyToOne(targetEntity="visiteur")
+     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set idvisiteur
-     *
-     * @param string $idvisiteur
-     *
-     * @return lignefraishorsforfait
-     */
-    public function setIdvisiteur($idvisiteur)
-    {
-        $this->idvisiteur = $idvisiteur;
-
-        return $this;
-    }
-
-    /**
-     * Get idvisiteur
-     *
-     * @return string
-     */
-    public function getIdvisiteur()
-    {
-        return $this->idvisiteur;
-    }
-
-    /**
-     * Set mois
-     *
-     * @param string $mois
-     *
-     * @return lignefraishorsforfait
-     */
-    public function setMois($mois)
-    {
-        $this->mois = $mois;
-
-        return $this;
-    }
-
-    /**
-     * Get mois
-     *
-     * @return string
-     */
-    public function getMois()
-    {
-        return $this->mois;
-    }
-
-    /**
-     * Set libelle
-     *
-     * @param string $libelle
-     *
-     * @return lignefraishorsforfait
-     */
-    public function setLibelle($libelle)
-    {
-        $this->libelle = $libelle;
-
-        return $this;
-    }
-
-    /**
-     * Get libelle
-     *
-     * @return string
-     */
-    public function getLibelle()
-    {
-        return $this->libelle;
-    }
-
-    /**
-     * Set datefraishf
-     *
-     * @param \DateTime $datefraishf
-     *
-     * @return lignefraishorsforfait
-     */
-    public function setDatefraishf($datefraishf)
-    {
-        $this->datefraishf = $datefraishf;
-
-        return $this;
-    }
-
-    /**
-     * Get datefraishf
-     *
-     * @return \DateTime
-     */
-    public function getDatefraishf()
-    {
-        return $this->datefraishf;
-    }
-
-    /**
-     * Set montant
-     *
-     * @param string $montant
-     *
-     * @return lignefraishorsforfait
-     */
-    public function setMontant($montant)
-    {
-        $this->montant = $montant;
-
-        return $this;
-    }
-
-    /**
-     * Get montant
-     *
-     * @return string
-     */
-    public function getMontant()
-    {
-        return $this->montant;
-    }
+    private $visiteur;
 }
-
