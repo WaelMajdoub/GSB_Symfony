@@ -19,6 +19,7 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 }
 ?>
 
+<!-- Liens CSS -->
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
 
