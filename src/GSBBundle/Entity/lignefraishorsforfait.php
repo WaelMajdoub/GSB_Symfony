@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class lignefraishorsforfait
+class LigneFraisHorsForfait
 {
     /**
      * @ORM\Id
@@ -34,8 +34,8 @@ class lignefraishorsforfait
     private $montant;
 
     /**
-     * @ORM\ManyToOne(targetEntity="visiteur")
-     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Visiteur")
+     * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
      */
     private $visiteur;
 }

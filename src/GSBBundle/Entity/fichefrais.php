@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class fichefrais
+class FicheFrais
 {
     /**
      * @ORM\Id
@@ -20,27 +20,27 @@ class fichefrais
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $nbjustificatifs;
+    private $nbJustificatifs;
 
     /**
      * @ORM\Column(type="decimal", nullable=true)
      */
-    private $montantvalide;
+    private $montantValide;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $datemodif;
+    private $dateModif;
 
     /**
-     * @ORM\ManyToOne(targetEntity="etat")
-     * @ORM\JoinColumn(name="idetat", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Etat")
+     * @ORM\JoinColumn(name="idEtat", referencedColumnName="id")
      */
     private $etat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="visiteur")
-     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Visiteur")
+     * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
      */
     private $visiteur;
 }

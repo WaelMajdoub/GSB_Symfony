@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class fraisforfait
+class FraisForfait
 {
     /**
      * @ORM\Id

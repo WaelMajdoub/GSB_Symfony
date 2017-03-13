@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class visiteur
+class Visiteur
 {
     /**
      * @ORM\Id
@@ -51,23 +51,23 @@ class visiteur
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $dateembauche;
+    private $dateEmbauche;
 
     /**
-     * @ORM\ManyToOne(targetEntity="lignefraishorsforfait")
-     * @ORM\JoinColumn(name="leslignefraishorsforfait", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="LigneFraisHorsForfait")
+     * @ORM\JoinColumn(name="lesLigneFraisHorsForfait", referencedColumnName="id")
      */
     private $lignefraishorsforfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="lignefraisforfait")
-     * @ORM\JoinColumn(name="leslignefraisforfait", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="LigneFraisForfait")
+     * @ORM\JoinColumn(name="lesLigneFraisForfait", referencedColumnName="id")
      */
     private $lignefraisforfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="fichefrais")
-     * @ORM\JoinColumn(name="lesfichefrais", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="FicheFrais")
+     * @ORM\JoinColumn(name="lesFicheFrais", referencedColumnName="id")
      */
     private $fichefrais;
 }
