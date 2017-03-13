@@ -12,6 +12,6 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('GSBBundle:Default:index.html.twig');
+        return $this->render('GSBBundle:Principal:accueil.html.twig');
     }
 }
