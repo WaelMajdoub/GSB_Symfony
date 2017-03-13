@@ -10,4 +10,5 @@ namespace GSBBundle\Repository;
  */
 class VisiteurRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

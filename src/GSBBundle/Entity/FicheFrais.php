@@ -3,7 +3,8 @@ namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="GSBBundle\Repository\FicheFraisRepository") */
+* @ORM\Entity(repositoryClass="GSBBundle\Repository\FicheFraisRepository")
+ */
 class FicheFrais
 {
     /**

@@ -10,4 +10,5 @@ namespace GSBBundle\Repository;
  */
 class EtatRepository extends \Doctrine\ORM\EntityRepository
 {
+    
 }

@@ -3,7 +3,8 @@ namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="GSBBundle\Repository\EtatRepository") */
+* @ORM\Entity(repositoryClass="GSBBundle\Repository\EtatRepository")
+ */
 class Etat
 {
     /**
@@ -28,6 +29,10 @@ class Etat
         return $this->id;
     }
 
+    public function __construct($lib)
+    {
+        $this->libelle = $lib;
+    }
     /**
      * Set libelle
      *
@@ -51,4 +56,6 @@ class Etat
     {
         return $this->libelle;
     }
+
+
 }
