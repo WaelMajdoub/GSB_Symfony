@@ -3,18 +3,21 @@ namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="GSBBundle\Repository\FicheFraisRepository")
+ * @ORM\Entity
  */
 class FicheFrais
 {
     /**
-     * @ORM\Id
+     *
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Id
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     *
      */
     private $mois;
 
@@ -42,22 +45,9 @@ class FicheFrais
     /**
      * @ORM\ManyToOne(targetEntity="Visiteur")
      * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
+     *
      */
     private $visiteur;
-
-    /**
-     * Set id
-     *
-     * @param integer $id
-     *
-     * @return FicheFrais
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * Get id

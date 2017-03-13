@@ -3,19 +3,21 @@ namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="GSBBundle\Repository\LigneFraisForfaitRepository")
+ * @ORM\Entity
  */
 class LigneFraisForfait
 {
     /**
-     * @ORM\Id
+     *
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Id
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     *
      */
     private $mois;
 
@@ -27,12 +29,14 @@ class LigneFraisForfait
     /**
      * @ORM\ManyToOne(targetEntity="FraisForfait")
      * @ORM\JoinColumn(name="idFraisForfait", referencedColumnName="id")
+     *
      */
     private $fraisforfait;
 
     /**
      * @ORM\ManyToOne(targetEntity="Visiteur")
      * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
+     *
      */
     private $visiteur;
 

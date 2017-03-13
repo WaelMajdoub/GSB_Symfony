@@ -2,6 +2,7 @@
 /build/
 /phpunit.xml
 /var/*
+/src/ResourcesBundle/*
 !/var/cache
 /var/cache/*
 !var/cache/.gitkeep
@@ -13,4 +14,4 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
-/web/bundles/
+/web/bundles

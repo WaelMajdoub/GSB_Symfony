@@ -3,14 +3,14 @@ namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="GSBBundle\Repository\FraisForfaitRepository")
+ * @ORM\Entity
  */
 class FraisForfait
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="string")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
     private $id;
 
@@ -23,6 +23,20 @@ class FraisForfait
      * @ORM\Column(type="decimal", nullable=true)
      */
     private $montant;
+
+    /**
+     * Set id
+     *
+     * @param string $id
+     *
+     * @return FraisForfait
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     /**
      * Get id
