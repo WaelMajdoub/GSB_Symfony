@@ -33,6 +33,7 @@ class Etat
     {
         $this->libelle = $lib;
     }
+
     /**
      * Set libelle
      *
@@ -56,6 +57,5 @@ class Etat
     {
         return $this->libelle;
     }
-
 
 }

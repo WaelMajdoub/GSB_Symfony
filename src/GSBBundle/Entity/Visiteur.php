@@ -1,38 +1,32 @@
 <?php
 namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
 
 /**
 * @ORM\Entity(repositoryClass="GSBBundle\Repository\VisiteurRepository")
+ * @ORM\Table(name="Visiteur")
  */
-class Visiteur
+
+class Visiteur extends BaseUser
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="string")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $prenom;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $login;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $mdp;
+    protected $prenom;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -71,6 +65,20 @@ class Visiteur
      * @ORM\JoinColumn(name="lesFicheFrais", referencedColumnName="id")
      */
     private $fichefrais;
+
+
+    /**
+     * Visiteur constructor.
+     */
+    public function __construct($log, $pdw, $mail)
+    {
+
+        $this->setEmail($mail);
+        $this->setPassword($pdw);
+        $this->setUsername($log);
+        $this->setEnabled(true);
+    }
+
 
     /**
      * Get id
@@ -128,54 +136,6 @@ class Visiteur
     public function getPrenom()
     {
         return $this->prenom;
-    }
-
-    /**
-     * Set login
-     *
-     * @param string $login
-     *
-     * @return Visiteur
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return string
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * Set mdp
-     *
-     * @param string $mdp
-     *
-     * @return Visiteur
-     */
-    public function setMdp($mdp)
-    {
-        $this->mdp = $mdp;
-
-        return $this;
-    }
-
-    /**
-     * Get mdp
-     *
-     * @return string
-     */
-    public function getMdp()
-    {
-        return $this->mdp;
     }
 
     /**
@@ -345,4 +305,7 @@ class Visiteur
     {
         return $this->fichefrais;
     }
+
+
+
 }

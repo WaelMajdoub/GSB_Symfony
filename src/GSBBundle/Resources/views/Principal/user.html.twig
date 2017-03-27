@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}HUGOOOO{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <h1>Welcome HUGOOOOOOOOOOOOOOO</h1>
+
+    <h4>FJKSLFKSLjl</h4>
+    {% for maFesse in mesFesses  %}
+        <p> {{ maFesse.username }}</p>
+    {% endfor %}
+
+    <p class="important">
+    </p>
+{% endblock %}

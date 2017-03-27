@@ -2,7 +2,6 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -125,5 +124,52 @@ class PrincipalController extends Controller
     ));
 
 }
+    /**
+     * test le fait d'ajouter un objet en BDD sous doctrine
+     * @Route("/newUser")
+     */
+    public function createUserAction(){
+
+        $user = new Entity\Visiteur("HUGOBB","meh","meh@meh.fr");
+
+
+        $tamere = $this->getDoctrine()->getManager();
+        $tamere->persist($user);
+        // ne pas oublier le >
+        $tamere->flush();
+
+
+        return $this->render('GSBBundle:Principal:user.html.twig', array(
+            // ...
+        ));
+    }
+    /**
+     * test le fait d'ajouter un objet en BDD sous doctrine
+     * @Route("/stp")
+     */
+    public function getAllUsers(){
+
+        $visiteur = $this->getDoctrine()->getRepository('GSBBundle:Visiteur');
+
+        $mehs = $visiteur->findAll();
+        dump($mehs);
+
+        return $this->render('GSBBundle:Principal:connexion.html.twig', array('mesFesses' => $mehs));
+
+    }
+
+    /**
+     * @Route("/etat")
+     */
+        public function getEtats(){
+
+
+        $etat = $this->getDoctrine()->getRepository('GSBBundle:Etat');
+        $mehs = $etat->findAll();
+        dump($mehs);
+            return $this->render('GSBBundle:Principal:connexion.html.twig', array('mesFesses' => $mehs));
+
+
+        }
 
 }
