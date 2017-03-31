@@ -34,11 +34,13 @@ class PrincipalController extends Controller
         $em->flush();
         */
 
-        // Test affichage entrées table
+        // Test affichage entrées table Etat
         $table = $this->getDoctrine()->getRepository('GSBBundle:Etat');
         $etats = $table->findAll();
+        print_r($etats);
+        echo('<br><br>');
         foreach ($etats as $un) {
-          echo($un->getId() . '<br>');
+          echo($un->getId() . '/' . $un->getLibelle() . '<br>');
         }
 
         return $this->render('GSBBundle:Principal:meh.html.twig', array(
