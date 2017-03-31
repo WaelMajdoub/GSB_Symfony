@@ -119,7 +119,7 @@ class PrincipalController extends Controller
         $em->flush();
 
 
-        // SI tout se passe bien on renvoie ( il y a un E, merci Huho) la vue spéciale
+        // SI tout se passe bien on renvoie la vue spéciale
     return $this->render('GSBBundle:Principal:meh.html.twig', array(
         // ...
     ));
