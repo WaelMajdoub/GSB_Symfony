@@ -2,12 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20a112c0-b31d-40fd-89db-34ec25c7d46d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Default/index.html.twig" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/courier.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/courierb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/courierbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/courieri.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/helvetica.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/helveticab.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/helveticabi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/helveticai.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/symbol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/times.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/timesb.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/timesbi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/timesi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/zapfdingbats.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/fpdf.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/fpdf.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1250.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1251.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1252.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1253.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1254.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1255.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1257.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1258.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp874.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-1.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-11.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-15.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-16.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-2.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-4.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-5.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-7.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-9.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/koi8-r.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/koi8-u.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/makefont.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/ttfparser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/accueil.html.twig" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/accueil.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/etat_frais.html.twig" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/etat_frais.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/valid_Frais.html.twig" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/valid_Frais.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,9 +80,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#12#28#0#Twig" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -78,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/etat_frais.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="623">
-              <caret line="44" column="39" lean-forward="true" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+              <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -266,6 +297,32 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fpdf" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GSB_Symfony" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GSB_Symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GSBBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -318,6 +375,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TutoSymfonyBR_Doctrine2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chapput.g\Documents\Roche\TPSymfony\GSB_Symfony\src\GSBBundle\Resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -412,18 +474,17 @@
       <updated>1490594979137</updated>
       <workItem from="1490594990491" duration="2221000" />
       <workItem from="1490861493615" duration="4225000" />
-      <workItem from="1490940135512" duration="2684000" />
+      <workItem from="1490940135512" duration="2855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9130000" />
+    <option name="totallyTimeSpent" value="9301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -555,9 +616,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -577,10 +636,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/times.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/etat_frais.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
-          <caret line="44" column="39" lean-forward="true" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+          <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
           <folding />
         </state>
       </provider>
