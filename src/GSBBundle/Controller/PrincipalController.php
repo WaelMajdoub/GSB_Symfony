@@ -26,11 +26,20 @@ class PrincipalController extends Controller
      */
     public function mehAction()
     {
-      // Test entrée BDD
-        $etat = new Etat('VAD', 'divaD');
+        /*
+        // Test entrée BDD
+        $etat = new Etat('idEtat', 'libelleEtat');
         $em = $this->getDoctrine()->getManager();
         $em->persist($etat);
         $em->flush();
+        */
+
+        // Test affichage entrées table
+        $table = $this->getDoctrine()->getRepository('GSBBundle:Etat');
+        $etats = $table->findAll();
+        foreach ($etats as $un) {
+          echo($un->getId() . '<br>');
+        }
 
         return $this->render('GSBBundle:Principal:meh.html.twig', array(
             // ...
