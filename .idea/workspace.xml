@@ -2,48 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20a112c0-b31d-40fd-89db-34ec25c7d46d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fpdf/generationFiche.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/courier.php" afterPath="$PROJECT_DIR$/web/fpdf/font/courier.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/courierb.php" afterPath="$PROJECT_DIR$/web/fpdf/font/courierb.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/courierbi.php" afterPath="$PROJECT_DIR$/web/fpdf/font/courierbi.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/courieri.php" afterPath="$PROJECT_DIR$/web/fpdf/font/courieri.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/helvetica.php" afterPath="$PROJECT_DIR$/web/fpdf/font/helvetica.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/helveticab.php" afterPath="$PROJECT_DIR$/web/fpdf/font/helveticab.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/helveticabi.php" afterPath="$PROJECT_DIR$/web/fpdf/font/helveticabi.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/helveticai.php" afterPath="$PROJECT_DIR$/web/fpdf/font/helveticai.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/symbol.php" afterPath="$PROJECT_DIR$/web/fpdf/font/symbol.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/times.php" afterPath="$PROJECT_DIR$/web/fpdf/font/times.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/timesb.php" afterPath="$PROJECT_DIR$/web/fpdf/font/timesb.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/timesbi.php" afterPath="$PROJECT_DIR$/web/fpdf/font/timesbi.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/timesi.php" afterPath="$PROJECT_DIR$/web/fpdf/font/timesi.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/font/zapfdingbats.php" afterPath="$PROJECT_DIR$/web/fpdf/font/zapfdingbats.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/fpdf.css" afterPath="$PROJECT_DIR$/web/fpdf/fpdf.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/fpdf.php" afterPath="$PROJECT_DIR$/web/fpdf/fpdf.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1250.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp1250.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1251.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp1251.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1252.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp1252.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1253.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp1253.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1254.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp1254.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1255.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp1255.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1257.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp1257.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp1258.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp1258.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/cp874.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/cp874.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-1.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-1.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-11.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-11.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-15.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-15.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-16.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-16.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-2.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-2.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-4.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-4.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-5.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-5.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-7.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-7.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/iso-8859-9.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/iso-8859-9.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/koi8-r.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/koi8-r.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/koi8-u.map" afterPath="$PROJECT_DIR$/web/fpdf/makefont/koi8-u.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/makefont.php" afterPath="$PROJECT_DIR$/web/fpdf/makefont/makefont.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/fpdf/makefont/ttfparser.php" afterPath="$PROJECT_DIR$/web/fpdf/makefont/ttfparser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/etat_frais.html.twig" afterPath="$PROJECT_DIR$/src/GSBBundle/Resources/views/Principal/etat_frais.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/fpdf/generationFiche.php" afterPath="$PROJECT_DIR$/web/fpdf/generationFiche.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,8 +31,8 @@
       <file leaf-file-name="generationFiche.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/fpdf/generationFiche.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="221">
+              <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -448,12 +408,12 @@
       <updated>1490594979137</updated>
       <workItem from="1490594990491" duration="2221000" />
       <workItem from="1490861493615" duration="4225000" />
-      <workItem from="1490940135512" duration="3937000" />
+      <workItem from="1490940135512" duration="4917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10383000" />
+    <option name="totallyTimeSpent" value="11363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -637,8 +597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/fpdf/generationFiche.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="221">
+          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
           <folding />
         </state>
       </provider>
