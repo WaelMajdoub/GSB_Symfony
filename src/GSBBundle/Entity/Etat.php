@@ -10,7 +10,6 @@ class Etat
     /**
      * @ORM\Id
      * @ORM\Column(type="string")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -18,6 +17,12 @@ class Etat
      * @ORM\Column(type="string", nullable=true)
      */
     private $libelle;
+
+    public function __construct($id, $lib)
+    {
+        $this->id = $id;
+        $this->libelle = $lib;
+    }
 
     /**
      * Get id
@@ -29,10 +34,6 @@ class Etat
         return $this->id;
     }
 
-    public function __construct($lib)
-    {
-        $this->libelle = $lib;
-    }
     /**
      * Set libelle
      *

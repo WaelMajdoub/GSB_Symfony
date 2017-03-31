@@ -6,6 +6,7 @@ use GSBBundle\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
+use GSBBundle\Entity\Etat;
 
 
 class PrincipalController extends Controller
@@ -25,6 +26,12 @@ class PrincipalController extends Controller
      */
     public function mehAction()
     {
+      // Test entrée BDD
+        $etat = new Etat('VAD', 'divaD');
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($etat);
+        $em->flush();
+
         return $this->render('GSBBundle:Principal:meh.html.twig', array(
             // ...
         ));
