@@ -28,4 +28,6 @@ $pdf->Cell(0,10,'',0,1, 'C', true);
 $pdf->Cell(0,10,'L\'etat de la fiche de frais est METTRE L\'ETAT',0,1, 'L');
 $pdf->Cell(0,10,'Son montant est de METTRE LE MONTANT, et le montant valide est de METTRE MONTANT VALIDE',0,1, 'L');
 
+//La ligne commentée sert à sauvegarder localement le fichier PDF (ici dans le même dossier que celui où est placé le fichier PHP actuel)
+//$pdf->Output('F', 'FicheFrais-METTRE_DATE-num_METTRE_ID', true);
 $pdf->Output();
