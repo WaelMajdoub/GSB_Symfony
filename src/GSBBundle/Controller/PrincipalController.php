@@ -7,6 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use GSBBundle\Entity\Etat;
+use GSBBundle\Entity\FicheFrais;
+use GSBBundle\Entity\FraisForfait;
+use GSBBundle\Entity\LigneFraisForfait;
+use GSBBundle\Entity\LigneFraisHorsForfait;
+use GSBBundle\Entity\Visiteur;
 
 
 class PrincipalController extends Controller
@@ -35,12 +40,12 @@ class PrincipalController extends Controller
         */
 
         // Test affichage entrées table Etat
-        $table = $this->getDoctrine()->getRepository('GSBBundle:Etat');
+        $table = $this->getDoctrine()->getRepository('GSBBundle:Visiteur');
         $etats = $table->findAll();
         print_r($etats);
         echo('<br><br>');
         foreach ($etats as $un) {
-          echo($un->getId() . '/' . $un->getLibelle() . '<br>');
+          echo($un->getId() . ' / ' . $un->getNom() . ' / ' . $un->getPrenom() . ' / ' . $un->getLogin() . ' / ' . $un->getMdp() . '<br>');
         }
 
         return $this->render('GSBBundle:Principal:meh.html.twig', array(
