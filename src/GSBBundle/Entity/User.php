@@ -18,11 +18,36 @@ class User extends BaseUser
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $nom;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $prenom;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $adresse;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $cp;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $ville;
 
     public function __construct()
     {
