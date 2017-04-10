@@ -3,9 +3,6 @@ gsb:
     type:     annotation
     prefix:   /
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
 
 # app/config/routing.yml
 fos_user_security:
