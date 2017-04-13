@@ -39,6 +39,12 @@ class Visiteur extends User
     protected $fichefrais;
 
     /**
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\User")
+     */
+    protected $user;
+
+
+    /**
      * Get id
      *
      * @return string
