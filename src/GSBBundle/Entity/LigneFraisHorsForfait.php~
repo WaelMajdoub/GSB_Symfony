@@ -3,41 +3,41 @@ namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="GSBBundle\Repository\LigneFraisForfaitRepository")
+* @ORM\Entity(repositoryClass="GSBBundle\Repository\LigneFraisHorsForfaitRepository")
  */
 
-class LigneFraisForfait
+class LigneFraisHorsForfait
 {
     /**
-     *
+     * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Id
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", nullable=true)
-     *
      */
     private $mois;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
-    private $quantite;
+    private $libelle;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FraisForfait")
-     * @ORM\JoinColumn(name="idFraisForfait", referencedColumnName="id")
-     *
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $fraisForfait;
+    private $date;
+
+    /**
+     * @ORM\Column(type="decimal", nullable=true)
+     */
+    private $montant;
 
     /**
      * @ORM\ManyToOne(targetEntity="Visiteur")
      * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
-     *
      */
     private $visiteur;
 
@@ -56,7 +56,7 @@ class LigneFraisForfait
      *
      * @param string $mois
      *
-     * @return LigneFraisForfait
+     * @return LigneFraisHorsForfait
      */
     public function setMois($mois)
     {
@@ -76,51 +76,75 @@ class LigneFraisForfait
     }
 
     /**
-     * Set quantite
+     * Set libelle
      *
-     * @param integer $quantite
+     * @param string $libelle
      *
-     * @return LigneFraisForfait
+     * @return LigneFraisHorsForfait
      */
-    public function setQuantite($quantite)
+    public function setLibelle($libelle)
     {
-        $this->quantite = $quantite;
+        $this->libelle = $libelle;
 
         return $this;
     }
 
     /**
-     * Get quantite
+     * Get libelle
      *
-     * @return integer
+     * @return string
      */
-    public function getQuantite()
+    public function getLibelle()
     {
-        return $this->quantite;
+        return $this->libelle;
     }
 
     /**
-     * Set fraisforfait
+     * Set date
      *
-     * @param \GSBBundle\Entity\FraisForfait $fraisforfait
+     * @param \DateTime $date
      *
-     * @return LigneFraisForfait
+     * @return LigneFraisHorsForfait
      */
-    public function setFraisforfait(\GSBBundle\Entity\FraisForfait $fraisforfait = null)
+    public function setDate($date)
     {
-        $this->fraisforfait = $fraisforfait;
+        $this->date = $date;
 
         return $this;
     }
 
     /**
-     * Get fraisforfait
+     * Get date
      *
-     * @return \GSBBundle\Entity\FraisForfait
+     * @return \DateTime
      */
-    public function getFraisforfait()
+    public function getDate()
     {
-        return $this->fraisforfait;
+        return $this->date;
+    }
+
+    /**
+     * Set montant
+     *
+     * @param string $montant
+     *
+     * @return LigneFraisHorsForfait
+     */
+    public function setMontant($montant)
+    {
+        $this->montant = $montant;
+
+        return $this;
+    }
+
+    /**
+     * Get montant
+     *
+     * @return string
+     */
+    public function getMontant()
+    {
+        return $this->montant;
     }
 
     /**
@@ -128,7 +152,7 @@ class LigneFraisForfait
      *
      * @param \GSBBundle\Entity\Visiteur $visiteur
      *
-     * @return LigneFraisForfait
+     * @return LigneFraisHorsForfait
      */
     public function setVisiteur(\GSBBundle\Entity\Visiteur $visiteur = null)
     {
