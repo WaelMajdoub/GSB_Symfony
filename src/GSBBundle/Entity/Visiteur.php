@@ -44,15 +44,6 @@ class Visiteur extends User
     protected $user;
 
 
-    /**
-     * Get id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set dateEmbauche
@@ -76,78 +67,6 @@ class Visiteur extends User
     public function getDateEmbauche()
     {
         return $this->dateEmbauche;
-    }
-
-    /**
-     * Set lignefraishorsforfait
-     *
-     * @param \GSBBundle\Entity\LigneFraisHorsForfait $lignefraishorsforfait
-     *
-     * @return Visiteur
-     */
-    public function setLignefraishorsforfait(\GSBBundle\Entity\LigneFraisHorsForfait $lignefraishorsforfait = null)
-    {
-        $this->lignefraishorsforfait = $lignefraishorsforfait;
-
-        return $this;
-    }
-
-    /**
-     * Get lignefraishorsforfait
-     *
-     * @return \GSBBundle\Entity\LigneFraisHorsForfait
-     */
-    public function getLignefraishorsforfait()
-    {
-        return $this->lignefraishorsforfait;
-    }
-
-    /**
-     * Set lignefraisforfait
-     *
-     * @param \GSBBundle\Entity\LigneFraisForfait $lignefraisforfait
-     *
-     * @return Visiteur
-     */
-    public function setLignefraisforfait(\GSBBundle\Entity\LigneFraisForfait $lignefraisforfait = null)
-    {
-        $this->lignefraisforfait = $lignefraisforfait;
-
-        return $this;
-    }
-
-    /**
-     * Get lignefraisforfait
-     *
-     * @return \GSBBundle\Entity\LigneFraisForfait
-     */
-    public function getLignefraisforfait()
-    {
-        return $this->lignefraisforfait;
-    }
-
-    /**
-     * Set fichefrais
-     *
-     * @param \GSBBundle\Entity\FicheFrais $fichefrais
-     *
-     * @return Visiteur
-     */
-    public function setFichefrais(\GSBBundle\Entity\FicheFrais $fichefrais = null)
-    {
-        $this->fichefrais = $fichefrais;
-
-        return $this;
-    }
-
-    /**
-     * Get fichefrais
-     *
-     * @return \GSBBundle\Entity\FicheFrais
-     */
-    public function getFichefrais()
-    {
-        return $this->fichefrais;
     }
 
     /**
@@ -268,6 +187,78 @@ class Visiteur extends User
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Set ligneFraisHorsForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     *
+     * @return Visiteur
+     */
+    public function setLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait = null)
+    {
+        $this->ligneFraisHorsForfait = $ligneFraisHorsForfait;
+
+        return $this;
+    }
+
+    /**
+     * Get ligneFraisHorsForfait
+     *
+     * @return \GSBBundle\Entity\LigneFraisHorsForfait
+     */
+    public function getLigneFraisHorsForfait()
+    {
+        return $this->ligneFraisHorsForfait;
+    }
+
+    /**
+     * Set ligneFraisForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     *
+     * @return Visiteur
+     */
+    public function setLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait = null)
+    {
+        $this->ligneFraisForfait = $ligneFraisForfait;
+
+        return $this;
+    }
+
+    /**
+     * Get ligneFraisForfait
+     *
+     * @return \GSBBundle\Entity\LigneFraisForfait
+     */
+    public function getLigneFraisForfait()
+    {
+        return $this->ligneFraisForfait;
+    }
+
+    /**
+     * Set ficheFrais
+     *
+     * @param \GSBBundle\Entity\FicheFrais $ficheFrais
+     *
+     * @return Visiteur
+     */
+    public function setFicheFrais(\GSBBundle\Entity\FicheFrais $ficheFrais = null)
+    {
+        $this->ficheFrais = $ficheFrais;
+
+        return $this;
+    }
+
+    /**
+     * Get ficheFrais
+     *
+     * @return \GSBBundle\Entity\FicheFrais
+     */
+    public function getFicheFrais()
+    {
+        return $this->ficheFrais;
     }
 
     /**

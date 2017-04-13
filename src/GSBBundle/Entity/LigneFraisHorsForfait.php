@@ -41,6 +41,8 @@ class LigneFraisHorsForfait
      */
     private $visiteur;
 
+
+
     /**
      * Get id
      *

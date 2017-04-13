@@ -41,6 +41,8 @@ class LigneFraisForfait
      */
     private $visiteur;
 
+
+
     /**
      * Get id
      *
@@ -100,27 +102,27 @@ class LigneFraisForfait
     }
 
     /**
-     * Set fraisforfait
+     * Set fraisForfait
      *
-     * @param \GSBBundle\Entity\FraisForfait $fraisforfait
+     * @param \GSBBundle\Entity\FraisForfait $fraisForfait
      *
      * @return LigneFraisForfait
      */
-    public function setFraisforfait(\GSBBundle\Entity\FraisForfait $fraisforfait = null)
+    public function setFraisForfait(\GSBBundle\Entity\FraisForfait $fraisForfait = null)
     {
-        $this->fraisforfait = $fraisforfait;
+        $this->fraisForfait = $fraisForfait;
 
         return $this;
     }
 
     /**
-     * Get fraisforfait
+     * Get fraisForfait
      *
      * @return \GSBBundle\Entity\FraisForfait
      */
-    public function getFraisforfait()
+    public function getFraisForfait()
     {
-        return $this->fraisforfait;
+        return $this->fraisForfait;
     }
 
     /**

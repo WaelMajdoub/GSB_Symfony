@@ -49,6 +49,7 @@ class FicheFrais
      */
     private $visiteur;
 
+
     /**
      * Get id
      *

@@ -19,6 +19,8 @@ class Etat
      */
     private $libelle;
 
+    
+
     /**
      * Get id
      *
@@ -29,10 +31,6 @@ class Etat
         return $this->id;
     }
 
-    public function __construct($lib)
-    {
-        $this->libelle = $lib;
-    }
     /**
      * Set libelle
      *
@@ -56,6 +54,4 @@ class Etat
     {
         return $this->libelle;
     }
-
-
 }

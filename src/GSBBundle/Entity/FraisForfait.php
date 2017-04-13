@@ -24,6 +24,7 @@ class FraisForfait
      */
     private $montant;
 
+
     /**
      * Set id
      *
