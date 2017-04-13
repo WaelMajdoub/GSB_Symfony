@@ -35,9 +35,14 @@ class PrincipalController extends Controller
      */
     public function connexionAction()
     {
+
+        //TODO Faire en sorte que la redirection ne soit pas visible, ( ne pas faire de Href comme j'ai fait")
+        return $this->redirect('login');
+        /*
         return $this->render('GSBBundle:Principal:connexion.html.twig', array(
             // ...
         ));
+        */
     }
 
     /**
