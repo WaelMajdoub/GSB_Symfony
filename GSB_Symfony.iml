@@ -2,6 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
+<<<<<<< HEAD
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/ve**ndor/doctrine/collections" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
@@ -40,6 +41,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/symfony" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
     </content>
+=======
+    <content url="file://$MODULE_DIR$" />
+>>>>>>> ae326949aadc56f62dda155b6c53c7977026f43d
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
@@ -53,6 +57,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+<<<<<<< HEAD
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
@@ -145,5 +150,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+=======
+>>>>>>> ae326949aadc56f62dda155b6c53c7977026f43d
   </component>
 </module>
