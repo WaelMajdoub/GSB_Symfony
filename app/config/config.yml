@@ -77,3 +77,11 @@ fos_user:
     from_email:
             address: admin@gsb.com
             sender_name: adminGSB
+    service:
+            user_manager: pugx_user_manager
+
+pugx_multi_user:
+  users:
+    Visiteur:
+        entity:
+          class: GSBBundle\Entity\Visiteur

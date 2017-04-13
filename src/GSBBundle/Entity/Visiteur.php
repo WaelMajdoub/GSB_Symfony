@@ -1,10 +1,18 @@
 <?php
 namespace GSBBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
+
 
 
 /**
 * @ORM\Entity(repositoryClass="GSBBundle\Repository\VisiteurRepository")
+ */
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="Visiteur")
+ * @UniqueEntity(fields = "username", targetClass = "GSBBundle\Entity\User", message="fos_user.username.already_used")
  */
 class Visiteur extends User
 {

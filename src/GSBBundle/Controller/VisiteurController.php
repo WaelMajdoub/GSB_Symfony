@@ -13,12 +13,17 @@ class VisiteurController extends Controller
      */
     public function visiteursAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $visiteurs = $this->get('fos_user.user_manager')->findUsers();
 
+        $visiteurs = $this->getDoctrine()
+            ->getRepository('GSBBundle:Visiteur')
+            ->findAll();
 
         return $this->render('GSBBundle:Principal:meh.html.twig', array(
             'visiteurs' => $visiteurs,
             ));
     }
+
+
+
+
 }

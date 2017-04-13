@@ -6,8 +6,10 @@
 {% endblock %}
 {% block content %}
 
-
     {% for visiteur in visiteurs %}
-        <p> Le nom du visiteur est : {{ visiteur.username }} </p>
+        <p>{{ visiteur.nom }}</p>
+
     {% endfor %}
+
+
 {% endblock %}
