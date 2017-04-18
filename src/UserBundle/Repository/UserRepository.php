@@ -10,4 +10,12 @@ namespace UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function putain(){
+        return $this->createQueryBuilder('user')
+            ->select('user.nom', 'user.prenom')
+            ->where('user.id = a131')
+            ->getQuery()->getArrayResult();
+    }
+
 }
