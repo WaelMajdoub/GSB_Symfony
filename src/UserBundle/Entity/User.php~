@@ -56,26 +56,22 @@ class User extends BaseUser
     protected $dateEmbauche;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LigneFraisHorsForfait")
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\LigneFraisHorsForfait")
      * @ORM\JoinColumn(name="lesLigneFraisHorsForfait", referencedColumnName="id")
      */
     protected $ligneFraisHorsForfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LigneFraisForfait")
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\LigneFraisForfait")
      * @ORM\JoinColumn(name="lesLigneFraisForfait", referencedColumnName="id")
      */
     protected $ligneFraisForfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FicheFrais")
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\FicheFrais")
      * @ORM\JoinColumn(name="lesFicheFrais", referencedColumnName="id")
      */
     protected $ficheFrais;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\User")
-     */
 
 
 }

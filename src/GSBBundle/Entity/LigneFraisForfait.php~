@@ -35,11 +35,12 @@ class LigneFraisForfait
     private $fraisForfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Visiteur")
-     * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
+     * @var User
      *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="lignefraisforfait")
+     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
      */
-    private $visiteur;
+    private $idUser;
 
 
 }

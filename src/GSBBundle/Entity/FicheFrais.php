@@ -43,11 +43,13 @@ class FicheFrais
     private $etat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Visiteur")
-     * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
+     * @var User
      *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="ficheFrais")
+     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
      */
-    private $visiteur;
+    private $idUser;
+
 
 
     /**
@@ -183,11 +185,11 @@ class FicheFrais
     /**
      * Set visiteur
      *
-     * @param \GSBBundle\Entity\Visiteur $visiteur
+     * @param \UserBundle\Entity\User $visiteur
      *
      * @return FicheFrais
      */
-    public function setVisiteur(\GSBBundle\Entity\Visiteur $visiteur = null)
+    public function setVisiteur(\UserBundle\Entity\User $visiteur = null)
     {
         $this->visiteur = $visiteur;
 
@@ -197,10 +199,34 @@ class FicheFrais
     /**
      * Get visiteur
      *
-     * @return \GSBBundle\Entity\Visiteur
+     * @return \UserBundle\Entity\User
      */
     public function getVisiteur()
     {
         return $this->visiteur;
+    }
+
+    /**
+     * Set idUser
+     *
+     * @param \UserBundle\Entity\User $idUser
+     *
+     * @return FicheFrais
+     */
+    public function setIdUser(\UserBundle\Entity\User $idUser = null)
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    /**
+     * Get idUser
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
     }
 }

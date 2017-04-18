@@ -35,11 +35,12 @@ class LigneFraisForfait
     private $fraisForfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Visiteur")
-     * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
+     * @var User
      *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="lignefraisforfait")
+     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
      */
-    private $visiteur;
+    private $idUser;
 
 
 
@@ -126,26 +127,26 @@ class LigneFraisForfait
     }
 
     /**
-     * Set visiteur
+     * Set idUser
      *
-     * @param \GSBBundle\Entity\Visiteur $visiteur
+     * @param \UserBundle\Entity\User $idUser
      *
      * @return LigneFraisForfait
      */
-    public function setVisiteur(\GSBBundle\Entity\Visiteur $visiteur = null)
+    public function setIdUser(\UserBundle\Entity\User $idUser = null)
     {
-        $this->visiteur = $visiteur;
+        $this->idUser = $idUser;
 
         return $this;
     }
 
     /**
-     * Get visiteur
+     * Get idUser
      *
-     * @return \GSBBundle\Entity\Visiteur
+     * @return \UserBundle\Entity\User
      */
-    public function getVisiteur()
+    public function getIdUser()
     {
-        return $this->visiteur;
+        return $this->idUser;
     }
 }

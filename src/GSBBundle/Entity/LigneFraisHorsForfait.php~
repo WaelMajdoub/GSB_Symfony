@@ -36,10 +36,13 @@ class LigneFraisHorsForfait
     private $montant;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Visiteur")
-     * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="lignefraisHorsforfait")
+     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
      */
-    private $visiteur;
+    private $idUser;
+
 
 
 }

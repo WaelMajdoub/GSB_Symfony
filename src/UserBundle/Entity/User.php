@@ -56,26 +56,22 @@ class User extends BaseUser
     protected $dateEmbauche;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LigneFraisHorsForfait")
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\LigneFraisHorsForfait")
      * @ORM\JoinColumn(name="lesLigneFraisHorsForfait", referencedColumnName="id")
      */
     protected $ligneFraisHorsForfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LigneFraisForfait")
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\LigneFraisForfait")
      * @ORM\JoinColumn(name="lesLigneFraisForfait", referencedColumnName="id")
      */
     protected $ligneFraisForfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FicheFrais")
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\FicheFrais")
      * @ORM\JoinColumn(name="lesFicheFrais", referencedColumnName="id")
      */
     protected $ficheFrais;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\User")
-     */
 
 
 
@@ -226,11 +222,11 @@ class User extends BaseUser
     /**
      * Set ligneFraisHorsForfait
      *
-     * @param \UserBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
      *
      * @return User
      */
-    public function setLigneFraisHorsForfait(\UserBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait = null)
+    public function setLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait = null)
     {
         $this->ligneFraisHorsForfait = $ligneFraisHorsForfait;
 
@@ -240,7 +236,7 @@ class User extends BaseUser
     /**
      * Get ligneFraisHorsForfait
      *
-     * @return \UserBundle\Entity\LigneFraisHorsForfait
+     * @return \GSBBundle\Entity\LigneFraisHorsForfait
      */
     public function getLigneFraisHorsForfait()
     {
@@ -250,11 +246,11 @@ class User extends BaseUser
     /**
      * Set ligneFraisForfait
      *
-     * @param \UserBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
      *
      * @return User
      */
-    public function setLigneFraisForfait(\UserBundle\Entity\LigneFraisForfait $ligneFraisForfait = null)
+    public function setLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait = null)
     {
         $this->ligneFraisForfait = $ligneFraisForfait;
 
@@ -264,7 +260,7 @@ class User extends BaseUser
     /**
      * Get ligneFraisForfait
      *
-     * @return \UserBundle\Entity\LigneFraisForfait
+     * @return \GSBBundle\Entity\LigneFraisForfait
      */
     public function getLigneFraisForfait()
     {
@@ -274,11 +270,11 @@ class User extends BaseUser
     /**
      * Set ficheFrais
      *
-     * @param \UserBundle\Entity\FicheFrais $ficheFrais
+     * @param \GSBBundle\Entity\FicheFrais $ficheFrais
      *
      * @return User
      */
-    public function setFicheFrais(\UserBundle\Entity\FicheFrais $ficheFrais = null)
+    public function setFicheFrais(\GSBBundle\Entity\FicheFrais $ficheFrais = null)
     {
         $this->ficheFrais = $ficheFrais;
 
@@ -288,7 +284,7 @@ class User extends BaseUser
     /**
      * Get ficheFrais
      *
-     * @return \UserBundle\Entity\FicheFrais
+     * @return \GSBBundle\Entity\FicheFrais
      */
     public function getFicheFrais()
     {
