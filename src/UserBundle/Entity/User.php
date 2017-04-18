@@ -12,9 +12,6 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping\AttributeOverrides;
 use Doctrine\ORM\Mapping\AttributeOverride;
 
-
-
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
