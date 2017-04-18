@@ -46,6 +46,8 @@ INSERT INTO User (id, nom, prenom, username, username_canonical, password, adres
   ('26', 'Frémont', 'Fernande', 'ffremont','ffremont', 'xs5tq', '4 route de la mer', '13012', 'Allauh', '1998-10-01', true, 'ROLE_USER'),
   ('27', 'Gest', 'Alain', 'agest','agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', true, 'ROLE_USER');
 
+
+update user set password = SHA2(password, 512)
 -- Jeu d'essai
 INSERT INTO `fiche_frais` (`idVisiteur`, `mois`, `nb_justificatifs`, `montant_valide`, `date_modif`, `idEtat`) VALUES
 ('1', '200101', 9, '2353.11', '2001-03-07', 'RB'),

@@ -14,13 +14,6 @@ class VisiteurController extends Controller
     public function visiteursAction()
     {
 
-        $visiteurs = $this->getDoctrine()
-            ->getRepository('GSBBundle:Visiteur')
-            ->findAll();
-
-        return $this->render('GSBBundle:Principal:meh.html.twig', array(
-            'visiteurs' => $visiteurs,
-            ));
     }
 
 
