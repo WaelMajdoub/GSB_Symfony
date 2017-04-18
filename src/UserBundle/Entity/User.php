@@ -1,20 +1,21 @@
 <?php
-namespace GSBBundle\Entity;
-use Doctrine\ORM\Mapping as ORM;
-use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
-
-
-
 /**
-* @ORM\Entity(repositoryClass="GSBBundle\Repository\VisiteurRepository")
+ * Created by IntelliJ IDEA.
+ * User: Davvm
+ * Date: 21/03/2017
+ * Time: 01:04
  */
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Visiteur")
- * @UniqueEntity(fields = "username", targetClass = "GSBBundle\Entity\User", message="fos_user.username.already_used")
+ * @ORM\Table(name="user")
  */
-class Visiteur extends User
+
+class User extends BaseUser
 {
     /**
      * @ORM\Id
@@ -22,6 +23,32 @@ class Visiteur extends User
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $nom;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $prenom;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $adresse;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $cp;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $ville;
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -49,40 +76,15 @@ class Visiteur extends User
     /**
      * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\User")
      */
-    protected $user;
 
 
-
-    /**
-     * Set dateEmbauche
-     *
-     * @param \DateTime $dateEmbauche
-     *
-     * @return Visiteur
-     */
-    public function setDateEmbauche($dateEmbauche)
-    {
-        $this->dateEmbauche = $dateEmbauche;
-
-        return $this;
-    }
-
-    /**
-     * Get dateEmbauche
-     *
-     * @return \DateTime
-     */
-    public function getDateEmbauche()
-    {
-        return $this->dateEmbauche;
-    }
 
     /**
      * Set nom
      *
      * @param string $nom
      *
-     * @return Visiteur
+     * @return User
      */
     public function setNom($nom)
     {
@@ -106,7 +108,7 @@ class Visiteur extends User
      *
      * @param string $prenom
      *
-     * @return Visiteur
+     * @return User
      */
     public function setPrenom($prenom)
     {
@@ -130,7 +132,7 @@ class Visiteur extends User
      *
      * @param string $adresse
      *
-     * @return Visiteur
+     * @return User
      */
     public function setAdresse($adresse)
     {
@@ -154,7 +156,7 @@ class Visiteur extends User
      *
      * @param string $cp
      *
-     * @return Visiteur
+     * @return User
      */
     public function setCp($cp)
     {
@@ -178,7 +180,7 @@ class Visiteur extends User
      *
      * @param string $ville
      *
-     * @return Visiteur
+     * @return User
      */
     public function setVille($ville)
     {
@@ -198,13 +200,37 @@ class Visiteur extends User
     }
 
     /**
+     * Set dateEmbauche
+     *
+     * @param \DateTime $dateEmbauche
+     *
+     * @return User
+     */
+    public function setDateEmbauche($dateEmbauche)
+    {
+        $this->dateEmbauche = $dateEmbauche;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEmbauche
+     *
+     * @return \DateTime
+     */
+    public function getDateEmbauche()
+    {
+        return $this->dateEmbauche;
+    }
+
+    /**
      * Set ligneFraisHorsForfait
      *
-     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     * @param \UserBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
      *
-     * @return Visiteur
+     * @return User
      */
-    public function setLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait = null)
+    public function setLigneFraisHorsForfait(\UserBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait = null)
     {
         $this->ligneFraisHorsForfait = $ligneFraisHorsForfait;
 
@@ -214,7 +240,7 @@ class Visiteur extends User
     /**
      * Get ligneFraisHorsForfait
      *
-     * @return \GSBBundle\Entity\LigneFraisHorsForfait
+     * @return \UserBundle\Entity\LigneFraisHorsForfait
      */
     public function getLigneFraisHorsForfait()
     {
@@ -224,11 +250,11 @@ class Visiteur extends User
     /**
      * Set ligneFraisForfait
      *
-     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     * @param \UserBundle\Entity\LigneFraisForfait $ligneFraisForfait
      *
-     * @return Visiteur
+     * @return User
      */
-    public function setLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait = null)
+    public function setLigneFraisForfait(\UserBundle\Entity\LigneFraisForfait $ligneFraisForfait = null)
     {
         $this->ligneFraisForfait = $ligneFraisForfait;
 
@@ -238,7 +264,7 @@ class Visiteur extends User
     /**
      * Get ligneFraisForfait
      *
-     * @return \GSBBundle\Entity\LigneFraisForfait
+     * @return \UserBundle\Entity\LigneFraisForfait
      */
     public function getLigneFraisForfait()
     {
@@ -248,11 +274,11 @@ class Visiteur extends User
     /**
      * Set ficheFrais
      *
-     * @param \GSBBundle\Entity\FicheFrais $ficheFrais
+     * @param \UserBundle\Entity\FicheFrais $ficheFrais
      *
-     * @return Visiteur
+     * @return User
      */
-    public function setFicheFrais(\GSBBundle\Entity\FicheFrais $ficheFrais = null)
+    public function setFicheFrais(\UserBundle\Entity\FicheFrais $ficheFrais = null)
     {
         $this->ficheFrais = $ficheFrais;
 
@@ -262,34 +288,10 @@ class Visiteur extends User
     /**
      * Get ficheFrais
      *
-     * @return \GSBBundle\Entity\FicheFrais
+     * @return \UserBundle\Entity\FicheFrais
      */
     public function getFicheFrais()
     {
         return $this->ficheFrais;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \GSBBundle\Entity\User $user
-     *
-     * @return Visiteur
-     */
-    public function setUser(\GSBBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \GSBBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

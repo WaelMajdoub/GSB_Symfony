@@ -1,0 +1,81 @@
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: Davvm
+ * Date: 21/03/2017
+ * Time: 01:04
+ */
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="user")
+ */
+
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="string")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $nom;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $prenom;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $adresse;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $cp;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $ville;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    protected $dateEmbauche;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="LigneFraisHorsForfait")
+     * @ORM\JoinColumn(name="lesLigneFraisHorsForfait", referencedColumnName="id")
+     */
+    protected $ligneFraisHorsForfait;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="LigneFraisForfait")
+     * @ORM\JoinColumn(name="lesLigneFraisForfait", referencedColumnName="id")
+     */
+    protected $ligneFraisForfait;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FicheFrais")
+     * @ORM\JoinColumn(name="lesFicheFrais", referencedColumnName="id")
+     */
+    protected $ficheFrais;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\User")
+     */
+
+
+}

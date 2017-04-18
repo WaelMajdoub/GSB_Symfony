@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new GSBBundle\GSBBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new PUGX\MultiUserBundle\PUGXMultiUserBundle(),
-
+            new UserBundle\UserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

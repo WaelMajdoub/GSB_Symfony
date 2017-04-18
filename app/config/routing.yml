@@ -1,3 +1,8 @@
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 gsb:
     resource: "@GSBBundle/Controller/"
     type:     annotation
