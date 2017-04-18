@@ -13,16 +13,12 @@ INSERT INTO etat (id, libelle) VALUES
 ('CR', 'Fiche créée, saisie en cours'),
 ('VA', 'Validée et mise en paiement');
 
-
-
-
-
-ALTER TABLE `visiteur` CHANGE `email` `email` VARCHAR(180) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'noemail@email.fr';
-
-ALTER TABLE `visiteur` CHANGE `email_canonical` `email_canonical` VARCHAR(180) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
-
+-- nous n'utilisons pas d'adresse email pour les comptes d'utilisateurs, donc les jeux d'essai sont à null ( mais toujours possibilité d'ajouter des adresses email )
+ALTER TABLE `User` CHANGE `email` `email` VARCHAR(180) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
+ALTER TABLE `User` CHANGE `email_canonical` `email_canonical` VARCHAR(180) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
 -- Récupération des utilisateurs
-INSERT INTO visiteur (id, nom, prenom, username, username_canonical, password, adresse, cp, ville, date_embauche, enabled, roles) VALUES
+
+INSERT INTO User (id, nom, prenom, username, username_canonical, password, adresse, cp, ville, date_embauche, enabled, roles) VALUES
   ('a131', 'Villechalane', 'Louis', 'lvillachane','lvillachane', 'jux7g', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21', true, 'ROLE_USER'),
   ('a17', 'Andre', 'David', 'dandre','dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23', true, 'ROLE_USER'),
   ('a55', 'Bedos', 'Christian', 'cbedos','cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12', true, 'ROLE_USER'),
