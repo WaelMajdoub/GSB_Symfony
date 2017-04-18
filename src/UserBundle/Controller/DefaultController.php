@@ -13,9 +13,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
 
-
-
-        dump($this->getDoctrine()->getRepository('UserBundle:User')->putain());
+        dump($this->getDoctrine()->getRepository('UserBundle:User')->findMeh());
 
         return $this->render('UserBundle:Default:index.html.twig');
     }

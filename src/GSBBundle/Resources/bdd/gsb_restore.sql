@@ -13,9 +13,8 @@ INSERT INTO etat (id, libelle) VALUES
 ('CR', 'Fiche créée, saisie en cours'),
 ('VA', 'Validée et mise en paiement');
 
--- nous n'utilisons pas d'adresse email pour les comptes d'utilisateurs, donc les jeux d'essai sont à null ( mais toujours possibilité d'ajouter des adresses email )
-ALTER TABLE `User` CHANGE `email` `email` VARCHAR(180) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
-ALTER TABLE `User` CHANGE `email_canonical` `email_canonical` VARCHAR(180) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
+
+
 -- Récupération des utilisateurs
 
 INSERT INTO User (id, nom, prenom, username, username_canonical, password, adresse, cp, ville, date_embauche, enabled, roles) VALUES
