@@ -1,0 +1,57 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "::base.html.twig" %}
+{% block fos_user_content %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Identification utilisateur</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" method="post" action="index.php?uc=connexion&action=valideConnexion">
+                        <fieldset>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input class="form-control"
+                                           id="username"
+                                           name="_username"
+                                           required="required"
+                                           placeholder="{{ 'security.login.username'|trans }}"
+                                           type="text"
+                                           maxlength="45"
+                                           value="{{ last_username }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input class="form-control"
+                                           id="password"
+                                           name="_password"
+                                           required="required"
+                                           placeholder="{{ 'security.login.password'|trans }}"
+                                           type="password"
+                                           maxlength="45">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-lg btn-success btn-block" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}
