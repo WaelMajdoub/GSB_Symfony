@@ -4,9 +4,6 @@
 {% endblock %}
 
 {% block body %}
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        TODO Redirect
-    {% else %}
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
@@ -35,5 +32,4 @@
                 </div>
             </div>
         </div>
-    {% endif %}
 {% endblock %}

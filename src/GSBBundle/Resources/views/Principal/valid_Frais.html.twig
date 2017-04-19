@@ -3,7 +3,6 @@
 {% endblock %}
 
 {% block body %}
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 		<html>
 			<head>
 				<title>Validation des frais de visite</title>
@@ -73,7 +72,4 @@
 				</div>
 			</body>
 		</html>
-    {% else %}
-		TODO Redirect
-    {% endif %}
 {% endblock %}<html>
