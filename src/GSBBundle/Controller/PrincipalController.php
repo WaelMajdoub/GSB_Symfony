@@ -9,12 +9,15 @@ use Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPas
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-
+/**
+ * Class PrincipalController
+ * @package GSBBundle\Controller
+ */
 class PrincipalController extends Controller
 {
-
-
-    /**
+    /** Action principale qui sert d'index, à la racine du projet On va tester si l'utilisateur est connecté et dans ce cas
+     * On le renvoit vers la page d'accueil, dans le cas contraire on le redirige vers la route /login qui va lui servir à
+     * S'authentifier.
      * @Route("/")
      */
     public function indexAction()
@@ -31,26 +34,6 @@ class PrincipalController extends Controller
         }
     }
 
-
-    /**
-     * @Route("/deconnexion")
-     */
-    public function deconnexionAction()
-    {
-        return $this->render('GSBBundle:Principal:deconnexion.html.twig', array(
-            // ...
-        ));
-    }
-
-    /**
-     * @Route("/accueil")
-     */
-    public function accueilAction()
-    {
-        return $this->render('GSBBundle:Principal:accueil.html.twig', array(
-            // ...
-        ));
-    }
 
     /**
      * @Route("/gererFrais")
