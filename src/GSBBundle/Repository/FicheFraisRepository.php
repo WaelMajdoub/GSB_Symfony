@@ -58,14 +58,31 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
      */
     public function getLesMoisDisponibles($idUser)
     {
-        return $this->createQueryBuilder('fiche_frais')
-                ->select('fiche_frais.mois')
-                ->where('fiche_frais.idUser =:idUser')
-                ->orderBy('fiche_frais.mois', 'DESC')
+        return $this->createQueryBuilder('fflmd')
+                ->select('fflmd.mois')
+                ->where('fflmd.idUser =:idUser')
+                ->orderBy('fflmd.mois', 'DESC')
                 ->setParameter('idUser', $idUser)
                 ->getQuery()->getArrayResult();
     }
 
+
+    /**
+     * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
+     * @param $idUser
+     * @param $mois
+     * @return mixed
+     */
+    public function getLesInfosFicheFrais($idUser, $mois){
+        return $this->createQueryBuilder('ff')
+            ->select('ff.dateModif', 'ff.nbJustificatifs', 'ff.montantValide', 'e.libelle')
+            ->innerJoin('ff.etat', 'e')
+            ->where('ff.idUser = :idUser')
+            ->andWhere('ff.mois = :unMois')
+            ->setParameter('idUser', $idUser)
+            ->setParameter('unMois', $mois)
+            ->getQuery()->getSingleResult();
+    }
 
 
 }
