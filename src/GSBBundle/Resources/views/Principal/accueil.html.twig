@@ -1,33 +1,37 @@
+{% extends "::base.html.twig" %}
+
 {% block title %}
     Accueil
 {% endblock %}
 
 {% block body %}
-        <div id="accueil">
-            <h2>Gestion des frais
-                <small> - Visiteur : {{ app.user.username }}
-                </small>
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <span class="glyphicon glyphicon-bookmark"></span> Navigation
-                            <a style="float: right" href={{ path("fos_user_security_logout") }}><span class="glyphicon glyphicon-log-out"></span> Se déconnecter</a>
-                        </h3>
+    <body>
+    <div id="accueil">
+        <h2>Gestion des frais
+            <small> - Visiteur : {{ app.user.username }}
+            </small>
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-bookmark"></span> Navigation
+                        <a style="float: right" href={{ path("fos_user_security_logout") }}><span class="glyphicon glyphicon-log-out"></span> Se déconnecter</a>
+                    </h3>
 
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12">
-                                <a href="saisieFrais" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-pencil"></span> <br/>Renseigner la fiche de frais</a>
-                                <a href="gererFrais" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Afficher mes fiches de frais</a>
-                            </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <a href="saisieFrais" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-pencil"></span> <br/>Renseigner la fiche de frais</a>
+                            <a href="gererFrais" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Afficher mes fiches de frais</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </body>
 {% endblock %}
