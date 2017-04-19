@@ -36,6 +36,26 @@ class PrincipalController extends Controller
 
 
     /**
+     * @Route("/deconnexion")
+     */
+    public function deconnexionAction()
+    {
+        return $this->render('GSBBundle:Principal:deconnexion.html.twig', array(
+            // ...
+        ));
+    }
+
+    /**
+     * @Route("/accueil")
+     */
+    public function accueilAction()
+    {
+        return $this->render('GSBBundle:Principal:accueil.html.twig', array(
+            // ...
+        ));
+    }
+
+    /**
      * @Route("/gererFrais")
      */
     public function gererFraisAction()
