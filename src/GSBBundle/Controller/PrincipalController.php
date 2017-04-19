@@ -5,9 +5,8 @@ use GSBBundle\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Class PrincipalController
@@ -70,7 +69,14 @@ class PrincipalController extends Controller
      */
     public function etatFraisAction()
     {
+
+        $idUser = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+        $anneesMois = $em->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles($idUser);
+
+
         return $this->render('GSBBundle:Principal:etat_frais.html.twig', array(
+            'anneesMois' => $anneesMois,
             // ...
         ));
     }

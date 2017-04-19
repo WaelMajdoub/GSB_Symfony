@@ -1,15 +1,12 @@
 {% extends "@GSB/Default/base.html.twig" %}
 {# note : Le premier extends va hériter du template base.html.twig qui contient toutes les méta, les links etc
-          C'est un peu le Calque principal sur lequel on incruste du contenu
- #}
+          C'est un peu le Calque principal sur lequel on incruste du contenu#}
 {% block body %}
     {{ include('@GSB/Default/head.html.twig') }}
-    {# note : Intégration de la barre de navigation horizontale de head.html.twig
-     #}
+    {# note : Intégration de la barre de navigation horizontale de head.html.twig#}
     <div id="accueil">
     <h2>Gestion des frais<small> - Visiteur :
-            {# note : On regarde si l'utilisateur est connecté et si c'est le cas, on affiche des informations le concernant.
- #}
+            {# note : On regarde si l'utilisateur est connecté et si c'est le cas, on affiche des informations le concernant.#}
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                  {{ app.user.username }}
             {% endif %}</small></h2>
