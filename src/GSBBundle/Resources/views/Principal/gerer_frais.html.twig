@@ -1,7 +1,13 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}GSBBundle:Principal:gererFrais{% endblock %}
+{% block title %}
+    Gestion des Frais
+{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Principal:gererFrais page</h1>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <h1>Welcome to the Principal:gererFrais page</h1>
+    {% else %}
+        TODO Redirect
+    {% endif %}
 {% endblock %}
