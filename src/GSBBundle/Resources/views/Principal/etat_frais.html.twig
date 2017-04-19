@@ -18,13 +18,10 @@
                 ?>
                 <th> <?php echo htmlspecialchars($libelle) ?></th>
                 <?php
-            }
-            ?>
-        </tr>
-        <tr>
-            <?php
-            foreach ($lesFraisForfait as $unFraisForfait) {
-                $quantite = $unFraisForfait['quantite'];
+                    foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
+                    $date = $unFraisHorsForfait['date'];
+                    $libelle = htmlspecialchars($unFraisHorsForfait['libelle']);
+                    $montant = $unFraisHorsForfait['montant'];
                 ?>
                 <td class="qteForfait"><?php echo $quantite ?> </td>
                 <?php
