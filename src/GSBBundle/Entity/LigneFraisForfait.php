@@ -37,12 +37,18 @@ class LigneFraisForfait
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="lignefraisforfait")
-     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="ligneFraisForfait")
+     * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
      */
     private $idUser;
 
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\FicheFrais", inversedBy="ligneFraisForfait")
+     * @ORM\JoinColumn(name="idFicheFrais", referencedColumnName="id")
+     */
 
+    private $idFicheFrais;
 
     /**
      * Get id
@@ -148,5 +154,29 @@ class LigneFraisForfait
     public function getIdUser()
     {
         return $this->idUser;
+    }
+
+    /**
+     * Set idFicheFrais
+     *
+     * @param \GSBBundle\Entity\FicheFrais $idFicheFrais
+     *
+     * @return LigneFraisForfait
+     */
+    public function setIdFicheFrais(\GSBBundle\Entity\FicheFrais $idFicheFrais = null)
+    {
+        $this->idFicheFrais = $idFicheFrais;
+
+        return $this;
+    }
+
+    /**
+     * Get idFicheFrais
+     *
+     * @return \GSBBundle\Entity\FicheFrais
+     */
+    public function getIdFicheFrais()
+    {
+        return $this->idFicheFrais;
     }
 }
