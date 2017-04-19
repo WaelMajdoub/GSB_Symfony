@@ -46,11 +46,23 @@ class FicheFrais
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="ficheFrais")
-     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
+     * @ORM\JoinColumn(name="idVisiteur", referencedColumnName="id")
      */
     private $idUser;
 
 
+    /**
+     * @var LigneFraisForfait
+     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\LigneFraisForfait", mappedBy="idFicheFrais")
+     */
+    private $ligneFraisForfait;
+
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\LigneFraisHorsForfait", mappedBy="idFicheFrais")
+     */
+    private $ligneFraisHorsForfait;
 
     /**
      * Get id
@@ -228,5 +240,81 @@ class FicheFrais
     public function getIdUser()
     {
         return $this->idUser;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ligneFraisForfait = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ligneFraisHorsForfait = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add ligneFraisForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     *
+     * @return FicheFrais
+     */
+    public function addLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait)
+    {
+        $this->ligneFraisForfait[] = $ligneFraisForfait;
+
+        return $this;
+    }
+
+    /**
+     * Remove ligneFraisForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     */
+    public function removeLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait)
+    {
+        $this->ligneFraisForfait->removeElement($ligneFraisForfait);
+    }
+
+    /**
+     * Get ligneFraisForfait
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLigneFraisForfait()
+    {
+        return $this->ligneFraisForfait;
+    }
+
+    /**
+     * Add ligneFraisHorsForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     *
+     * @return FicheFrais
+     */
+    public function addLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $this->ligneFraisHorsForfait[] = $ligneFraisHorsForfait;
+
+        return $this;
+    }
+
+    /**
+     * Remove ligneFraisHorsForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     */
+    public function removeLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $this->ligneFraisHorsForfait->removeElement($ligneFraisHorsForfait);
+    }
+
+    /**
+     * Get ligneFraisHorsForfait
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLigneFraisHorsForfait()
+    {
+        return $this->ligneFraisHorsForfait;
     }
 }

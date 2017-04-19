@@ -16,20 +16,6 @@ use Doctrine\ORM\Mapping\AttributeOverride;
  * @ORM\Entity
  * @ORM\Table(name="user")
  *
- *
- * @ORM\AttributeOverrides({
- *     @ORM\AttributeOverride(name="email",
- *          column=@ORM\Column(
- *              nullable = true
- *          )
- *      ),
- *     @ORM\AttributeOverride(name="emailCanonical",
- *          column=@ORM\Column(
- *              name = "email_canonical",
- *              nullable = true
- *          )
- *      )
- * })
  */
 
 class User extends BaseUser
@@ -73,20 +59,20 @@ class User extends BaseUser
     protected $dateEmbauche;
 
     /**
-     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\LigneFraisHorsForfait")
-     * @ORM\JoinColumn(name="lesLigneFraisHorsForfait", referencedColumnName="id")
+     * @var ligneFraisHorsForfait
+     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\LigneFraisHorsForfait", mappedBy="idUser")
      */
     protected $ligneFraisHorsForfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\LigneFraisForfait")
-     * @ORM\JoinColumn(name="lesLigneFraisForfait", referencedColumnName="id")
+     * @var ligneFraisForfait
+     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\LigneFraisForfait", mappedBy="idUser")
      */
     protected $ligneFraisForfait;
 
     /**
-     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\FicheFrais")
-     * @ORM\JoinColumn(name="lesFicheFrais", referencedColumnName="id")
+     * @var ficheFrais
+     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\FicheFrais", mappedBy="idUser")
      */
     protected $ficheFrais;
 
@@ -306,5 +292,77 @@ class User extends BaseUser
     public function getFicheFrais()
     {
         return $this->ficheFrais;
+    }
+
+    /**
+     * Add ligneFraisHorsForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     *
+     * @return User
+     */
+    public function addLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $this->ligneFraisHorsForfait[] = $ligneFraisHorsForfait;
+
+        return $this;
+    }
+
+    /**
+     * Remove ligneFraisHorsForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     */
+    public function removeLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $this->ligneFraisHorsForfait->removeElement($ligneFraisHorsForfait);
+    }
+
+    /**
+     * Add ligneFraisForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     *
+     * @return User
+     */
+    public function addLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait)
+    {
+        $this->ligneFraisForfait[] = $ligneFraisForfait;
+
+        return $this;
+    }
+
+    /**
+     * Remove ligneFraisForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     */
+    public function removeLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait)
+    {
+        $this->ligneFraisForfait->removeElement($ligneFraisForfait);
+    }
+
+    /**
+     * Add ficheFrai
+     *
+     * @param \GSBBundle\Entity\FicheFrais $ficheFrai
+     *
+     * @return User
+     */
+    public function addFicheFrai(\GSBBundle\Entity\FicheFrais $ficheFrai)
+    {
+        $this->ficheFrais[] = $ficheFrai;
+
+        return $this;
+    }
+
+    /**
+     * Remove ficheFrai
+     *
+     * @param \GSBBundle\Entity\FicheFrais $ficheFrai
+     */
+    public function removeFicheFrai(\GSBBundle\Entity\FicheFrais $ficheFrai)
+    {
+        $this->ficheFrais->removeElement($ficheFrai);
     }
 }

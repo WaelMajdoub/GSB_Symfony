@@ -1,4 +1,6 @@
-<hr>
+{% extends '@GSB/Default/base.html.twig' %}
+{% block body %}
+    {% include '@GSB/Default/head.html.twig' %}
 <div class="panel panel-primary">
     <div class="panel-heading">Fiche de frais du mois <?php echo $numMois . "-" . $numAnnee ?> : </div>
     <div class="panel-body">
@@ -6,7 +8,7 @@
         <strong><u>Montant validé :</u></strong> <?php echo $montantValide ?>
     </div>
 </div>
-<div class="panel panel-info"">
+<div class="panel panel-info">
     <div class="panel-heading">Eléments forfaitisés</div>
     <table class="table table-bordered table-responsive">
         <tr>
@@ -16,13 +18,10 @@
                 ?>
                 <th> <?php echo htmlspecialchars($libelle) ?></th>
                 <?php
-            }
-            ?>
-        </tr>
-        <tr>
-            <?php
-            foreach ($lesFraisForfait as $unFraisForfait) {
-                $quantite = $unFraisForfait['quantite'];
+                    foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
+                    $date = $unFraisHorsForfait['date'];
+                    $libelle = htmlspecialchars($unFraisHorsForfait['libelle']);
+                    $montant = $unFraisHorsForfait['montant'];
                 ?>
                 <td class="qteForfait"><?php echo $quantite ?> </td>
                 <?php
@@ -55,3 +54,4 @@
         ?>
     </table>
 </div>
+{% endblock %}
