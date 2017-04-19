@@ -100,8 +100,16 @@ class PrincipalController extends Controller
      */
     public function saisieFraisAction()
     {
+        $mois = 200101;
+
+        $em = $this->getDoctrine()->getManager();
+        $lesfraishf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('mois'=>$mois,'idUser'=>1 ));
+
+        $em = $this->getDoctrine()->getManager();
+        $lesfraisf = $em->getRepository('GSBBundle:LigneFraisForfait')->findBy(array('mois'=>$mois,'idUser'=>1 ));
+
         return $this->render('GSBBundle:Principal:saisie_frais.html.twig', array(
-            // ...
+            'mois'=>$mois, 'lesfraishf'=>$lesfraishf, 'lesfraisf'=>$lesfraisf
         ));
     }
 

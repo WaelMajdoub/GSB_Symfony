@@ -1,100 +1,78 @@
+{% extends "@GSB/Default/base.html.twig" %}
 {% block title %}
-	Gestion des frais de visite
+	Saisie/Gestion des frais de visite
 {% endblock %}
 
 {% block body %}
-		<html>
-			<head>
-				<style type="text/css">
-					<!-- body {background-color: white; color:5599EE; }
-					.titre { width : 180 ;  clear:left; float:left; }
-					.zone { float : left; color:7091BB } -->
-				</style>
-				<script language="javascript">
-					function ajoutLigne( pNumero){//ajoute une ligne de produits/qté à la div "lignes"
-						//masque le bouton en cours
-						document.getElementById("but"+pNumero).setAttribute("hidden","true");
-						pNumero++;										//incrémente le numéro de ligne
-						var laDiv=document.getElementById("lignes");	//récupère l'objet DOM qui contient les données
-						var titre = document.createElement("label") ;	//crée un label
-						laDiv.appendChild(titre) ;						//l'ajoute à la DIV
-						titre.setAttribute("class","titre") ;			//définit les propriétés
-						titre.innerHTML= "   "+ pNumero + " : ";
-						//zone our la date du frais
-						var ladate = document.createElement("input");
-						laDiv.appendChild(ladate);
-						ladate.setAttribute("name","FRA_AUT_DAT"+pNumero);
-						ladate.setAttribute("size","12");
-						ladate.setAttribute("class","zone");
-						ladate.setAttribute("type","text");
-						//zone de saisie pour un nouveau libellé
-						var libelle = document.createElement("input");
-						laDiv.appendChild(libelle);
-						libelle.setAttribute("name","FRA_AUT_LIB"+pNumero);
-						libelle.setAttribute("size","30");
-						libelle.setAttribute("class","zone");
-						libelle.setAttribute("type","text");
-						//zone de saisie pour un nouveau montant
-						var mont = document.createElement("input");
-						laDiv.appendChild(mont);
-						mont.setAttribute("name","FRA_AUT_MONT"+pNumero);
-						mont.setAttribute("size","3");
-						mont.setAttribute("class","zone");
-						mont.setAttribute("type","text");
-						var bouton = document.createElement("input");
-						laDiv.appendChild(bouton);
-						//ajoute une gestion évenementielle en faisant évoluer le numéro de la ligne
-						bouton.setAttribute("onClick","ajoutLigne("+ pNumero +");");
-						bouton.setAttribute("type","button");
-						bouton.setAttribute("value","+");
-						bouton.setAttribute("class","zone");
-						bouton.setAttribute("id","but"+ pNumero);
-					}
-				</script>
-			</head>
-			<body>
-				<div name="gauche" style="clear:left:;float:left;width:18%; background-color:white; height:100%;">
-					<div name="coin" style="height:10%;text-align:center;"><img src="logo.jpg" width="100" height="60"/></div>
-					<div name="menu" >
-						<h2>Outils</h2>
-						<ul><li>Frais</li>
-							<ul>
-								<li><a href="saisieFrais" >Nouveau</a></li>
-								<li><a href="consultFrais">Consulter</a></li>
-							</ul>
-						</ul>
+    {{ include('@GSB/Default/head.html.twig') }}
+	<div class="row">
+		<h2>Renseigner ma fiche de frais du mois {{ mois |slice(4,6) }}-{{ mois |slice(0,4) }}</h2>
+		<h3>Eléments forfaitisés</h3>
+		<div class="col-md-4">
+			<form method="post" action="index.php?uc=gererFrais&action=validerMajFraisForfait" role="form">
+				<fieldset>
+                    {% for unfraisf in lesfraisf %}
+						<div class="form-group">
+							<label for="idFrais">{{ unfraisf.fraisforfait.libelle }}</label>
+							<input type="text" id="idFrais" name="{{ unfraisf.id }}" size="10" maxlength="5" value="{{ unfraisf.quantite }}" class="form-control">
+						</div>
+                    {% endfor %}
+					<button class="btn btn-success" type="submit">TODO Ajouter</button>
+					<button class="btn btn-danger" type="reset">Effacer</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+	<hr>
+	<div class="row">
+		<div class="panel panel-info">
+			<div class="panel-heading">Descriptif des éléments hors forfait</div>
+			<table class="table table-bordered table-responsive">
+				<thead>
+					<tr>
+						<th class="date">Date</th>
+						<th class="libelle">Libellé</th>
+						<th class="montant">Montant</th>
+						<th class="action">&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for unfraishf in lesfraishf %}
+						<tr>
+							<td>{{ unfraishf.mois |slice(4,6) }}-{{ unfraishf.mois |slice(0,4) }}</td>
+							<td>{{ unfraishf.libelle }}</td>
+							<td>{{ unfraishf.montant }}</td>
+							<td><a href="" onclick="return confirm('TODO supprimer ce frais?');"> TODO Supprimer ce frais</a></td>
+							<!-- { path('deletefhf', { 'id': unfraishf.id }) }} -->
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<h3>Nouvel élément hors forfait</h3>
+		<div class="col-md-4">
+			<form action="index.php?uc=gererFrais&action=validerCreationFrais" method="post" role="form">
+				<div class="form-group">
+					<label for="txtDateHF">Date (jj/mm/aaaa): </label>
+					<input type="text" id="txtDateHF" name="dateFrais" class="form-control" id="text">
+				</div>
+				<div class="form-group">
+					<label for="txtLibelleHF">Libellé</label>
+					<input type="text" id="txtLibelleHF" name="libelle" class="form-control" id="text">
+				</div>
+				<div class="form-group">
+					<label for="txtMontantHF">Montant : </label>
+					<div class="input-group">
+						<span class="input-group-addon">€</span>
+						<input type="text" id="txtMontantHF" name="montant" class="form-control" value="">
 					</div>
 				</div>
-				<div name="droite" style="float:left;width:80%;">
-					<div name="haut" style="margin: 2 2 2 2 ;height:10%;float:left;"><h1>Gestion des Frais</h1></div>
-					<div name="bas" style="margin : 10 2 2 2;clear:left;background-color:77AADD;color:white;height:88%;">
-						<form name="formSaisieFrais" method="post" action="enregSaisieFrais.php">
-							<h1> Saisie </h1>
-							<label class="titre">PERIODE D'ENGAGEMENT :</label>
-							<label style="float:left;">Mois (2 chiffres) : </label><input type="text" size="4" name="FRA_MOIS" class="zone" />
-							<label style="float:left;">&nbsp;Année (4 chiffres) : </label><input type="text" size="4" name="FRA_AN" class="zone" />
-							<p class="titre" /><div style="clear:left;"><h2>Frais au forfait</h2></div>
-							<label class="titre">Repas midi :</label><input type="text" size="2" name="FRA_REPAS" class="zone" />
-							<label class="titre">Nuitées :</label><input type="text" size="2" name="FRA_NUIT" class="zone" />
-							<label class="titre">Etape :</label><input type="text" size="5" name="FRA_ETAP" class="zone" />
-							<label class="titre">Km :</label><input type="text" size="5" name="FRA_KM" class="zone" />
-							<p class="titre" /><div style="clear:left;"><h2>Hors Forfait</h2></div>
-							<div style="clear:left;">
-								<div style="margin-left:180;float:left;width:90;text-align:center;">Date</div>
-								<div style="float:left;width:220;text-align:center;">Libellé</div>
-								<div style="float:left;width:30;text-align:center;">Montant</div>
-							</div>
-							<div style="clear:left;" id="lignes">
-								<label class="titre" > 1 : </label>
-								<input type="text" size="12" name="FRA_AUT_DAT1" class="zone"/>
-								<input type="text" size="30" name="FRA_AUT_LIB1" class="zone"/>
-								<input class="zone" size="3" name="FRA_AUT_MONT1" type="text" />
-								<input type="button" id="but1" value="+" onclick="ajoutLigne(1);" class="zone" />
-							</div>
-							<p class="titre" /><label class="titre">&nbsp;</label><input class="zone"type="reset" /><input class="zone"type="submit" />
-						</form>
-					</div>
-				</div>
-			</body>
-		</html>
+				<button class="btn btn-success" type="submit">TODO Ajouter</button>
+				<button class="btn btn-danger" type="reset">Effacer</button>
+			</form>
+		</div>
+	</div>
 {% endblock %}
