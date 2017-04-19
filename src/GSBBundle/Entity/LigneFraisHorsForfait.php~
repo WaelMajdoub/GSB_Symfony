@@ -1,0 +1,48 @@
+<?php
+namespace GSBBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+* @ORM\Entity(repositoryClass="GSBBundle\Repository\LigneFraisHorsForfaitRepository")
+ */
+
+class LigneFraisHorsForfait
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $mois;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $libelle;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="decimal", nullable=true)
+     */
+    private $montant;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="lignefraisHorsforfait")
+     * @ORM\JoinColumn(name="idvisiteur", referencedColumnName="id")
+     */
+    private $idUser;
+
+
+
+}

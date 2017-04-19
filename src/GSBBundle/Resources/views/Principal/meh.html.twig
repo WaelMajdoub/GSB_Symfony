@@ -1,11 +1,15 @@
 {% extends "base.html.twig" %}
 
-{% block title %}MEh{% endblock %}
+{% block title %} Recupération de tous les utilisateurs{% endblock %}
 {% block head %}
     {{ parent() }}
 {% endblock %}
 {% block content %}
-    <h1>MEh</h1>
-    <p class="important">
-    </p>
+
+    {% for visiteur in visiteurs %}
+        <p>{{ visiteur.nom }}</p>
+
+    {% endfor %}
+
+
 {% endblock %}

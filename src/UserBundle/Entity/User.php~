@@ -5,13 +5,14 @@
  * Date: 21/03/2017
  * Time: 01:04
  */
-namespace GSBBundle\Entity;
+namespace UserBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="user")
  */
 
 class User extends BaseUser
@@ -49,10 +50,28 @@ class User extends BaseUser
      */
     protected $ville;
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    protected $dateEmbauche;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\LigneFraisHorsForfait")
+     * @ORM\JoinColumn(name="lesLigneFraisHorsForfait", referencedColumnName="id")
+     */
+    protected $ligneFraisHorsForfait;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\LigneFraisForfait")
+     * @ORM\JoinColumn(name="lesLigneFraisForfait", referencedColumnName="id")
+     */
+    protected $ligneFraisForfait;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\FicheFrais")
+     * @ORM\JoinColumn(name="lesFicheFrais", referencedColumnName="id")
+     */
+    protected $ficheFrais;
 
 
 }

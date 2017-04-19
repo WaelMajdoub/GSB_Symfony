@@ -5,30 +5,32 @@ use GSBBundle\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 
 class PrincipalController extends Controller
 {
-    /**
-     * @Route("/connexion")
-     */
-    public function connexionAction()
-    {
-        return $this->render('GSBBundle:Principal:connexion.html.twig', array(
-            // ...
-        ));
-    }
+
 
     /**
-     * @Route("/meh")
+     * @Route("/")
      */
-    public function mehAction()
+    public function indexAction()
     {
-        return $this->render('GSBBundle:Principal:meh.html.twig', array(
-            // ...
-        ));
+
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->forward('FOSUserBundle:Security:login');
+
+        } else {
+            $user = $this->getUser();
+            return $this->render('GSBBundle:Principal:accueil.html.twig', array('user', $user
+            ));
+
+        }
     }
+
 
     /**
      * @Route("/deconnexion")
@@ -99,31 +101,6 @@ class PrincipalController extends Controller
             // ...
         ));
     }
-    /**
-     * test le fait d'ajouter un objet en BDD sous doctrine
-     * @Route("/newMeh")
-     */
-    public function createAction()
-    {
 
-        // Création de l'objet
-        $me = new Entity\FraisForfait();
-        $me->setId("A123");
-        $me->setLibelle("OH OUI");
-        $me->setMontant(125.12);
-
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($me);
-        // ne pas oublier le >
-        $em->flush();
-
-
-        // SI tout se passe bien on renvoie ( il y a un E, merci Huho) la vue spéciale
-    return $this->render('GSBBundle:Principal:meh.html.twig', array(
-        // ...
-    ));
-
-}
 
 }

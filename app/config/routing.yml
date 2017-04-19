@@ -1,11 +1,13 @@
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 gsb:
     resource: "@GSBBundle/Controller/"
     type:     annotation
     prefix:   /
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
 
 # app/config/routing.yml
 fos_user_security:

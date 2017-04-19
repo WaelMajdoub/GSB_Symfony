@@ -205,28 +205,4 @@ class FicheFrais
     {
         return $this->visiteur;
     }
-
-    /**
-     * Set idUser
-     *
-     * @param \UserBundle\Entity\User $idUser
-     *
-     * @return FicheFrais
-     */
-    public function setIdUser(\UserBundle\Entity\User $idUser = null)
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
-    /**
-     * Get idUser
-     *
-     * @return \UserBundle\Entity\User
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
-    }
 }

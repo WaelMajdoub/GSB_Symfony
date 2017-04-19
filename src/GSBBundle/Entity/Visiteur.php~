@@ -1,0 +1,47 @@
+<?php
+namespace GSBBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+* @ORM\Entity(repositoryClass="GSBBundle\Repository\VisiteurRepository")
+ */
+class Visiteur extends User
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="string")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    protected $dateEmbauche;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="LigneFraisHorsForfait")
+     * @ORM\JoinColumn(name="lesLigneFraisHorsForfait", referencedColumnName="id")
+     */
+    protected $ligneFraisHorsForfait;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="LigneFraisForfait")
+     * @ORM\JoinColumn(name="lesLigneFraisForfait", referencedColumnName="id")
+     */
+    protected $ligneFraisForfait;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FicheFrais")
+     * @ORM\JoinColumn(name="lesFicheFrais", referencedColumnName="id")
+     */
+    protected $ficheFrais;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\User")
+     */
+    protected $user;
+
+
+}
