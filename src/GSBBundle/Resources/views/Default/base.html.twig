@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{# note : layout de base, que l'on include dans tous nos fichiers Twig,
+    Nous allons seulement ajouter du contenu qui sera dans le block body
+ #}
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -7,6 +10,9 @@
     <meta name="description" content="Intranet du Laboratoire Galaxy-Swiss Bourdin"/>
     <meta name="author" content="HGD"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {# note : L'utilisation des assets sous Twig est très simple, le contenu que l'on va intégrer dans notre projet
+              sera placé dans le dossier web, et l'appelle se fait comme ci dessous, où l'on va naviger dans le dossier
+              web #}
     <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
 </head>
