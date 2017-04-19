@@ -1,6 +1,9 @@
 {% block body %}
 <div id="accueil">
-    <h2>Gestion des frais<small> - Visiteur : <?php echo $_SESSION['prenom'] . " " . $_SESSION['nom'] ?></small></h2>
+    <h2>Gestion des frais<small> - Visiteur :
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                 {{ app.user.username }}
+            {% endif %}</small></h2>
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -8,6 +11,10 @@
             <div class="panel-heading">
                 <h3 class="panel-title">
                     <span class="glyphicon glyphicon-bookmark"></span> Navigation</h3>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href={{ path("fos_user_security_logout") }}><span class="glyphicon glyphicon-log-out right"></span> </a>Se déconecter</h3>
+                {% endif %}
+
             </div>
             <div class="panel-body">
                 <div class="row">

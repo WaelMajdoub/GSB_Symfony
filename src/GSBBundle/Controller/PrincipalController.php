@@ -19,31 +19,18 @@ class PrincipalController extends Controller
      */
     public function indexAction()
     {
-        // Si l'utilisateur n'est pas connecté, on le renvoie vers la page de login
-        if (!$this->getUser()) {
-            return $this->redirect('login');
+
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->forward('FOSUserBundle:Security:login');
 
         } else {
-            return $this->render('GSBBundle:Principal:accueil.html.twig', array(// ...
+            $user = $this->getUser();
+            return $this->render('GSBBundle:Principal:accueil.html.twig', array('user', $user
             ));
 
         }
     }
 
-    /**
-     * @Route("/connexion")
-     */
-    public function connexionAction()
-    {
-
-        //TODO Faire en sorte que la redirection ne soit pas visible, ( ne pas faire de Href comme j'ai fait")
-        return $this->redirect('login');
-        /*
-        return $this->render('GSBBundle:Principal:connexion.html.twig', array(
-            // ...
-        ));
-        */
-    }
 
     /**
      * @Route("/deconnexion")
