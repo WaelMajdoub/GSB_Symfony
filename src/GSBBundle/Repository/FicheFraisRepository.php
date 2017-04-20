@@ -76,11 +76,11 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
      * @return mixed
      */
     public function getLesInfosFicheFrais($idUser, $mois){
-        return $this->createQueryBuilder('ff')
-            ->select('ff.dateModif', 'ff.nbJustificatifs', 'ff.montantValide', 'e.libelle')
-            ->innerJoin('ff.etat', 'e')
-            ->where('ff.idUser = :idUser')
-            ->andWhere('ff.mois = :unMois')
+        return $this->createQueryBuilder('fiche_frais')
+            ->select('fiche_frais.dateModif', 'fiche_frais.nbJustificatifs', 'fiche_frais.montantValide', 'etat.libelle')
+            ->innerJoin('fiche_frais.etat', 'etat')
+            ->where('fiche_frais.idUser = :idUser')
+            ->andWhere('fiche_frais.mois = :unMois')
             ->setParameter('idUser', $idUser)
             ->setParameter('unMois', $mois)
             ->getQuery()->getSingleResult();
@@ -102,4 +102,53 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
         $this->_em->persist($fiche);
         $this->_em->flush();
     }
+
+    /**
+     * met à jour le nombre de justificatifs de la table ficheFrais
+     * pour le mois et le visiteur concerné
+     *
+     * @param $idUser
+     * @param $mois sous la forme aaaamm
+     */
+    public function majNbJustificatifs($idUser, $mois, $nbJustificatifs) {
+        $fiche = $this->findOneBy(array('idUser' => $idUser,
+            'mois' => $mois));
+        $fiche->setNbJustificatifs($nbJustificatifs);
+        $this->_em->persist($fiche);
+        $this->_em->flush();
+    }
+
+    /**
+     * Teste si un visiteur possède une fiche de frais pour le mois passé en argument
+     *
+     * @param $idUser
+     * @param $mois sous la forme aaaamm
+     * @return vrai ou faux
+     */
+    public function estPremierFraisMois($idUser, $mois) {
+        $fiche = $this->findOneBy(array('idUser' => $idUser,
+            'mois' => $mois));
+        if ($fiche) return true;
+        else return false;
+
+    }
+
+
+    /**
+     * Retourne le dernier mois en cours d'un visiteur
+     *
+     * @param $idUser
+     * @return le mois sous la forme aaaamm
+     */
+    public function dernierMoisSaisi($idUser) {
+
+        return $this->createQueryBuilder('fiche_frais')
+            ->select('MAX(fiche_frais.mois) as dernierMois')
+            ->where('fiche_frais.idUser =:idUser')
+            ->setParameter('idUser', $idUser)
+            ->getQuery()->getResult();
+    }
+
+
+
 }
