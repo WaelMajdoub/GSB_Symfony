@@ -1,6 +1,8 @@
 <?php
 
 namespace GSBBundle\Repository;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * FicheFraisRepository
@@ -84,5 +86,20 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()->getSingleResult();
     }
 
+    /**
+     * Modifie l'état et la date de modification d'une fiche de frais
+     * Modifie le champ idEtat et met la date de modif à aujourd'hui
+     *
+     * @param $idUser
+     * @param $mois sous la forme aaaamm
+     */
+    public function majEtatFicheFrais($idUser, $mois, $etat) {
 
+        $fiche = $this->findOneBy(array('idUser' => $idUser,
+            'mois' => $mois));
+        $fiche->setEtat($etat);
+        $fiche->setDateModif(new \DateTime('now'));
+        $this->_em->persist($fiche);
+        $this->_em->flush();
+    }
 }
