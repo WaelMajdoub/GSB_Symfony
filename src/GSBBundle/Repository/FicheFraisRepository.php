@@ -150,5 +150,4 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
-
 }

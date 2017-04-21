@@ -10,4 +10,5 @@ namespace GSBBundle\Repository;
  */
 class LigneFraisForfaitRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
