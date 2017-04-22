@@ -2,12 +2,16 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity;
+use GSBBundle\Form;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 
 /**
  * Class PrincipalController
@@ -98,7 +102,7 @@ class PrincipalController extends Controller
     /**
      * @Route("/saisieFrais")
      */
-    public function saisieFraisAction()
+    public function saisieFraisAction(Request $request)
     {
         $mois = 200101;
 
@@ -108,8 +112,31 @@ class PrincipalController extends Controller
         $em = $this->getDoctrine()->getManager();
         $lesfraisf = $em->getRepository('GSBBundle:LigneFraisForfait')->findBy(array('mois'=>$mois,'idUser'=>1 ));
 
+        $user = $this->getUser();
+
+        $newfraishf = new Entity\LigneFraisHorsForfait();
+        $form = $this->createForm(Form\LigneFraisHorsForfaitType::class, $newfraishf);
+        $form->add('save', SubmitType::class, array('label'=>'Ajouter Frais Hors Forfait'));
+        $form->add('reset', ResetType::class, array('label'=>'Effacer'));
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $newfraishf->setLibelle($data->getLibelle());
+            $newfraishf->setMois($mois);
+            $newfraishf->setDate($data->getDate());
+            $newfraishf->setIdUser($user);
+            //$newfraishf->setIdFicheFrais(); NULL dans la BD
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($newfraishf);
+            $em->flush();
+        }
+
         return $this->render('GSBBundle:Principal:saisie_frais.html.twig', array(
-            'mois'=>$mois, 'lesfraishf'=>$lesfraishf, 'lesfraisf'=>$lesfraisf
+            'mois'=>$mois, 'lesfraishf'=>$lesfraishf, 'lesfraisf'=>$lesfraisf, 'form'=>$form->createView()
         ));
     }
 
