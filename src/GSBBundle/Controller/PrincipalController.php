@@ -104,7 +104,7 @@ class PrincipalController extends Controller
     {
         $date = date('Y') . date('m');
 
-        $mois = 200101;
+        $mois = 207801;
 
         $user = $this->getUser();
         $iduser = $user->getId();
@@ -136,7 +136,35 @@ class PrincipalController extends Controller
         if ($formff->isSubmitted() && $formff->isValid()) {
 
             $data = $formff->getData();
-            dump($data['etape']);
+
+            $etp->setQuantite($data['etape']);
+            $etp->setIdUser($user);
+            $etp->setMois($mois);
+            $etp->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'ETP')));
+
+            $km->setQuantite($data['kilometre']);
+            $km->setIdUser($user);
+            $km->setMois($mois);
+            $km->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'KM')));
+
+            $nui->setQuantite($data['hotel']);
+            $nui->setIdUser($user);
+            $nui->setMois($mois);
+            $nui->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'NUI')));
+
+            $rep->setQuantite($data['restaurant']);
+            $rep->setIdUser($user);
+            $rep->setMois($mois);
+            $rep->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'REP')));
+
+
+            // On applique les changement
+            $em->persist($etp);
+            $em->persist($km);
+            $em->persist($nui);
+            $em->persist($rep);
+            // Et on persist en DB
+            $em->flush();
 
         }
 
