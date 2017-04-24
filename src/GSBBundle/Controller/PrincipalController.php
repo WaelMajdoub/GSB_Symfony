@@ -116,4 +116,17 @@ class PrincipalController extends Controller
     }
 
 
+    /**
+     * @Route("/guigui")
+     */
+    public function guiguiAction()
+    {
+        $etatRepo = $this->getDoctrine()
+            ->getRepository('GSBBundle:Etat');
+        $etats = $etatRepo->findAll();
+
+        return $this->render('GSBBundle:Principal:guigui.html.twig', array('etats' =>$etats
+        ));
+    }
+
 }

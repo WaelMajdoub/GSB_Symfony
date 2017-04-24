@@ -1,0 +1,8 @@
+{% extends "@GSB/Default/base.html.twig" %}
+{# note : Le premier extends va hériter du template base.html.twig qui contient toutes les méta, les links etc
+          C'est un peu le Calque principal sur lequel on incruste du contenu#}
+{% block body %}
+    {{ include('@GSB/Default/head.html.twig') }}
+    {# note : Intégration de la barre de navigation horizontale de head.html.twig#}
+
+{% endblock %}
