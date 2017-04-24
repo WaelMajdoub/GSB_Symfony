@@ -7,11 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
-class LigneFraisHorsForfaitType extends AbstractType
+class LigneFraisForfaitType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -19,29 +17,40 @@ class LigneFraisHorsForfaitType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', DateType::class, array(
-                'label' => 'Date',
+            ->add('etape', IntegerType::class, array(
+                'label'=>'Forfait Etape',
+                'data'=>($options['data']['ETP']->getQuantite()!==null) ? $options['data']['ETP']->getQuantite() : 0,
                 'attr' => array(
-                    'class' => 'form-control'
+                    'class' => 'form_control'
                 ),
                 'translation_domain' => false
             ))
-            ->add('libelle', TextType::class, array(
-                'label' => 'Libelle',
+            ->add('kilometre', IntegerType::class, array(
+                'label'=>'Forfait Kilometrique',
+                'data'=>($options['data']['KM']->getQuantite()!==null) ? $options['data']['KM']->getQuantite() : 0,
                 'attr' => array(
-                    'class' => 'form-control'
+                    'class' => 'form_control'
                 ),
                 'translation_domain' => false
             ))
-            ->add('montant', IntegerType::class, array(
-                'label' => 'Montant',
+            ->add('hotel', IntegerType::class, array(
+                'label'=>'Forfait Hotel',
+                'data'=>($options['data']['NUI']->getQuantite()!==null) ? $options['data']['NUI']->getQuantite() : 0,
                 'attr' => array(
-                    'class' => 'form-control'
+                    'class' => 'form_control'
                 ),
                 'translation_domain' => false
             ))
+            ->add('restaurant', IntegerType::class, array(
+                'label'=>'Forfait Restaurant',
+                'data'=>($options['data']['REP']->getQuantite()!==null) ? $options['data']['REP']->getQuantite() : 0,
+                'attr' => array(
+                    'class' => 'form_control'
+                ),
+                'translation_domain' => false
+                ))
             ->add('ajouter', SubmitType::class, array(
-                'label' => 'Ajouter frais hors forfait',
+                'label' => 'Ajouter frais forfait',
                 'attr' => array(
                     'class' => 'btn btn-success'
                 ),
@@ -61,9 +70,6 @@ class LigneFraisHorsForfaitType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'GSBBundle\Entity\LigneFraisHorsForfait'
-        ));
     }
 
     /**
@@ -71,7 +77,7 @@ class LigneFraisHorsForfaitType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'gsbbundle_lignefraishorsforfait';
+        return 'gsbbundle_lignefraisforfait';
     }
 
 

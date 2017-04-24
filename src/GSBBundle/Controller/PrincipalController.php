@@ -10,8 +10,6 @@ use Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPas
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ResetType;
 
 /**
  * Class PrincipalController
@@ -104,25 +102,52 @@ class PrincipalController extends Controller
      */
     public function saisieFraisAction(Request $request)
     {
+        $date = date('Y') . date('m');
+
         $mois = 200101;
 
-        $em = $this->getDoctrine()->getManager();
-        $lesfraishf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('mois'=>$mois,'idUser'=>1 ));
-
-        $em = $this->getDoctrine()->getManager();
-        $lesfraisf = $em->getRepository('GSBBundle:LigneFraisForfait')->findBy(array('mois'=>$mois,'idUser'=>1 ));
-
         $user = $this->getUser();
+        $iduser = $user->getId();
 
+        $em = $this->getDoctrine()->getManager();
+        $lesfraishf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('mois'=>$mois,'idUser'=>$iduser));
+
+        $em = $this->getDoctrine()->getManager();
+
+        $etp = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois'=>$mois,
+            'idUser'=>$iduser, 'fraisForfait'=>'ETP')) ?: $lesfraisf['ETP'] = new Entity\Lignefraisforfait();
+        $km = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois'=>$mois,
+            'idUser'=>$iduser, 'fraisForfait'=>'KM')) ?: $lesfraisf['KM'] = new Entity\Lignefraisforfait();
+        $nui = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois'=>$mois,
+            'idUser'=>$iduser, 'fraisForfait'=>'NUI')) ?: $lesfraisf['NUI'] = new Entity\Lignefraisforfait();
+        $rep = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois'=>$mois,
+            'idUser'=>$iduser, 'fraisForfait'=>'REP')) ?: $lesfraisf['REP'] = new Entity\Lignefraisforfait();
+
+        $lesfraisf['ETP'] = $etp;
+        $lesfraisf['KM'] = $km;
+        $lesfraisf['NUI'] = $nui;
+        $lesfraisf['REP'] = $rep;
+
+        //Form nouveau frais forfait
+        $formff = $this->createForm(Form\LigneFraisForfaitType::class, $lesfraisf);
+
+        $formff->handleRequest($request);
+
+        if ($formff->isSubmitted() && $formff->isValid()) {
+
+            $data = $formff->getData();
+            dump($data['etape']);
+
+        }
+
+        //Form nouveau frais hors forfait
         $newfraishf = new Entity\LigneFraisHorsForfait();
-        $form = $this->createForm(Form\LigneFraisHorsForfaitType::class, $newfraishf);
-        $form->add('save', SubmitType::class, array('label'=>'Ajouter Frais Hors Forfait'));
-        $form->add('reset', ResetType::class, array('label'=>'Effacer'));
+        $formfhf = $this->createForm(Form\LigneFraisHorsForfaitType::class, $newfraishf);
 
-        $form->handleRequest($request);
+        $formfhf->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+        if ($formfhf->isSubmitted() && $formfhf->isValid()) {
+            $data = $formfhf->getData();
 
             $newfraishf->setLibelle($data->getLibelle());
             $newfraishf->setMois($mois);
@@ -130,13 +155,15 @@ class PrincipalController extends Controller
             $newfraishf->setIdUser($user);
             //$newfraishf->setIdFicheFrais(); NULL dans la BD
 
-            $em = $this->getDoctrine()->getManager();
             $em->persist($newfraishf);
             $em->flush();
         }
 
         return $this->render('GSBBundle:Principal:saisie_frais.html.twig', array(
-            'mois'=>$mois, 'lesfraishf'=>$lesfraishf, 'lesfraisf'=>$lesfraisf, 'form'=>$form->createView()
+            'mois'=>$mois,
+            'lesfraishf'=>$lesfraishf,
+            'formfhf'=>$formfhf->createView(),
+            'formff'=>$formff->createView()
         ));
     }
 

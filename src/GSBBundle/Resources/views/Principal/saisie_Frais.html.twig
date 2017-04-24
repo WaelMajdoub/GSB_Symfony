@@ -9,22 +9,38 @@
 		<h2>Renseigner ma fiche de frais du mois {{ mois |slice(4,6) }}-{{ mois |slice(0,4) }}</h2>
 		<h3>Eléments forfaitisés</h3>
 		<div class="col-md-4">
-			<form method="post" action="index.php?uc=gererFrais&action=validerMajFraisForfait" role="form">
-				<fieldset>
-                    {% for unfraisf in lesfraisf %}
-						<div class="form-group">
-							<label for="idFrais">{{ unfraisf.fraisforfait.libelle }}</label>
-							<input type="text" id="idFrais" name="{{ unfraisf.id }}" size="10" maxlength="5" value="{{ unfraisf.quantite }}" class="form-control">
-						</div>
-                    {% endfor %}
-					<button class="btn btn-success" type="submit">TODO Ajouter</button>
-					<button class="btn btn-danger" type="reset">Effacer</button>
-				</fieldset>
-			</form>
+            {{ form_start(formff) }}
+			<div class="form-group">
+                   {{ form_label(formff.etape) }}
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+                    {{ form_widget(formff.etape) }}
+				</div>
+			</div>
+			<div class="form-group">
+                {{ form_label(formff.kilometre) }}
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+                    {{ form_widget(formff.kilometre) }}
+				</div>
+			</div>
+			<div class="form-group">
+                {{ form_label(formff.hotel) }}
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+                    {{ form_widget(formff.hotel) }}
+				</div>
+			</div>
+			<div class="form-group">
+                {{ form_label(formff.restaurant) }}
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+                    {{ form_widget(formff.restaurant) }}
+				</div>
+			</div>
+			{{ form_end(formff) }}
 		</div>
 	</div>
-
-	<hr>
 	<div class="row">
 		<div class="panel panel-info">
 			<div class="panel-heading">Descriptif des éléments hors forfait</div>
@@ -53,43 +69,28 @@
 	</div>
 	<div class="row">
 		<h3>Nouvel élément hors forfait</h3>
-
-
-
 		<div class="col-md-4">
-
-            {{ form_start(form) }}
-
-			<!-- <form action="index.php?uc=gererFrais&action=validerCreationFrais" method="post" role="form"> -->
-				<div class="form-group">
-					<!-- <label for="txtDateHF">Date (jj/mm/aaaa): </label> -->
-                    {{ form_label(form.date) }}
-					<div class="input-group">
-						<!-- <input type="text" id="txtDateHF" name="dateFrais" class="form-control" id="text"> -->
-						{{ form_widget(form.date) }}
-					</div>
+            {{ form_start(formfhf) }}
+			<div class="form-group">
+                {{ form_label(formfhf.date) }}
+				<div class="input-group">
+					{{ form_widget(formfhf.date) }}
 				</div>
-				<div class="form-group">
-					<!-- <label for="txtLibelleHF">Libellé</label> -->
-                    {{ form_label(form.libelle) }}
-					<div class="input-group">
-						<!-- <input type="text" id="txtLibelleHF" name="libelle" class="form-control" id="text"> -->
-                    	{{ form_widget(form.libelle) }}
-					</div>
+			</div>
+			<div class="form-group">
+                {{ form_label(formfhf.libelle) }}
+				<div class="input-group">
+                   	{{ form_widget(formfhf.libelle) }}
 				</div>
-				<div class="form-group">
-					<!-- <label for="txtMontantHF">Montant : </label> -->
-                    {{ form_label(form.montant) }}
-					<div class="input-group">
-						<!-- <span class="input-group-addon">€</span> -->
-						<!-- <input type="text" id="txtMontantHF" name="montant" class="form-control" value=""> -->
-                        {{ form_widget(form.montant) }}
-					</div>
+			</div>
+			<div class="form-group">
+                {{ form_label(formfhf.montant) }}
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+                    {{ form_widget(formfhf.montant) }}
 				</div>
-				<!-- <button class="btn btn-success" type="submit">TODO Ajouter</button> -->
-				<!-- <button class="btn btn-danger" type="reset">Effacer</button> -->
-                {{ form_end(form) }}
-			<!-- </form> -->
+			</div>
+            {{ form_end(formfhf) }}
 		</div>
 	</div>
 {% endblock %}
