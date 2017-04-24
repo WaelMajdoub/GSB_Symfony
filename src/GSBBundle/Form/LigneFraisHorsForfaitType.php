@@ -35,6 +35,7 @@ class LigneFraisHorsForfaitType extends AbstractType
             ))
             ->add('montant', IntegerType::class, array(
                 'label' => 'Montant',
+                'data'=>0,
                 'attr' => array(
                     'class' => 'form-control'
                 ),
@@ -61,9 +62,6 @@ class LigneFraisHorsForfaitType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'GSBBundle\Entity\LigneFraisHorsForfait'
-        ));
     }
 
     /**

@@ -5,68 +5,76 @@
 
 {% block body %}
     {{ include('@GSB/Default/head.html.twig') }}
+
 	<div class="row">
 		<h2>Renseigner ma fiche de frais du mois {{ mois |slice(4,6) }}-{{ mois |slice(0,4) }}</h2>
 		<h3>Eléments forfaitisés</h3>
 		<div class="col-md-4">
             {{ form_start(formff) }}
 			<div class="form-group">
-                   {{ form_label(formff.etape) }}
+                {{ form_label(formff.etape) }}
 				<div class="input-group">
-					<span class="input-group-addon">€</span>
+					<span class="input-group-addon">Nb</span>
                     {{ form_widget(formff.etape) }}
 				</div>
 			</div>
 			<div class="form-group">
                 {{ form_label(formff.kilometre) }}
 				<div class="input-group">
-					<span class="input-group-addon">€</span>
+					<span class="input-group-addon">Nb</span>
                     {{ form_widget(formff.kilometre) }}
 				</div>
 			</div>
 			<div class="form-group">
                 {{ form_label(formff.hotel) }}
 				<div class="input-group">
-					<span class="input-group-addon">€</span>
+					<span class="input-group-addon">Nb</span>
                     {{ form_widget(formff.hotel) }}
 				</div>
 			</div>
 			<div class="form-group">
                 {{ form_label(formff.restaurant) }}
 				<div class="input-group">
-					<span class="input-group-addon">€</span>
+					<span class="input-group-addon">Nb</span>
                     {{ form_widget(formff.restaurant) }}
 				</div>
 			</div>
-			{{ form_end(formff) }}
+
+
+            {{ form_end(formff) }}
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="panel panel-info">
 			<div class="panel-heading">Descriptif des éléments hors forfait</div>
 			<table class="table table-bordered table-responsive">
 				<thead>
-					<tr>
-						<th class="date">Date</th>
-						<th class="libelle">Libellé</th>
-						<th class="montant">Montant</th>
-						<th class="action">&nbsp;</th>
-					</tr>
+				<tr>
+					<th class="date">Date</th>
+					<th class="libelle">Libellé</th>
+					<th class="montant">Montant</th>
+					<th class="action">&nbsp;</th>
+				</tr>
 				</thead>
 				<tbody>
-					{% for unfraishf in lesfraishf %}
-						<tr>
-							<td>{{ unfraishf.mois |slice(4,6) }}-{{ unfraishf.mois |slice(0,4) }}</td>
-							<td>{{ unfraishf.libelle }}</td>
-							<td>{{ unfraishf.montant }}</td>
-							<td><a href="" onclick="return confirm('TODO supprimer ce frais?');"> TODO Supprimer ce frais</a></td>
-							<!-- { path('deletefhf', { 'id': unfraishf.id }) }} -->
-						</tr>
-					{% endfor %}
+                {% for unfraishf in lesfraishf %}
+					<tr>
+						<td>{{ unfraishf.mois |slice(4,6) }}-{{ unfraishf.mois |slice(0,4) }}</td>
+						<td>{{ unfraishf.libelle }}</td>
+						<td>{{ unfraishf.montant }}</td>
+						<td>
+							<a href="{{ path('deleteLigneHorsForfait', {'id': unfraishf.id}) }}" onclick="return confirm('Supprimer ce frais?');">
+								TODO Supprimer ce frais
+							</a>
+						</td>
+					</tr>
+                {% endfor %}
 				</tbody>
 			</table>
 		</div>
 	</div>
+
 	<div class="row">
 		<h3>Nouvel élément hors forfait</h3>
 		<div class="col-md-4">
@@ -74,13 +82,15 @@
 			<div class="form-group">
                 {{ form_label(formfhf.date) }}
 				<div class="input-group">
-					{{ form_widget(formfhf.date) }}
+					<span class="input-group-addon glyphicon glyphicon-th"></span>
+                    {{ form_widget(formfhf.date) }}
 				</div>
 			</div>
 			<div class="form-group">
                 {{ form_label(formfhf.libelle) }}
 				<div class="input-group">
-                   	{{ form_widget(formfhf.libelle) }}
+					<span class="input-group-addon">L</span>
+                    {{ form_widget(formfhf.libelle) }}
 				</div>
 			</div>
 			<div class="form-group">

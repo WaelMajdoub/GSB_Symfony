@@ -104,7 +104,7 @@ class PrincipalController extends Controller
     {
         $date = date('Y') . date('m');
 
-        $mois = 207801;
+        $mois = 200101;
 
         $user = $this->getUser();
         $iduser = $user->getId();
@@ -158,12 +158,11 @@ class PrincipalController extends Controller
             $rep->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'REP')));
 
 
-            // On applique les changement
             $em->persist($etp);
             $em->persist($km);
             $em->persist($nui);
             $em->persist($rep);
-            // Et on persist en DB
+
             $em->flush();
 
         }
@@ -195,5 +194,18 @@ class PrincipalController extends Controller
         ));
     }
 
+    /**
+     * @Route("/deleteHorsForfait/{id}", name="deleteLigneHorsForfait", requirements={"id": "\d+"})
+     */
+    public function deleteLigneHorsForfaitAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $lefraishf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('id'=>$id));
+
+        $em->remove($lefraishf[0]);
+        $em->flush();
+
+        return $this->redirectToRoute('');
+    }
 
 }
