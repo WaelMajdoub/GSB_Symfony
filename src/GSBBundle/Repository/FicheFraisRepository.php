@@ -1,6 +1,9 @@
 <?php
 
 namespace GSBBundle\Repository;
+use GSBBundle\Entity\FicheFrais;
+use GSBBundle\Entity\LigneFraisForfait;
+use GSBBundle\GSBBundle;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -126,6 +129,36 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('idUser', $idUser)
             ->getQuery()->getResult();
     }
+
+    /**
+     * Crée une nouvelle fiche de frais et les lignes de frais au forfait pour un visiteur et un mois donnés
+     *
+     * récupère le dernier mois en cours de traitement, met à 'CL' son champs idEtat, crée une nouvelle fiche de frais
+     * avec un idEtat à 'CR' et crée les lignes de frais forfait de quantités nulles
+     * @param $idUser
+     * @param $mois
+     */
+    public function creerNouvellesLignesFrais($idUser, $mois){
+        $dernierMois = $this->dernierMoisSaisi($idUser);
+        $laDerniereFiche = $this->getLesInfosFicheFrais($idUser, $dernierMois);
+        if($laDerniereFiche->getEtat()->getId() == 'RB') $this->majEtatFicheFrais($idUser, $dernierMois, 'CL');
+        $newFiche = new FicheFrais();
+        $newFiche->setVisiteur($idUser);
+        $newFiche->setMois($mois);
+        $newFiche->setNbJustificatifs(0);
+        $newFiche->setMontantValide(0);
+        $newFiche->setIdEtat('CR');
+
+        $repository = $this->getDoctrine()
+            ->getRepository('GSBBundle:FraisForfait');
+        $lesIdFrais = $repository->getLesIdFrais();
+
+        //TODO pour chaque ID FRAIS
+        // On ajoute une nouvelle LignesFraisForfait en DB
+
+    }
+
+
 
 
 }

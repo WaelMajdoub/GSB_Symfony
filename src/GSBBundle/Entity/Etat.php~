@@ -19,7 +19,12 @@ class Etat
      */
     private $libelle;
 
-    
+    /**
+     * @var Fichefrais
+     *
+     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\FicheFrais", mappedBy="idEtat")
+     */
+    private $fichefrais;
 
     /**
      * Get id

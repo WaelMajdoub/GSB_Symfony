@@ -37,10 +37,10 @@ class FicheFrais
     private $dateModif;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Etat")
+     * @ORM\ManyToOne(targetEntity="Etat", inversedBy="ficheFrais")
      * @ORM\JoinColumn(name="idEtat", referencedColumnName="id")
      */
-    private $etat;
+    private $idEtat;
 
     /**
      * @var User
@@ -316,5 +316,29 @@ class FicheFrais
     public function getLigneFraisHorsForfait()
     {
         return $this->ligneFraisHorsForfait;
+    }
+
+    /**
+     * Set idEtat
+     *
+     * @param \GSBBundle\Entity\Etat $idEtat
+     *
+     * @return FicheFrais
+     */
+    public function setIdEtat(\GSBBundle\Entity\Etat $idEtat = null)
+    {
+        $this->idEtat = $idEtat;
+
+        return $this;
+    }
+
+    /**
+     * Get idEtat
+     *
+     * @return \GSBBundle\Entity\Etat
+     */
+    public function getIdEtat()
+    {
+        return $this->idEtat;
     }
 }

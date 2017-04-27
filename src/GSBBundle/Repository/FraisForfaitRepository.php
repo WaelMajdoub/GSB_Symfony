@@ -10,4 +10,28 @@ namespace GSBBundle\Repository;
  */
 class FraisForfaitRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    /**
+     * Retourne tous les id de la table FraisForfait
+     * @return array
+     */
+    public function getLesIdFrais(){
+        return $this->createQueryBuilder('ff')
+                    ->addSelect('ff.id')
+                    ->addOrderBy('ff.id')
+                    ->getQuery()->getArrayResult();
+    }
+
+    /**
+     * Met à jour la table ligneFraisForfait
+     * Met à jour la table ligneFraisForfait pour un visiteur et
+     * un mois donné en enregistrant les nouveaux montants
+     * @param $idUser
+     * @param $mois
+     * @param $lesFrais
+     */
+    public function majFraisForfait($idUser, $mois, $lesFrais){
+
+        //TODO foreach frais in lesfrais on set les nouveaux
+    }
 }

@@ -155,4 +155,28 @@ class LigneFraisForfait
     {
         return $this->idUser;
     }
+
+    /**
+     * Set idFicheFrais
+     *
+     * @param \GSBBundle\Entity\FicheFrais $idFicheFrais
+     *
+     * @return LigneFraisForfait
+     */
+    public function setIdFicheFrais(\GSBBundle\Entity\FicheFrais $idFicheFrais = null)
+    {
+        $this->idFicheFrais = $idFicheFrais;
+
+        return $this;
+    }
+
+    /**
+     * Get idFicheFrais
+     *
+     * @return \GSBBundle\Entity\FicheFrais
+     */
+    public function getIdFicheFrais()
+    {
+        return $this->idFicheFrais;
+    }
 }

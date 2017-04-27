@@ -31,9 +31,10 @@ class DefaultController extends Controller
 
 
         $em3 = $this->getDoctrine()->getManager();
-        $nbJustificatif = $em3->getRepository('GSBBundle:FicheFrais')->getNbjustificatifs($user->getId(), 200101);
+        $nbJustificatif = $em3->getRepository('GSBBundle:FicheFrais')->findAll();
 
 
+        dump($nbJustificatif);
         return $this->render('@User/test.html.twig', array(
             'infosUser' => $infosUser,
             'leslignesfraishorsforfait' => $infolignesfraishorsforfait,
