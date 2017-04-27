@@ -46,8 +46,7 @@ class DefaultController extends Controller
             'estPremierFraisMois' => $estPremierFraisMois,
             'infosFicheFrais' => $infosFicheFrais, //TODO : No result was found for query although at least one row was expected.
             'moisDisponibles' => $moisDisponibles, //TODO : No result was found for query although at least one row was expected.
-            'nbJustificatifs' => $nbJustificatifs,
-            'majEtatFicheFrais' => $majEtatFicheFrais
+            'nbJustificatifs' => $nbJustificatifs
           ));
 
     }
