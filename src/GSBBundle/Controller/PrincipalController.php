@@ -4,12 +4,14 @@ namespace GSBBundle\Controller;
 use GSBBundle\Entity;
 use GSBBundle\Form;
 
+use GSBBundle\GSBBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class PrincipalController
@@ -80,6 +82,9 @@ class PrincipalController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $meh = $em->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, '200109');
+
+
+
 
         return $this->render('@GSB/Principal/etat_frais.html.twig', array(
             'anneesMois' => $anneesMois,
@@ -217,6 +222,44 @@ class PrincipalController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('');
+    }
+
+
+    /**
+     * @Route("/etatFrais/select", name="etatFraisMoisSelectionne", options={"expose"=true})
+     * @param Request $request
+     * @return JsonResponse|Response
+     */
+    public function selectMoisAction(Request $request)
+    {
+        if (!$request->isXmlHttpRequest()) {
+            return new JsonResponse(array('message' => 'Use only ajax please!'), 400);
+        }
+
+        $idUser = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+        $anneesMois = $em->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles($idUser);
+
+
+        $em = $this->getDoctrine()->getManager();
+        $meh = $em->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, '200109');
+
+
+        $lanneemoi = $request->get($anneesMois);
+
+        $response = new JsonResponse(
+            array(
+                'message' => 'Error',
+                'form' => $this->renderView('@GSB/Principal/etat_frais.html.twig',
+                    array(
+                        'anneesMois' => $anneesMois,
+                        'meh' => $meh,
+                        'lanneemoi' =>  $lanneemoi
+                    ))), 400);
+
+
+    return $response;
+
     }
 
 }
