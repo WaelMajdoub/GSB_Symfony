@@ -2,11 +2,14 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity;
+use GSBBundle\Form;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class PrincipalController
@@ -108,12 +111,112 @@ class PrincipalController extends Controller
     /**
      * @Route("/saisieFrais")
      */
-    public function saisieFraisAction()
+    public function saisieFraisAction(Request $request)
     {
+        $date = date('Y') . date('m');
+
+        $mois = 200101;
+
+        $user = $this->getUser();
+        $iduser = $user->getId();
+
+        $em = $this->getDoctrine()->getManager();
+        $lesfraishf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('mois'=>$mois,'idUser'=>$iduser));
+
+        $em = $this->getDoctrine()->getManager();
+
+        $etp = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois'=>$mois,
+            'idUser'=>$iduser, 'fraisForfait'=>'ETP')) ?: $lesfraisf['ETP'] = new Entity\Lignefraisforfait();
+        $km = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois'=>$mois,
+            'idUser'=>$iduser, 'fraisForfait'=>'KM')) ?: $lesfraisf['KM'] = new Entity\Lignefraisforfait();
+        $nui = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois'=>$mois,
+            'idUser'=>$iduser, 'fraisForfait'=>'NUI')) ?: $lesfraisf['NUI'] = new Entity\Lignefraisforfait();
+        $rep = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois'=>$mois,
+            'idUser'=>$iduser, 'fraisForfait'=>'REP')) ?: $lesfraisf['REP'] = new Entity\Lignefraisforfait();
+
+        $lesfraisf['ETP'] = $etp;
+        $lesfraisf['KM'] = $km;
+        $lesfraisf['NUI'] = $nui;
+        $lesfraisf['REP'] = $rep;
+
+        //Form nouveau frais forfait
+        $formff = $this->createForm(Form\LigneFraisForfaitType::class, $lesfraisf);
+
+        $formff->handleRequest($request);
+
+        if ($formff->isSubmitted() && $formff->isValid()) {
+
+            $data = $formff->getData();
+
+            $etp->setQuantite($data['etape']);
+            $etp->setIdUser($user);
+            $etp->setMois($mois);
+            $etp->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'ETP')));
+
+            $km->setQuantite($data['kilometre']);
+            $km->setIdUser($user);
+            $km->setMois($mois);
+            $km->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'KM')));
+
+            $nui->setQuantite($data['hotel']);
+            $nui->setIdUser($user);
+            $nui->setMois($mois);
+            $nui->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'NUI')));
+
+            $rep->setQuantite($data['restaurant']);
+            $rep->setIdUser($user);
+            $rep->setMois($mois);
+            $rep->setFraisForfait($em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id'=>'REP')));
+
+
+            $em->persist($etp);
+            $em->persist($km);
+            $em->persist($nui);
+            $em->persist($rep);
+
+            $em->flush();
+
+        }
+
+        //Form nouveau frais hors forfait
+        $newfraishf = new Entity\LigneFraisHorsForfait();
+        $formfhf = $this->createForm(Form\LigneFraisHorsForfaitType::class, $newfraishf);
+
+        $formfhf->handleRequest($request);
+
+        if ($formfhf->isSubmitted() && $formfhf->isValid()) {
+            $data = $formfhf->getData();
+
+            $newfraishf->setLibelle($data->getLibelle());
+            $newfraishf->setMois($mois);
+            $newfraishf->setDate($data->getDate());
+            $newfraishf->setIdUser($user);
+            //$newfraishf->setIdFicheFrais(); NULL dans la BD
+
+            $em->persist($newfraishf);
+            $em->flush();
+        }
+
         return $this->render('GSBBundle:Principal:saisie_frais.html.twig', array(
-            // ...
+            'mois'=>$mois,
+            'lesfraishf'=>$lesfraishf,
+            'formfhf'=>$formfhf->createView(),
+            'formff'=>$formff->createView()
         ));
     }
 
+    /**
+     * @Route("/deleteHorsForfait/{id}", name="deleteLigneHorsForfait", requirements={"id": "\d+"})
+     */
+    public function deleteLigneHorsForfaitAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $lefraishf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('id'=>$id));
+
+        $em->remove($lefraishf[0]);
+        $em->flush();
+
+        return $this->redirectToRoute('');
+    }
 
 }
