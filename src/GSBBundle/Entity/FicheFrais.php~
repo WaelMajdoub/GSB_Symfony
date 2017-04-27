@@ -171,30 +171,6 @@ class FicheFrais
     }
 
     /**
-     * Set etat
-     *
-     * @param \GSBBundle\Entity\Etat $etat
-     *
-     * @return FicheFrais
-     */
-    public function setEtat(\GSBBundle\Entity\Etat $etat = null)
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
-
-    /**
-     * Get etat
-     *
-     * @return \GSBBundle\Entity\Etat
-     */
-    public function getEtat()
-    {
-        return $this->etat;
-    }
-
-    /**
      * Set visiteur
      *
      * @param \UserBundle\Entity\User $visiteur

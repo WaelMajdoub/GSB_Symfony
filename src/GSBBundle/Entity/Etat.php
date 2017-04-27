@@ -20,11 +20,11 @@ class Etat
     private $libelle;
 
     /**
-     * @var Fichefrais
+     * @var ficheFrais
      *
      * @ORM\OneToMany(targetEntity="GSBBundle\Entity\FicheFrais", mappedBy="idEtat")
      */
-    private $fichefrais;
+    private $ficheFrais;
 
     /**
      * Get id
@@ -91,13 +91,15 @@ class Etat
         $this->fichefrais->removeElement($fichefrai);
     }
 
+
+
     /**
-     * Get fichefrais
+     * Get ficheFrais
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFichefrais()
+    public function getFicheFrais()
     {
-        return $this->fichefrais;
+        return $this->ficheFrais;
     }
 }

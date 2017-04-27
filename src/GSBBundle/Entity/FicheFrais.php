@@ -37,7 +37,8 @@ class FicheFrais
     private $dateModif;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Etat", inversedBy="ficheFrais")
+     * @var Etat
+     * @ORM\ManyToOne(targetEntity="Etat", inversedBy="ficheFrais", fetch="EAGER")
      * @ORM\JoinColumn(name="idEtat", referencedColumnName="id")
      */
     private $idEtat;
@@ -53,7 +54,7 @@ class FicheFrais
 
     /**
      * @var LigneFraisForfait
-     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\LigneFraisForfait", mappedBy="idFicheFrais")
+     * @ORM\OneToOne(targetEntity="GSBBundle\Entity\LigneFraisForfait", mappedBy="idFicheFrais")
      */
     private $ligneFraisForfait;
 
@@ -168,30 +169,6 @@ class FicheFrais
     public function getDateModif()
     {
         return $this->dateModif;
-    }
-
-    /**
-     * Set etat
-     *
-     * @param \GSBBundle\Entity\Etat $etat
-     *
-     * @return FicheFrais
-     */
-    public function setEtat(\GSBBundle\Entity\Etat $etat = null)
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
-
-    /**
-     * Get etat
-     *
-     * @return \GSBBundle\Entity\Etat
-     */
-    public function getEtat()
-    {
-        return $this->etat;
     }
 
     /**

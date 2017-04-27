@@ -69,29 +69,6 @@ class PrincipalController extends Controller
         ));
     }
 
-    /**
-     * @Route("/etatFrais")
-     */
-    public function etatFraisAction()
-    {
-
-        $idUser = $this->getUser()->getId();
-        $em = $this->getDoctrine()->getManager();
-        $anneesMois = $em->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles($idUser);
-
-
-        $em = $this->getDoctrine()->getManager();
-        $meh = $em->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, '200109');
-
-
-
-
-        return $this->render('@GSB/Principal/etat_frais.html.twig', array(
-            'anneesMois' => $anneesMois,
-            'meh' => $meh,
-            // ...
-        ));
-    }
 
     /**
      * @Route("/validFrais")

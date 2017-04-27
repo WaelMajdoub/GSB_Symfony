@@ -23,15 +23,13 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
      * @return le nombre entier de justificatifs
      */
     public function getNbjustificatifs($idUser, $mois) {
-
-
         return $this->createQueryBuilder('ff')
-                    ->addSelect('ff.nbJustificatifs')
+                    ->addSelect('')
                     ->where('ff.idUser = :idUser')
                     ->andWhere('ff.mois = :mois')
                     ->setParameter('idUser', $idUser)
                     ->setParameter('mois', $mois)
-                    ->getQuery()->getOneOrNullResult();
+                    ->getQuery()->getSingleResult();
     }
 
 
@@ -57,11 +55,11 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
      * @return mixed
      */
     public function getLesInfosFicheFrais($idUser, $mois){
-        return $this->createQueryBuilder('fiche_frais')
-            ->select('fiche_frais.dateModif', 'fiche_frais.nbJustificatifs', 'fiche_frais.montantValide', 'etat.libelle')
-            ->innerJoin('fiche_frais.idEtat', 'etat')
-            ->where('fiche_frais.idUser = :idUser')
-            ->andWhere('fiche_frais.mois = :unMois')
+        return $this->createQueryBuilder('ff')
+            ->select('')
+            ->innerJoin('ff.idEtat', 'e')
+            ->where('ff.idUser = :idUser')
+            ->andWhere('ff.mois = :unMois')
             ->setParameter('idUser', $idUser)
             ->setParameter('unMois', $mois)
             ->getQuery()->getSingleResult();
