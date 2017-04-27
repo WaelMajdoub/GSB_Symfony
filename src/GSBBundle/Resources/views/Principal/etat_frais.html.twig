@@ -3,4 +3,14 @@
     {{ include('@GSB/Default/head.html.twig') }}
     {{ include('@GSB/Principal/Visiteur/listemois.html.twig') }}
 
+    <hr>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Fiche de frais du mois : </div>
+        <div class="panel-body">
+            <strong><u>Etat :</u></strong> <?php echo $libEtat ?> depuis le <?php echo $dateModif ?> <br>
+            <strong><u>Montant validé :</u></strong> <?php echo $montantValide ?>
+        </div>
+    </div>
+
+
 {% endblock %}

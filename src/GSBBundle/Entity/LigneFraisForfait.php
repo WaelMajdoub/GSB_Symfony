@@ -32,7 +32,7 @@ class LigneFraisForfait
      * @ORM\JoinColumn(name="idFraisForfait", referencedColumnName="id")
      *
      */
-    private $fraisForfait;
+    private $idFraisForfait;
 
     /**
      * @var User

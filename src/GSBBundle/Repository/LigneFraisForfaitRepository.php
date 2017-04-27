@@ -11,4 +11,22 @@ namespace GSBBundle\Repository;
 class LigneFraisForfaitRepository extends \Doctrine\ORM\EntityRepository
 {
 
+    /**
+     * Retourne sous forme d'un tableau associatif toutes les lignes de frais au forfait
+     * concernées par les deux arguments
+     * @param $idUser
+     * @param $mois
+     * @return mixed
+     */
+    public function getLesFraisForfait($idUser, $mois){
+
+        return $this->createQueryBuilder('lff')
+            ->select('lff')
+            ->where('lff.idUser = :idUser')
+            ->andWhere('lff.mois = :mois')
+            ->join('lff.idFraisForfait', 'LignesFraisHorsForfait')
+            ->setParameter('idUser', $idUser)
+            ->setParameter('mois', $mois)
+            ->getQuery()->getArrayResult();
+    }
 }

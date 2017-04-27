@@ -34,4 +34,6 @@ class FraisForfaitRepository extends \Doctrine\ORM\EntityRepository
 
         //TODO foreach frais in lesfrais on set les nouveaux
     }
+
+
 }
