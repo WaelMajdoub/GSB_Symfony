@@ -21,24 +21,34 @@ class DefaultController extends Controller
      */
     public function testAction(){
 
+
         $user = $this->getUser();
 
-        $em1 = $this->getDoctrine()->getManager();
-        $infosUser = $em1->getRepository('UserBundle:User')->getInfosVisiteurs($user->getUsername(), $user->getPassword());
 
         $em2 = $this->getDoctrine()->getManager();
-        $infolignesfraishorsforfait = $em2->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($user, 200101);
+        $FicheFraisFindAll = $em2->getRepository('GSBBundle:FicheFrais')->findAll();
+        $FicheFraisFindId1 = $em2->getRepository('GSBBundle:FicheFrais')->find(1);
+        //$creerLigneFrais106 = $em2->getRepository('GSBBundle:FicheFrais')->creerNouvellesLignesFrais(1, 06);
+        $dernierMoisSaisi = $em2->getRepository('GSBBundle:FicheFrais')->dernierMoisSaisi(27);
+        $estPremierFraisMois = $em2->getRepository('GSBBundle:FicheFrais')->estPremierFraisMois(27, 201604);
+        $infosFicheFrais = $em2->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais(27, 201604);
+        $moisDisponibles = $em2->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles(27);
+        $nbJustificatifs = $em2->getRepository('GSBBundle:FicheFrais')->getNbjustificatifs(27, 201604);
 
 
-        $em3 = $this->getDoctrine()->getManager();
-        $nbJustificatif = $em3->getRepository('GSBBundle:FicheFrais')->findAll();
 
 
-        dump($nbJustificatif);
         return $this->render('@User/test.html.twig', array(
-            'infosUser' => $infosUser,
-            'leslignesfraishorsforfait' => $infolignesfraishorsforfait,
-            'nbJustificatif' => $nbJustificatif));
+            'FicheFraisFindAll' => $FicheFraisFindAll,
+            'FicheFraisFindId1' => $FicheFraisFindId1,
+            // 'creerLigneFrais106' => $creerLigneFrais106      GetEtat dans creerNouvellesLignesFrais impossible dans l'array
+            'dernierMoisSaisi' => $dernierMoisSaisi, //TODO : vérifier l'id du visiteur car il ne semble pas correspondre à celui passé en param
+            'estPremierFraisMois' => $estPremierFraisMois,
+            'infosFicheFrais' => $infosFicheFrais, //TODO : No result was found for query although at least one row was expected.
+            'moisDisponibles' => $moisDisponibles, //TODO : No result was found for query although at least one row was expected.
+            'nbJustificatifs' => $nbJustificatifs,
+            'majEtatFicheFrais' => $majEtatFicheFrais
+          ));
 
     }
 }
