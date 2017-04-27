@@ -23,14 +23,21 @@ class DefaultController extends Controller
 
         $user = $this->getUser();
 
-        $em = $this->getDoctrine()->getManager();
-        $infosUser = $em->getRepository('UserBundle:User')->getInfosVisiteurs($user->getUsername(), $user->getPassword());
+        $em1 = $this->getDoctrine()->getManager();
+        $infosUser = $em1->getRepository('UserBundle:User')->getInfosVisiteurs($user->getUsername(), $user->getPassword());
 
-        $em = $this->getDoctrine()->getManager();
-        $infolignesfraishorsforfait = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($user, 200101);
+        $em2 = $this->getDoctrine()->getManager();
+        $infolignesfraishorsforfait = $em2->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($user, 200101);
+
+
+        $em3 = $this->getDoctrine()->getManager();
+        $nbJustificatif = $em3->getRepository('GSBBundle:FicheFrais')->getNbjustificatifs($user->getId(), 200101);
+
 
         return $this->render('@User/test.html.twig', array(
             'infosUser' => $infosUser,
-            'leslignesfraishorsforfait' => $infolignesfraishorsforfait));
+            'leslignesfraishorsforfait' => $infolignesfraishorsforfait,
+            'nbJustificatif' => $nbJustificatif));
+
     }
 }
