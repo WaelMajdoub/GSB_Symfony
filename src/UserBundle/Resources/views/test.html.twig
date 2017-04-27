@@ -1,0 +1,55 @@
+
+{#
+<span>Fonction FindAll() de l'Entity FicheFrais :</span><br>
+{{ dump(FicheFraisFindAll) }}
+<br><br>
+#}
+
+{#
+<span>Fonction FindId(1) de l'Entity FicheFrais :</span><br>
+{{  dump(FicheFraisFindId1) }}
+<br><br>
+#}
+
+{#
+<span>Fonction creerNouvellesLignesFrais(1, 06) de l'Entity FicheFrais (où 1 est l'id et 06 le mois) :</span><br>
+{{ dump(creerLigneFrais106) }}
+<br><br>
+#}
+
+{# TODO : vérifier l'id du visiteur car il ne semble pas correspondre à celui passé en param
+<span>Fonction DernierMoisSaisi($user) de l'Entity FicheFrais (où $user est l'utilisateur courant) :</span><br>
+{{  dump(dernierMoisSaisi) }}
+<br><br>
+#}
+
+{#
+<span>Fonction estPremierFraisMois(2, 06) de l'Entity FicheFrais (où 27 est l'idUser et 201604 le mois) :</span>
+{{ dump(estPremierFraisMois) }}
+<br><br>
+#}
+
+{#
+<span>Fonction getLesInfosFicheFrais(2, 06) de l'Entity FicheFrais (où 27 est l'idUser et 201604 le mois) :</span>
+{{ dump(infosFicheFrais) }}
+<br><br>
+#}
+
+{# //TODO : No result was found for query although at least one row was expected.
+<span>getMoisDisponibles(27) de l'Entity FicheFrais (où 27 est l'idUser)</span>
+{{ dump(moisDisponibles) }}
+<br><br>
+#}
+
+{#
+<span>Fonction getNbJustificatifs(27, 201604) de l'Entity FicheFrais (où 2 est l'idUser et 201604 le mois)</span>
+{{ dump(nbJustificatifs) }}
+<br><br>
+#}
+
+{# TODO : Catchable Fatal Error: Argument 1 passed to GSBBundle\Entity\FicheFrais::setEtat() must be an instance of GSBBundle\Entity\Etat, string given
+<span>Fonction majEtatFicheFrais(27, 201604) de l'Entity FicheFrais (où 27 est l'idUser et 201604 le mois) :</span>
+{{ dump(majEtatFicheFrais) }}
+<br><br>
+#}
+
