@@ -78,7 +78,7 @@ class PrincipalController extends Controller
         $em = $this->getDoctrine()->getManager();
         $meh = $em->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, '200109');
 
-        return $this->render('GSBBundle:Principal:etat_frais.html.twig', array(
+        return $this->render('@GSB/Principal/etat_frais.html.twig', array(
             'anneesMois' => $anneesMois,
             'meh' => $meh,
             // ...
