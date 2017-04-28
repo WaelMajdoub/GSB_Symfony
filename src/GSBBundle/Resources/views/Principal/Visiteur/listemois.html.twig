@@ -9,7 +9,7 @@
                 <label for="lstMois" accesskey="n">Mois : </label>
                 <select id="lstMois" name="lstMois" class="form-control">
                     {% for a  in anneesMois  %}
-                        <option value={{ a.mois }}> {{ a.mois |slice(0,4) }}/{{ a.mois |slice(4,6) }}</option>
+                        <option value={{ a }}> {{ a |slice(0,4) }}/{{ a |slice(4,6) }}</option>
                     {% endfor %}
                 </select>
             </div>

@@ -5,6 +5,8 @@
 
     <hr>
     <div class="panel panel-primary">
+        <!--This is a comment. Comments are not displayed in the browser-->
+
         <div class="panel-heading">Fiche de frais du mois : {{ ficheFrais.mois |slice(4,6)}}-{{ ficheFrais.mois |slice(0,4) }} </div>
         <div class="panel-body">
             <strong><u>Etat :</u></strong> {{ ficheFrais.idEtat.libelle }} depuis le {{ ficheFrais.dateModif|date("d/m/Y") }} <br>

@@ -16,23 +16,26 @@ class VisiteurController extends Controller
     /**
      * @Route("/etatFrais")
      */
-    public function etatFraisAction()
+    public function etatFraisAction(Request $request)
     {
-
         $idUser = $this->getUser()->getId();
+        $dateTimeMoisDisponible = [];
         $em = $this->getDoctrine()->getManager();
         $anneesMois = $em->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles($idUser);
-        $lesLignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')->getLesFraisForfait($idUser, '200108');
+        $lesLignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($idUser, '200109');
+        $nbJustificatifs = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getNbjustificatifs($idUser, '200109');
+        $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, '200109');
+        $lesLignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')->getLesFraisForfait($idUser, '200109');
+
         $lesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:FraisForfait')->findAll();
-        $lesLignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($idUser, '200108');
 
-        $nbJustificatifs = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getNbjustificatifs($idUser, '200108');
+        foreach ($anneesMois as $mois) {
+            array_push($dateTimeMoisDisponible, $mois['mois']);
+        }
 
-
-        /*
         $formMois = $this->createFormBuilder()
             ->add('date', ChoiceType::class, array(
-                'choices' => $anneesMois,
+                'choices' => $dateTimeMoisDisponible,
                 'required' => true,
                 'label' => 'Date : ',
                 'attr' => array(
@@ -53,26 +56,31 @@ class VisiteurController extends Controller
                     'translation_domain' => false
                 ))
             ->getForm();
-*/
-
-        
-        // Recupération de la ficheFrais
-        $em = $this->getDoctrine()->getManager();
-        $ficheFrais = $em->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, '200108');
 
 
+        $formMois->handleRequest($request);
 
-        // Recuperation des éléments forfaitisés
+        if ($formMois->isSubmitted()) {
+            if ($formMois->isValid()) {
+                $moiSelected = $formMois->getData()['mois'];
+
+
+        $lesLignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($idUser, $moiSelected);
+        $nbJustificatifs = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getNbjustificatifs($idUser, $moiSelected);
+        $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, $moiSelected);
+        $lesLignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')->getLesFraisForfait($idUser, $moiSelected);
+
+        }}
 
 
         return $this->render('@GSB/Principal/etat_frais.html.twig', array(
-            'anneesMois' => $anneesMois,
+            'anneesMois' => $dateTimeMoisDisponible,
             'ficheFrais' => $ficheFrais,
             'lignesFraisForfait' => $lesLignesFraisForfait,
             'lesFraisForfait' => $lesFraisForfait,
             'lignesFraisHorsForfait' => $lesLignesFraisHorsForfait,
             'nbJustificatifs' => $nbJustificatifs
-));
+        ));
     }
 
 }
