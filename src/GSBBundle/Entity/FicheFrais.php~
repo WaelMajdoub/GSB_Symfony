@@ -37,10 +37,10 @@ class FicheFrais
     private $dateModif;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Etat")
+     * @ORM\ManyToOne(targetEntity="Etat", inversedBy="ficheFrais")
      * @ORM\JoinColumn(name="idEtat", referencedColumnName="id")
      */
-    private $etat;
+    private $idEtat;
 
     /**
      * @var User
@@ -171,30 +171,6 @@ class FicheFrais
     }
 
     /**
-     * Set etat
-     *
-     * @param \GSBBundle\Entity\Etat $etat
-     *
-     * @return FicheFrais
-     */
-    public function setEtat(\GSBBundle\Entity\Etat $etat = null)
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
-
-    /**
-     * Get etat
-     *
-     * @return \GSBBundle\Entity\Etat
-     */
-    public function getEtat()
-    {
-        return $this->etat;
-    }
-
-    /**
      * Set visiteur
      *
      * @param \UserBundle\Entity\User $visiteur
@@ -240,5 +216,105 @@ class FicheFrais
     public function getIdUser()
     {
         return $this->idUser;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ligneFraisForfait = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ligneFraisHorsForfait = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add ligneFraisForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     *
+     * @return FicheFrais
+     */
+    public function addLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait)
+    {
+        $this->ligneFraisForfait[] = $ligneFraisForfait;
+
+        return $this;
+    }
+
+    /**
+     * Remove ligneFraisForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     */
+    public function removeLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait)
+    {
+        $this->ligneFraisForfait->removeElement($ligneFraisForfait);
+    }
+
+    /**
+     * Get ligneFraisForfait
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLigneFraisForfait()
+    {
+        return $this->ligneFraisForfait;
+    }
+
+    /**
+     * Add ligneFraisHorsForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     *
+     * @return FicheFrais
+     */
+    public function addLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $this->ligneFraisHorsForfait[] = $ligneFraisHorsForfait;
+
+        return $this;
+    }
+
+    /**
+     * Remove ligneFraisHorsForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait
+     */
+    public function removeLigneFraisHorsForfait(\GSBBundle\Entity\LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $this->ligneFraisHorsForfait->removeElement($ligneFraisHorsForfait);
+    }
+
+    /**
+     * Get ligneFraisHorsForfait
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLigneFraisHorsForfait()
+    {
+        return $this->ligneFraisHorsForfait;
+    }
+
+    /**
+     * Set idEtat
+     *
+     * @param \GSBBundle\Entity\Etat $idEtat
+     *
+     * @return FicheFrais
+     */
+    public function setIdEtat(\GSBBundle\Entity\Etat $idEtat = null)
+    {
+        $this->idEtat = $idEtat;
+
+        return $this;
+    }
+
+    /**
+     * Get idEtat
+     *
+     * @return \GSBBundle\Entity\Etat
+     */
+    public function getIdEtat()
+    {
+        return $this->idEtat;
     }
 }

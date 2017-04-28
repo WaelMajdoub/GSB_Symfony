@@ -19,7 +19,7 @@ class LigneFraisForfaitType extends AbstractType
         $builder
             ->add('etape', IntegerType::class, array(
                 'label' => 'Forfait Etape',
-                'data'=>($options['data']['ETP']->getQuantite()!==null) ? $options['data']['ETP']->getQuantite() : 0,
+                'data' => ($options['data']['ETP']->getQuantite() !== null) ? $options['data']['ETP']->getQuantite() : 0,
                 'attr' => array(
                     'class' => 'form-control'
                 ),
@@ -27,7 +27,7 @@ class LigneFraisForfaitType extends AbstractType
             ))
             ->add('kilometre', IntegerType::class, array(
                 'label' => 'Forfait Kilometrique',
-                'data'=>($options['data']['KM']->getQuantite()!==null) ? $options['data']['KM']->getQuantite() : 0,
+                'data' => ($options['data']['KM']->getQuantite() !== null) ? $options['data']['KM']->getQuantite() : 0,
                 'attr' => array(
                     'class' => 'form-control'
                 ),
@@ -35,7 +35,7 @@ class LigneFraisForfaitType extends AbstractType
             ))
             ->add('hotel', IntegerType::class, array(
                 'label' => 'Forfait Hotel',
-                'data'=>($options['data']['NUI']->getQuantite()!==null) ? $options['data']['NUI']->getQuantite() : 0,
+                'data' => ($options['data']['NUI']->getQuantite() !== null) ? $options['data']['NUI']->getQuantite() : 0,
                 'attr' => array(
                     'class' => 'form-control'
                 ),
@@ -43,7 +43,7 @@ class LigneFraisForfaitType extends AbstractType
             ))
             ->add('restaurant', IntegerType::class, array(
                 'label' => 'Forfait Restaurant',
-                'data'=>($options['data']['REP']->getQuantite()!==null) ? $options['data']['REP']->getQuantite() : 0,
+                'data' => ($options['data']['REP']->getQuantite() !== null) ? $options['data']['REP']->getQuantite() : 0,
                 'attr' => array(
                     'class' => 'form-control'
                 ),
@@ -57,14 +57,14 @@ class LigneFraisForfaitType extends AbstractType
                 'translation_domain' => false
             ))
             ->add('effacer', ResetType::class, array(
-            'label' => 'Effacer',
-            'attr' => array(
-                'class' => 'btn btn-danger'
-            ),
-            'translation_domain' => false
-        ));
+                'label' => 'Effacer',
+                'attr' => array(
+                    'class' => 'btn btn-danger'
+                ),
+                'translation_domain' => false
+            ));
     }
-    
+
     /**
      * {@inheritdoc}
      */

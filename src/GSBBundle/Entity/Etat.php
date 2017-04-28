@@ -19,7 +19,12 @@ class Etat
      */
     private $libelle;
 
-    
+    /**
+     * @var ficheFrais
+     *
+     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\FicheFrais", mappedBy="idEtat")
+     */
+    private $ficheFrais;
 
     /**
      * Get id
@@ -53,5 +58,48 @@ class Etat
     public function getLibelle()
     {
         return $this->libelle;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fichefrais = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add fichefrai
+     *
+     * @param \GSBBundle\Entity\FicheFrais $fichefrai
+     *
+     * @return Etat
+     */
+    public function addFichefrai(\GSBBundle\Entity\FicheFrais $fichefrai)
+    {
+        $this->fichefrais[] = $fichefrai;
+
+        return $this;
+    }
+
+    /**
+     * Remove fichefrai
+     *
+     * @param \GSBBundle\Entity\FicheFrais $fichefrai
+     */
+    public function removeFichefrai(\GSBBundle\Entity\FicheFrais $fichefrai)
+    {
+        $this->fichefrais->removeElement($fichefrai);
+    }
+
+
+
+    /**
+     * Get ficheFrais
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFicheFrais()
+    {
+        return $this->ficheFrais;
     }
 }

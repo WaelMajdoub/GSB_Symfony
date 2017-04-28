@@ -49,9 +49,6 @@ class LigneFraisHorsForfait
      */
     private $idFicheFrais;
 
-
-
-
     /**
      * Get id
      *

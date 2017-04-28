@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping\AttributeOverride;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
- *
+ * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  */
 
 class User extends BaseUser

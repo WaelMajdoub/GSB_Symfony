@@ -29,3 +29,6 @@ INSERT INTO `user` (`id`, `username`, `username_canonical`, `enabled`, `salt`, `
 (26, 'ffremont', 'ffremont', 1, 'wun1Q758M/wlW.QeEYxz2HgDkAWD8h/m4AIrmPVGNWs', '7r0CVyCaqywt3iDhtf70oegGJ7CCt1ZYo/tEjQbqtIXOrk8aO0XknYkS0pwIYPlMAC1QXpYOjgLyWdDa/jtutQ==', '2017-04-19 17:44:32', NULL, NULL, 'a:0:{}', 'Frémont', 'Fernande', '4 route de la mer', '13012', 'Allauh', '1998-10-01', 'fernande.fremont@mail.com', 'fernande.fremont@mail.com'),
 (27, 'agest', 'agest', 1, 'rp9Q/I08.WV8eZJeped2Qcu//s9CNyEycJxyzwN8diY', 'ZaDRV8D/6RXDhravraId14kbc6kXare7/N6w323mKDnCthdRosXA0l+PoL/uTdI0yW5qAeuMXWCc8D/7BxPT9A==', '2017-04-19 17:44:44', NULL, NULL, 'a:0:{}', 'Gest', 'Alain', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', 'alain.gest@mail.com', 'alain.gest@mail.com');
 
+
+
+select * from etats;
