@@ -2,13 +2,12 @@
 
 namespace GSBBundle\Controller;
 
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use GSBBundle\Form\FicheFraisType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class VisiteurController extends Controller
@@ -42,19 +41,19 @@ class VisiteurController extends Controller
                     'class' => 'form-control'
                 )))
             ->add('ajouter', SubmitType::class, array(
-                    'label' => 'Valider',
-                    'attr' => array(
-                        'class' => 'btn btn-success'
-                    ),
-                    'translation_domain' => false
-                ))
+                'label' => 'Valider',
+                'attr' => array(
+                    'class' => 'btn btn-success'
+                ),
+                'translation_domain' => false
+            ))
             ->add('effacer', ResetType::class, array(
-                    'label' => 'Effacer',
-                    'attr' => array(
-                        'class' => 'btn btn-danger'
-                    ),
-                    'translation_domain' => false
-                ))
+                'label' => 'Effacer',
+                'attr' => array(
+                    'class' => 'btn btn-danger'
+                ),
+                'translation_domain' => false
+            ))
             ->getForm();
 
 
@@ -65,12 +64,12 @@ class VisiteurController extends Controller
                 $moiSelected = $formMois->getData()['mois'];
 
 
-        $lesLignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($idUser, $moiSelected);
-        $nbJustificatifs = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getNbjustificatifs($idUser, $moiSelected);
-        $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, $moiSelected);
-        $lesLignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')->getLesFraisForfait($idUser, $moiSelected);
-
-        }}
+                $lesLignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($idUser, $moiSelected);
+                $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, $moiSelected);
+                $lesLignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')->getLesFraisForfait($idUser, $moiSelected);
+                
+            }
+        }
 
 
         return $this->render('@GSB/Principal/etat_frais.html.twig', array(
