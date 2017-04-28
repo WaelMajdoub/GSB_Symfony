@@ -67,7 +67,9 @@ class VisiteurController extends Controller
                 $lesLignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($idUser, $moiSelected);
                 $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, $moiSelected);
                 $lesLignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')->getLesFraisForfait($idUser, $moiSelected);
-                
+
+
+                // TODO WIP : Gérer l'update automatique à chaque changement
             }
         }
 

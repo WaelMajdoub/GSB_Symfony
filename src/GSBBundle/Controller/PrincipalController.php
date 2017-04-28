@@ -100,13 +100,13 @@ class PrincipalController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $etp = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
-            'idUser' => $iduser, 'fraisForfait' => 'ETP')) ?: $lesfraisf['ETP'] = new Entity\Lignefraisforfait();
+            'idUser' => $iduser, 'idFraisForfait' => 'ETP')) ?: $lesfraisf['ETP'] = new Entity\Lignefraisforfait();
         $km = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
-            'idUser' => $iduser, 'fraisForfait' => 'KM')) ?: $lesfraisf['KM'] = new Entity\Lignefraisforfait();
+            'idUser' => $iduser, 'idFraisForfait' => 'KM')) ?: $lesfraisf['KM'] = new Entity\Lignefraisforfait();
         $nui = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
-            'idUser' => $iduser, 'fraisForfait' => 'NUI')) ?: $lesfraisf['NUI'] = new Entity\Lignefraisforfait();
+            'idUser' => $iduser, 'idFraisForfait' => 'NUI')) ?: $lesfraisf['NUI'] = new Entity\Lignefraisforfait();
         $rep = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
-            'idUser' => $iduser, 'fraisForfait' => 'REP')) ?: $lesfraisf['REP'] = new Entity\Lignefraisforfait();
+            'idUser' => $iduser, 'idFraisForfait' => 'REP')) ?: $lesfraisf['REP'] = new Entity\Lignefraisforfait();
 
         $lesfraisf['ETP'] = $etp;
         $lesfraisf['KM'] = $km;
@@ -190,7 +190,7 @@ class PrincipalController extends Controller
         $em->remove($lefraishf[0]);
         $em->flush();
 
-        return $this->redirectToRoute('');
+        return $this->redirectToRoute('aze');
     }
 
 
