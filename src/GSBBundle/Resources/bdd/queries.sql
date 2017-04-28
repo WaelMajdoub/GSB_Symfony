@@ -1,0 +1,1 @@
+select * from fiche_frais inner join ligne_frais_forfait ;

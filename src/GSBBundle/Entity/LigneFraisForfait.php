@@ -28,11 +28,12 @@ class LigneFraisForfait
     private $quantite;
 
     /**
+     * @var FraisForfait
      * @ORM\ManyToOne(targetEntity="FraisForfait")
      * @ORM\JoinColumn(name="idFraisForfait", referencedColumnName="id")
      *
      */
-    private $fraisForfait;
+    private $idFraisForfait;
 
     /**
      * @var User
@@ -43,8 +44,8 @@ class LigneFraisForfait
     private $idUser;
 
     /**
-     * @var
-     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\FicheFrais", inversedBy="ligneFraisForfait")
+     * @var FicheFrais
+     * @ORM\OneToOne(targetEntity="GSBBundle\Entity\FicheFrais", inversedBy="ligneFraisForfait")
      * @ORM\JoinColumn(name="idFicheFrais", referencedColumnName="id")
      */
 
@@ -178,5 +179,29 @@ class LigneFraisForfait
     public function getIdFicheFrais()
     {
         return $this->idFicheFrais;
+    }
+
+    /**
+     * Set idFraisForfait
+     *
+     * @param \GSBBundle\Entity\FraisForfait $idFraisForfait
+     *
+     * @return LigneFraisForfait
+     */
+    public function setIdFraisForfait(\GSBBundle\Entity\FraisForfait $idFraisForfait = null)
+    {
+        $this->idFraisForfait = $idFraisForfait;
+
+        return $this;
+    }
+
+    /**
+     * Get idFraisForfait
+     *
+     * @return \GSBBundle\Entity\FraisForfait
+     */
+    public function getIdFraisForfait()
+    {
+        return $this->idFraisForfait;
     }
 }

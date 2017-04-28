@@ -11,8 +11,8 @@
                 {# note : Fini les liens fixes, on utilise le Path qui va rediriger vers les Routes que l'on a créées
                           ou les routes dont on a accès grâce à fosUser ( comme /login /logout etc) #}
                 <li><a href={{ path('gsb_principal_accueil') }}>Accueil</a></li>
-                <li><a href={{ path('gsb_principal_gererfrais') }}><span class="glyphicon glyphicon-pencil"></span> Renseigner la fiche de frais</a></li>
-                <li><a href={{ path('gsb_principal_etatfrais') }}><span class="glyphicon glyphicon-list-alt"></span> Afficher mes fiches de frais</a></li>
+                <li><a href={{ path('gsb_principal_saisiefrais') }}><span class="glyphicon glyphicon-pencil"></span> Renseigner la fiche de frais</a></li>
+                <li><a href={{ path('gsb_visiteur_etatfrais') }}><span class="glyphicon glyphicon-list-alt"></span> Afficher mes fiches de frais</a></li>
                 <li><a href={{ path('fos_user_security_logout') }}>Déconnexion</a></li>
             </ul>
         </div>

@@ -1,20 +1,19 @@
 {% extends "@GSB/Default/base.html.twig" %}
 {# note : Le premier extends va hériter du template base.html.twig qui contient toutes les méta, les links etc
-          C'est un peu le Calque principal sur lequel on incruste du contenu
- #}
+          C'est un peu le Calque principal sur lequel on incruste du contenu#}
 {% block body %}
     {{ include('@GSB/Default/head.html.twig') }}
-    {# note : Intégration de la barre de navigation horizontale de head.html.twig
-     #}
+    {# note : Intégration de la barre de navigation horizontale de head.html.twig#}
     <div id="accueil">
-    <h2>Gestion des frais<small> - Visiteur :
-            {# note : On regarde si l'utilisateur est connecté et si c'est le cas, on affiche des informations le concernant.
- #}
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                 {{ app.user.username }}
-            {% endif %}</small></h2>
-</div>
-<div class="row">
+        <h2>Gestion des frais
+            <small> - Visiteur :
+                {# note : On regarde si l'utilisateur est connecté et si c'est le cas, on affiche des informations le concernant.#}
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ app.user.username }}
+                {% endif %}</small>
+        </h2>
+    </div>
+    <div class="row">
     <div class="col-md-12">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -31,8 +30,11 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
-                        <a href="index.php?uc=gererFrais&action=saisirFrais" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-pencil"></span> <br/>Renseigner la fiche de frais</a>
-                        <a href={{ path('gsb_principal_etatfrais') }} class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Afficher mes fiches de frais</a>
+                        <a href="index.php?uc=gererFrais&action=saisirFrais" class="btn btn-success btn-lg"
+                           role="button"><span class="glyphicon glyphicon-pencil"></span> <br/>Renseigner la fiche de
+                            frais</a>
+                        <a href={{ path('gsb_visiteur_etatfrais') }} class="btn btn-primary btn-lg" role="button"><span
+                                class="glyphicon glyphicon-list-alt"></span> <br/>Afficher mes fiches de frais</a>
                     </div>
                 </div>
             </div>
