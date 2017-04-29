@@ -46,7 +46,7 @@ class PrincipalController extends Controller
     }
 
     /**
-     * @Route("/accueil")
+     * @Route("/accueil",name="accueil")
      */
     public function accueilAction()
     {

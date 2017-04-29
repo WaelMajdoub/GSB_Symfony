@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class VisiteurController extends Controller
 {
     /**
-     * @Route("/etatFrais")
+     * @Route("/etatFrais", name="etatFrais")
      */
     public function etatFraisAction(Request $request)
     {
