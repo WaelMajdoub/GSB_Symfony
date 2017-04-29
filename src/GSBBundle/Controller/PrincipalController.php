@@ -83,7 +83,7 @@ class PrincipalController extends Controller
     }
 
     /**
-     * @Route("/saisieFrais")
+     * @Route("/saisieFrais",name="saisieFrais")
      */
     public function saisieFraisAction(Request $request)
     {
@@ -190,7 +190,7 @@ class PrincipalController extends Controller
         $em->remove($lefraishf[0]);
         $em->flush();
 
-        return $this->redirectToRoute('aze');
+        return $this->redirectToRoute('saisieFrais');
     }
 
 
