@@ -13,16 +13,23 @@
     {# note : L'utilisation des assets sous Twig est très simple, le contenu que l'on va intégrer dans notre projet
               sera placé dans le dossier web, et l'appelle se fait comme ci dessous, où l'on va naviger dans le dossier
               web #}
-    <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
+    {% block style %}
+        <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
+    {% endblock %}
+
 </head>
 <body>
 <div class="container">
     {% block body %}{% endblock %}
 </div>
 <footer>
-    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    {% block js %}
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    {% endblock %}
+
+
 </footer>
 </body>
 </html>
