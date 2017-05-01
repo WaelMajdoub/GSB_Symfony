@@ -4,6 +4,7 @@ namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Security\Core\Role\Role;
 
 class DefaultController extends Controller
 {
@@ -48,6 +49,37 @@ class DefaultController extends Controller
             'moisDisponibles' => $moisDisponibles, //TODO : No result was found for query although at least one row was expected.
             'nbJustificatifs' => $nbJustificatifs
           ));
+
+    }
+
+    /**
+     * @Route("/updateusers", name="updateusers")
+     */
+    public function updateAction(){
+
+        $userRepo = $this->getDoctrine()->getManager();
+        $allUsers = $userRepo->getRepository('UserBundle:User')->findAll();
+        foreach ($allUsers as $user){
+            $user->setRoles(array('ROLE_VISITEUR'));
+            $userRepo->persist($user);
+        }
+        $userRepo->flush();
+
+        return $this->render('@FOSUser/done.html.twig', array('users' => $allUsers));
+
+    }
+
+
+    /**
+     * @Route("/visite")
+     */
+    public function testRolesAction(){
+        $user = $this->getUser();
+        if($user->hasRole('ROLE_VISITEUR')){
+            return $this->render('@FOSUser/done.html.twig', array('valueOfRole' => 'OUI'));
+        }
+        else return $this->render('@FOSUser/done.html.twig', array('valueOfRole' => 'NON'));
+
 
     }
 }

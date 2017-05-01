@@ -28,3 +28,4 @@ security:
         # redirection au /login si l'utilisateur n'est pas authentifié
         - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: ROLE_USER }
+        - { path: ^/etatFrais, role: ROLE_COMPTABLE }

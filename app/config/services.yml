@@ -10,3 +10,8 @@ services:
     gsb.date_manager:
         class:     GSBBundle\Services\DateManager
         arguments: []
+
+    gsb.service.role:
+            class: UserBundle\Services\RoleService
+            arguments: [security.role_hierarchy]
+
