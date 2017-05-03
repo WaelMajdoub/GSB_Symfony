@@ -15,10 +15,13 @@
 
     <div id="fiche"  class="container-fluid" style="border: solid 1px black;">
         <div class="row">
-            <div id="ficheHead" class="text-center col col-md-offset-3" style="border-bottom: solid 1px black;">
+            <div id="ficheHead" class="text-center" style="border-bottom: solid 1px black;">
                 <b>REMBOURSEMENT FRAIS ENGAGES</b>
             </div>
+        </div>
 
+
+        <div class="=row">
             <br>
 
             <div id="ficheVisiteur" class="col-xs-4 col-md-4">
@@ -32,7 +35,9 @@
             </div>
         </div>
 
+
         <br>
+
 
         <div id="ficheDate" class="row-fluid">
             <div id="ficheDateTexte" class="col-xs-4 col-md-4">
@@ -147,12 +152,27 @@
                         TODO : MONTANT
                     </div>
                 </div>
-
             </div>
 
+
+            <div class="row-fluid">
+                <div class="col-xs-offset-8 col-md-offset-8 col-xs-2 col-md-2" style="border: solid 1px black; margin-top: 4%; margin-bottom: 2%;">
+                    TOTAL TODO:DATE
+                </div>
+                <div class="col-xs-2 col-md-2" style="border: solid 1px black; margin-top: 4%; margin-bottom: 2%;">
+                    TODO : TOTAL
+                </div>
+            </div>
+
+        </div><br><br>
+    </div>
+
+    <div id="lieuSignDate" class="row-fluid">
+        <div class="col-xs-offset-8 col-md-offset-8 col-xs-4 col-md-4" style="margin-top: 5%;">
+            Fait à LIEU, le DATE <br>
+            Vu l'agent comptable <br>
+            SIGNATURE
         </div>
-
-
     </div>
 
 {% endblock %}

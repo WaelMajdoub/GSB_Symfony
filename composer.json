@@ -25,7 +25,8 @@
         "twig/twig": "^1.0||^2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "pugx/multi-user-bundle": "3.0.*@dev",
-        "knplabs/knp-snappy-bundle": "^1.4"
+        "knplabs/knp-snappy-bundle": "^1.4",
+        "h4cc/wkhtmltopdf-amd64": "^0.12.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

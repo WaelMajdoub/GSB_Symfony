@@ -79,3 +79,8 @@ fos_user:
             address: admin@gsb.com
             sender_name: adminGSB
 
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     wkhtmltopdf\wkhtmltopdf.exe
+        options:    []

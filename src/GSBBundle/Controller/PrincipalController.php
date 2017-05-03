@@ -5,6 +5,7 @@ use GSBBundle\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -127,6 +128,27 @@ class PrincipalController extends Controller
 
         return $this->render('GSBBundle:Principal:guigui.html.twig', array('etats' =>$etats
         ));
+    }
+
+    /**
+     * @Route("/pdfgen")
+     */
+    public function pdfgenAction()
+    {
+        $html = $this->renderView('GSBBundle:Principal:guigui.html.twig');
+
+        $filename = sprintf('test-%s.pdf', date('d-m-Y'));
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            200,
+            [
+                'Content-Type'        => 'application/pdf',
+                'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),
+            ]
+        );
+
+
     }
 
 }
