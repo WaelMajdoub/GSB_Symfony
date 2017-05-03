@@ -83,7 +83,7 @@ class PrincipalController extends Controller
     }
 
     /**
-     * @Route("/saisieFrais")
+     * @Route("/saisieFrais",name="saisieFrais")
      */
     public function saisieFraisAction(Request $request)
     {
@@ -190,45 +190,6 @@ class PrincipalController extends Controller
         $em->remove($lefraishf[0]);
         $em->flush();
 
-        return $this->redirectToRoute('aze');
+        return $this->redirectToRoute('saisieFrais');
     }
-
-
-    /**
-     * @Route("/etatFrais/select", name="etatFraisMoisSelectionne", options={"expose"=true})
-     * @param Request $request
-     * @return JsonResponse|Response
-     */
-    public function selectMoisAction(Request $request)
-    {
-        if (!$request->isXmlHttpRequest()) {
-            return new JsonResponse(array('message' => 'Use only ajax please!'), 400);
-        }
-
-        $idUser = $this->getUser()->getId();
-        $em = $this->getDoctrine()->getManager();
-        $anneesMois = $em->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles($idUser);
-
-
-        $em = $this->getDoctrine()->getManager();
-        $meh = $em->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, '200109');
-
-
-        $lanneemoi = $request->get($anneesMois);
-
-        $response = new JsonResponse(
-            array(
-                'message' => 'Error',
-                'form' => $this->renderView('@GSB/Principal/etat_frais.html.twig',
-                    array(
-                        'anneesMois' => $anneesMois,
-                        'meh' => $meh,
-                        'lanneemoi' => $lanneemoi
-                    ))), 400);
-
-
-        return $response;
-
-    }
-
 }

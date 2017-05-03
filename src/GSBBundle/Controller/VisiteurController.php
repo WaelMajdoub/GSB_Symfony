@@ -2,86 +2,75 @@
 
 namespace GSBBundle\Controller;
 
+use GSBBundle\Form\ListeMois;
+use GSBBundle\Form\MoisType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\ResetType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class VisiteurController extends Controller
 {
     /**
-     * @Route("/etatFrais")
+     * @Route("/etatFrais", name="etatFrais")
      */
     public function etatFraisAction(Request $request)
     {
+        // id de l'utilisateur courant
         $idUser = $this->getUser()->getId();
-        $dateTimeMoisDisponible = [];
-        $em = $this->getDoctrine()->getManager();
-        $anneesMois = $em->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles($idUser);
-        $lesLignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($idUser, '200109');
-        $nbJustificatifs = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getNbjustificatifs($idUser, '200109');
-        $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, '200109');
-        $lesLignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')->getLesFraisForfait($idUser, '200109');
 
-        $lesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:FraisForfait')->findAll();
+        $roles = $this->getUser()->getRoles();
 
-        foreach ($anneesMois as $mois) {
-            array_push($dateTimeMoisDisponible, $mois['mois']);
+        $ficheFraisRepository = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais');
+        // Appel d'un service créé dans le bût de gérer les dates mal foutues ( merci Thomas @Sevenn)
+        $dateManager = $this->get('gsb.date_manager');
+
+        // GESTION DES MOIS //
+        $moisDisponibles = $ficheFraisRepository->getLesMoisDisponibles($idUser);
+        $listeMoisDisponibles = [];
+
+
+        foreach ($moisDisponibles as $mois) {
+            $dateTime = $dateManager->YYYYMMToDateTime($mois['mois']);
+            $listeMoisDisponibles[$dateTime->format('m/Y')] = $mois['mois'];
         }
 
-        $formMois = $this->createFormBuilder()
-            ->add('date', ChoiceType::class, array(
-                'choices' => $dateTimeMoisDisponible,
-                'required' => true,
-                'label' => 'Date : ',
-                'attr' => array(
-                    'class' => 'form-control'
-                )))
-            ->add('ajouter', SubmitType::class, array(
-                'label' => 'Valider',
-                'attr' => array(
-                    'class' => 'btn btn-success'
-                ),
-                'translation_domain' => false
-            ))
-            ->add('effacer', ResetType::class, array(
-                'label' => 'Effacer',
-                'attr' => array(
-                    'class' => 'btn btn-danger'
-                ),
-                'translation_domain' => false
-            ))
-            ->getForm();
 
-
+        $formMois = $this->createForm(MoisType::class, array('data_form' => $listeMoisDisponibles));
         $formMois->handleRequest($request);
 
+
+        $tableauEtatFrais = [];
         if ($formMois->isSubmitted()) {
             if ($formMois->isValid()) {
-                $moiSelected = $formMois->getData()['mois'];
+                // Récupération de la date envoyée dans le form
+                $dateSelectionnee = $formMois->getData()['date'];
 
 
-                $lesLignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')->getLesFraisHorsForfait($idUser, $moiSelected);
-                $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesInfosFicheFrais($idUser, $moiSelected);
-                $lesLignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')->getLesFraisForfait($idUser, $moiSelected);
-
-
-                // TODO WIP : Gérer l'update automatique à chaque changement
+                $tableauEtatFrais['dateSelectionnee'] = $this->get('gsb.date_manager')->YYYYMMToDateTime($dateSelectionnee);
+                // QUERY + AJOUT DANS LE TABLEAU //
+                $fraisForfait = $this->getDoctrine()->getRepository('GSBBundle:FraisForfait')
+                    ->findAll();
+                $tableauEtatFrais['fraisForfait'] = $fraisForfait;
+                // QUERY + AJOUT DANS LE TABLEAU //
+                $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais')
+                    ->getLesInfosFicheFrais($this->getUser()->getId(), $dateSelectionnee);
+                $tableauEtatFrais['infoFicheFrais'] = $ficheFrais;
+                // QUERY + AJOUT DANS LE TABLEAU //
+                $lignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:Lignefraisforfait')
+                    ->getLesFraisForfait($this->getUser()->getId(), $dateSelectionnee);
+                $tableauEtatFrais['lignesFraisForfait'] = $lignesFraisForfait;
+                // QUERY + AJOUT DANS LE TABLEAU //
+                $lignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraishorsforfait')
+                    ->getLesFraisHorsForfait($this->getUser()->getId(), $dateSelectionnee);
+                $tableauEtatFrais['lignesFraisHorsForfait'] = $lignesFraisHorsForfait;
             }
         }
-
-
         return $this->render('@GSB/Principal/etat_frais.html.twig', array(
-            'anneesMois' => $dateTimeMoisDisponible,
-            'ficheFrais' => $ficheFrais,
-            'lignesFraisForfait' => $lesLignesFraisForfait,
-            'lesFraisForfait' => $lesFraisForfait,
-            'lignesFraisHorsForfait' => $lesLignesFraisHorsForfait,
-            'nbJustificatifs' => $nbJustificatifs
+            'formMois' => $formMois->createView(),
+            'infoEtatFrais' => $tableauEtatFrais,
+            'roles' => $roles
         ));
     }
 
 }
+

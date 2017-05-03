@@ -2,48 +2,5 @@
 {% block body %}
     {{ include('@GSB/Default/head.html.twig') }}
     {{ include('@GSB/Principal/Visiteur/listemois.html.twig') }}
-    <hr>
-    <div class="panel panel-primary">
-        <div class="panel-heading">Fiche de frais du mois : {{ ficheFrais.mois |slice(4,6) }}
-            -{{ ficheFrais.mois |slice(0,4) }} </div>
-        <div class="panel-body">
-            <strong><u>Etat :</u></strong> {{ ficheFrais.idEtat.libelle }} depuis
-            le {{ ficheFrais.dateModif|date("d/m/Y") }} <br>
-            <strong><u>Montant validé :</u></strong> {{ ficheFrais.montantValide }} €
-        </div>
-    </div>
-    <div class="panel panel-info">
-        <div class="panel-heading">Eléments forfaitisés</div>
-        <table class="table table-bordered table-responsive">
-            <tr>
-                {% for unFraisForfait in lesFraisForfait %}
-                    <th>{{ unFraisForfait.libelle }}</th>
-                {% endfor %}
-            </tr>
-            <tr>
-                {% for lff in lignesFraisForfait %}
-                    <td class="qteForfait">{{ lff.quantite }} </td>
-                {% endfor %}
-            </tr>
-        </table>
-    </div>
-    <div class="panel panel-info">
-        <div class="panel-heading">Descriptif des éléments hors forfait - {{ nbJustificatifs.nbJustificatifs }}
-            justificatifs reçus
-        </div>
-        <table class="table table-bordered table-responsive">
-            <tr>
-                <th class="date">Date</th>
-                <th class="libelle">Libellé</th>
-                <th class='montant'>Montant</th>
-            </tr>
-            {% for lfhf in lignesFraisHorsForfait %}
-                <tr>
-                    <td>{{ lfhf.date |date('d/m/Y') }}</td>
-                    <td>{{ lfhf.libelle }}</td>
-                    <td>{{ lfhf.montant }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-{% endblock %}
+    {{ include('@GSB/Principal/Visiteur/etatFicheFrais.html.twig') }}
+{% endblock body %}
