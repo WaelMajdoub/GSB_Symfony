@@ -28,4 +28,18 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 
     }
 
+    /**
+     * Retourne tous les utilisateurs en fonction de leur role
+     * @param string $role
+     * @return array
+     */
+    public function findByRole($role)
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u')
+            ->where('u.roles LIKE :roles')
+            ->setParameter('roles', '%'.$role.'%')
+            ->getQuery()->getArrayResult();
+    }
+
 }
