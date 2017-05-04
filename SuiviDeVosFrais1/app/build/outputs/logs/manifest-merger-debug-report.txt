@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:3:1-44:12
+ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:3:1-56:12
 	package
 		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:4:5-38
 		INJECTED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml
@@ -34,7 +34,7 @@ MERGED from [com.android.support:support-compat:25.1.0] C:\Users\chapput.g\Docum
 		INJECTED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:12:5-42:19
+ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:12:5-54:19
 MERGED from [com.android.support:support-v4:25.1.0] C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\AndroidManifest.xml:25:5-20
@@ -71,21 +71,39 @@ ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src
 		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:28:13-60
 	android:name
 		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:27:13-62
-activity#com.gsb.suividevosfrais.HfActivity
+activity#com.gsb.suividevosfrais.NuiteeActivity
 ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:30:9-33:20
 	android:label
-		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:32:13-54
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:32:13-58
 	android:name
-		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:31:13-62
-activity#com.gsb.suividevosfrais.HfRecapActivity
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:31:13-66
+activity#com.gsb.suividevosfrais.RepasActivity
 ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:34:9-37:20
 	android:label
-		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:36:13-60
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:36:13-57
 	android:name
-		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:35:13-67
-activity#com.gsb.suividevosfrais.LayoutListe
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:35:13-65
+activity#com.gsb.suividevosfrais.EtapeActivity
 ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:38:9-41:20
 	android:label
-		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:40:13-64
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:40:13-57
 	android:name
-		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:39:13-63
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:39:13-65
+activity#com.gsb.suividevosfrais.HfActivity
+ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:42:9-45:20
+	android:label
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:44:13-54
+	android:name
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:43:13-62
+activity#com.gsb.suividevosfrais.HfRecapActivity
+ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:46:9-49:20
+	android:label
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:48:13-60
+	android:name
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:47:13-67
+activity#com.gsb.suividevosfrais.LayoutListe
+ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:50:9-53:20
+	android:label
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:52:13-64
+	android:name
+		ADDED from C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\src\main\AndroidManifest.xml:51:13-63
