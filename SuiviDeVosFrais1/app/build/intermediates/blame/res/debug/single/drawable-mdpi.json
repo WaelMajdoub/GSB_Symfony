@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_launcher.png",
+        "source": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
         "merged": "C:\\StudioProjects\\SuiviDeVosFrais1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_launcher.png",
         "source": "C:\\StudioProjects\\SuiviDeVosFrais1\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
     }
