@@ -82,5 +82,6 @@ fos_user:
 knp_snappy:
     pdf:
         enabled:    true
-        binary:     wkhtmltopdf\wkhtmltopdf.exe
+        binary:     \"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe
+
         options:    []
