@@ -59,4 +59,15 @@
         android:textSize="20sp"
         tools:ignore="RtlHardcoded" />
 
+    <ImageView
+        android:id="@+id/imgCroix"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="2"
+        android:paddingLeft="4dp"
+        android:paddingRight="2dp"
+        android:textSize="20sp"
+        android:src="@drawable/suppr"
+        tools:ignore="RtlHardcoded" />
+
 </LinearLayout>

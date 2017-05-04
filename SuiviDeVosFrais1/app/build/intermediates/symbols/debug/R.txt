@@ -10,7 +10,7 @@ int drawable ic_launcher 0x7f020006
 int drawable logogsb 0x7f020007
 int drawable suppr 0x7f020008
 int drawable transfert 0x7f020009
-int id action_settings 0x7f080031
+int id action_settings 0x7f080032
 int id cmdEtape 0x7f08001a
 int id cmdEtapeMoins 0x7f080005
 int id cmdEtapePlus 0x7f080004
@@ -37,6 +37,7 @@ int id datHfRecap 0x7f08000e
 int id datKm 0x7f080011
 int id dateNuitee 0x7f08001f
 int id dateRepas 0x7f080026
+int id imgCroix 0x7f080031
 int id imgEtapeReturn 0x7f080000
 int id imgHfRecapReturn 0x7f08000d
 int id imgHfReturn 0x7f080007

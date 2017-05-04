@@ -27,7 +27,7 @@ public final class R {
         public static final int transfert=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f080031;
+        public static final int action_settings=0x7f080032;
         public static final int cmdEtape=0x7f08001a;
         public static final int cmdEtapeMoins=0x7f080005;
         public static final int cmdEtapePlus=0x7f080004;
@@ -54,6 +54,7 @@ public final class R {
         public static final int datKm=0x7f080011;
         public static final int dateNuitee=0x7f08001f;
         public static final int dateRepas=0x7f080026;
+        public static final int imgCroix=0x7f080031;
         public static final int imgEtapeReturn=0x7f080000;
         public static final int imgHfRecapReturn=0x7f08000d;
         public static final int imgHfReturn=0x7f080007;
