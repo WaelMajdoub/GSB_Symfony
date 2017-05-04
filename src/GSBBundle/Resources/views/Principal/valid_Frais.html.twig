@@ -15,24 +15,21 @@
             <form name="formValidFrais" method="post" action="enregValidFrais.php">
                 <h1> Validation des frais par visiteur </h1>
                 <label class="titre">Choisir le visiteur :</label>
-                <select name="lstVisiteur" class="zone">
+                <select id="visiteurSelectionne" class="zone">
                     {% for user in visiteurs %}
                         <option value={{ user.id }}>{{ user.nom }} - {{ user.prenom }}</option>
                     {% endfor %}
                 </select>
                 <label class="titre">Mois :</label>
-                <select name="lstVisiteur" class="zone">
-                    {% for moi in mois %}
-                        <option value={{ moi.mois }}>{{ moi.mois }}</option>
-                    {% endfor %}
+
+                <select id="selectMoisDispo" class="zone">
+
                 </select>
                 <p class="titre"/>
                 <div style="clear:left;"><h2>Frais au forfait </h2></div>
                 <table style="color:white;" border="1">
                     <tr>
-                        {% for ligne in fraisForfait %}
-                            <th>{{ ligne.libelle }}</th>
-                        {% endfor %}
+
                     </tr>
                     <tr align="center">
                         <td width="80"><input type="text" size="3" name="repas"/></td>
@@ -77,5 +74,10 @@
         </div>
     </div>
     </body>
-    </html>
+
+    {% block js %}
+        {{ parent() }}
+        <script type="text/javascript" src="{{ asset('js/master.js') }}"></script>
+
+    {% endblock %}
 {% endblock %}

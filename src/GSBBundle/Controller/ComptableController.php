@@ -2,8 +2,10 @@
 
 namespace GSBBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class ComptableController extends Controller
 {
@@ -15,31 +17,30 @@ class ComptableController extends Controller
     {
         // Recupération des Visiteurs
 
-        $usersVisiteurs = $this->getDoctrine()->getRepository('UserBundle:User')
+        $lesVisiteurs = $this->getDoctrine()->getRepository('UserBundle:User')
             ->findByRole('ROLE_VISITEUR');
 
-        // TODO : faire en sorte que l'id serve à choisir le mois depuis la view et avec une route {id}
-        //$mois = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles();
 
-        $mois = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais')->getLesMoisDisponibles(1);
-
-
-        // TODO: Faire Un bouton pour valider un formulaire
-        // TODO: Recup de ce qu'on envoit et éviter de tout faire en dur comme des b***s
-        // Recherche de Ligne Frais Forfait par utilisateur + et par date selectionnée
-        $lesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:FraisForfait')
-            ->findAll();
-
-        $lignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:Lignefraisforfait')
-            ->getLesFraisForfait(1, '200101');
-
-        // Recherche de Ligne Frais Hors Forfait par utilisateur + et par date selectionnée
-        $lignesFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraishorsforfait')
-            ->getLesFraisHorsForfait(1, '200101');
+        return $this->render('GSBBundle:Principal:valid_frais.html.twig',
+            array('visiteurs' => $lesVisiteurs,
+            ));
+    }
 
 
+    /**
+     * Méthode Ajax qui va permettre de remplir les mois disponible en fonction du visiteur selectionné
+     * @Route("/validFrais/moisDispoParVisiteur!Ajax", name="moisDispoParVisiteur")
+     * @param Request $request
+     * @return meh
+     */
+    public function moisDispoParVisiteurAction(Request $request)
+    {
+        if (!$request->isXmlHttpRequest()) {
+            return new JsonResponse(array('message' => 'You can access to this url with ajax only'), 400);
+        }
+        $moisDispo = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais')->getLesMoisDisponibles($request->get('id'));
 
-        return $this->render('GSBBundle:Principal:valid_frais.html.twig', array('visiteurs' => $usersVisiteurs, 'mois' =>$mois, 'lff' => $lignesFraisForfait, 'fraisForfait' => $lesFraisForfait));
+        return new JsonResponse(array('dates' => $moisDispo));
     }
 
     /**
