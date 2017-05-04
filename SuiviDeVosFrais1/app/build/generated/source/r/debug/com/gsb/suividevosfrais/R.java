@@ -54,13 +54,13 @@ public final class R {
         public static final int datKm=0x7f080011;
         public static final int dateNuitee=0x7f08001f;
         public static final int dateRepas=0x7f080026;
-        public static final int imgCroix=0x7f080031;
         public static final int imgEtapeReturn=0x7f080000;
         public static final int imgHfRecapReturn=0x7f08000d;
         public static final int imgHfReturn=0x7f080007;
         public static final int imgKmReturn=0x7f080010;
         public static final int imgNuiteeReturn=0x7f08001e;
         public static final int imgRepasReturn=0x7f080025;
+        public static final int imgSuppr=0x7f080031;
         public static final int lblEtape=0x7f080002;
         public static final int lblHfEuro=0x7f08000a;
         public static final int lblKm=0x7f080012;

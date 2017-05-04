@@ -37,13 +37,13 @@ int id datHfRecap 0x7f08000e
 int id datKm 0x7f080011
 int id dateNuitee 0x7f08001f
 int id dateRepas 0x7f080026
-int id imgCroix 0x7f080031
 int id imgEtapeReturn 0x7f080000
 int id imgHfRecapReturn 0x7f08000d
 int id imgHfReturn 0x7f080007
 int id imgKmReturn 0x7f080010
 int id imgNuiteeReturn 0x7f08001e
 int id imgRepasReturn 0x7f080025
+int id imgSuppr 0x7f080031
 int id lblEtape 0x7f080002
 int id lblHfEuro 0x7f08000a
 int id lblKm 0x7f080012

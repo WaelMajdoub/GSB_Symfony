@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import android.content.Context;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.BaseAdapter;
 
@@ -64,6 +66,7 @@ public class FraisHfAdapter extends BaseAdapter {
 		TextView txtListJour ;
 		TextView txtListMontant ;
 		TextView txtListMotif ;
+		ImageView btnDelete ;
 	}
 	
 	/**
@@ -82,10 +85,35 @@ public class FraisHfAdapter extends BaseAdapter {
 		}else{
 			holder = (ViewHolder)convertView.getTag();
 		}
+
+
+		holder.btnDelete.setTag(index);
+
+
+
+		holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				String pos = v.getTag().toString();
+				int position = Integer.parseInt(pos);
+				lesFrais.remove(position);
+				Serializer.serialize(Global.filename, Global.listFraisMois,context) ;
+				notifyDataSetChanged();
+
+			}
+		});
+
+
+
 		holder.txtListJour.setText(String.format(Locale.FRANCE, "%d", lesFrais.get(index).getJour())) ;
 		holder.txtListMontant.setText(String.format(Locale.FRANCE, "%d", lesFrais.get(index).getMontant())) ;
 		holder.txtListMotif.setText(lesFrais.get(index).getMotif()) ;
 		return convertView ;
 	}
-	
+/*
+	public void deleteFrais(int frais) {
+		lesFrais.remove(frais);
+
+	}*/
 }
