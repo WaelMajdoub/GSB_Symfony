@@ -8,6 +8,18 @@
         "source": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_repas.xml",
+        "source": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\src\\main\\res\\layout\\activity_repas.xml"
+    },
+    {
+        "merged": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_nuitee.xml",
+        "source": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\src\\main\\res\\layout\\activity_nuitee.xml"
+    },
+    {
+        "merged": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_etape.xml",
+        "source": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\src\\main\\res\\layout\\activity_etape.xml"
+    },
+    {
         "merged": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_km.xml",
         "source": "C:\\Users\\chapput.g\\Documents\\GSB\\GSB_Symfony\\SuiviDeVosFrais1\\app\\src\\main\\res\\layout\\activity_km.xml"
     },
