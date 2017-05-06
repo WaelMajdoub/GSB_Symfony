@@ -122,12 +122,32 @@ class PrincipalController extends Controller
      */
     public function guiguiAction()
     {
-        $etatRepo = $this->getDoctrine()
-            ->getRepository('GSBBundle:Etat');
-        $etats = $etatRepo->findAll();
 
-        return $this->render('GSBBundle:Principal:guigui.html.twig', array('etats' =>$etats
-        ));
+        $mois = 200101;
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => '1'));
+        $iduser = $user->getId();
+
+        $etp = $em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id' => 'ETP'));
+        $nui = $em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id' => 'NUI'));
+        $km = $em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id' => 'KM'));
+        $rep = $em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id' => 'REP'));
+
+        $fetp = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
+            'idUser' => $iduser, 'fraisForfait' => $etp));
+        $fnui = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
+            'idUser' => $iduser, 'fraisForfait' => $nui));
+        $fkm = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
+            'idUser' => $iduser, 'fraisForfait' => $km));
+        $frep = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
+            'idUser' => $iduser, 'fraisForfait' => $rep));
+
+        $lesfhf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('mois' => $mois,
+            'idUser' => $iduser));
+
+        return $this->render('GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
+            'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf));
     }
 
     /**

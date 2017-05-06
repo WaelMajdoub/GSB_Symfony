@@ -28,10 +28,10 @@
                 <b>Visiteur</b>
             </div>
             <div id="ficheVisiteurMatricule" class="col-xs-4 col-md-4">
-                TODO : Matricule
+                {{ user.username() }}
             </div>
             <div id="ficheVisiteurNom" class="col-xs-4 col-md-4">
-                TODO : Nom
+                {{ user.nom() }} {{ user.prenom() }}
             </div>
         </div>
 
@@ -44,7 +44,7 @@
                 <b>Mois</b>
             </div>
             <div id="ficheDateDate" class="col-xs-4 col-md-4">
-                TODO : DATE
+                {{ mois|slice(4,6) }}-{{ mois|slice(0,4) }}
             </div>
         </div>
 
@@ -53,18 +53,35 @@
         <div id="infosFrais">
             <div class="row-fluid">
                 <div id="colFraisForf" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    Frais Forfaitaires
+                    <b>Frais Forfaitaires</b>
                 </div>
 
                 <div id="colQte" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    Quantité
+                    <b>Quantité</b>
                 </div>
                 <div id="colMu" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    Montant unitaire
+                    <b>Montant unitaire</b>
                 </div>
 
                 <div id="colTot" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    Total
+                    <b>Total</b>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div id="etape" class="col-xs-3 col-md-3" style="border: solid 1px black;">
+                    Étape
+                </div>
+
+                <div id="etape" class="col-xs-3 col-md-3" style="border: solid 1px black;">
+                    {{ fetp.quantite() }}
+                </div>
+                <div id="etape" class="col-xs-3 col-md-3" style="border: solid 1px black;">
+                    {{ etp.montant() }}
+                </div>
+
+                <div id="etape" class="col-xs-3 col-md-3" style="border: solid 1px black;">
+                    {{ fetp.quantite() * etp.montant() }}
                 </div>
             </div>
 
@@ -74,14 +91,14 @@
                 </div>
 
                 <div id="nuiteeQte" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : QTE
+                    {{ fnui.quantite() }}
                 </div>
                 <div id="nuiteeMu" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : MU
+                    {{ nui.montant() }}
                 </div>
 
                 <div id="nuiteeTot" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : Tot
+                    {{ fnui.quantite() * nui.montant() }}
                 </div>
             </div>
 
@@ -91,14 +108,14 @@
                 </div>
 
                 <div id="repasQte" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : QTE
+                    {{ frep.quantite() }}
                 </div>
                 <div id="repasMu" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : MU
+                    {{ rep.montant() }}
                 </div>
 
                 <div id="repasTot" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : Tot
+                    {{ frep.quantite() * rep.montant() }}
                 </div>
             </div>
 
@@ -108,14 +125,14 @@
                 </div>
 
                 <div id="kilomQte" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : QTE
+                    {{ fkm.quantite() }}
                 </div>
                 <div id="kilomMu" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : MU
+                    {{ km.montant() }}
                 </div>
 
                 <div id="kilomTot" class="col-xs-3 col-md-3" style="border: solid 1px black;">
-                    TODO : Tot
+                    {{ fkm.quantite() * km.montant() }}
                 </div>
             </div>
 
@@ -125,42 +142,45 @@
                 </div>
             </div>
 
-           // Mettre un foreach pour chaque date à récup
             <div class="=row-fluid" class="col-md-4 col-xs-4">
                 <div class="row-fluid">
                     <div id="kilom" class="col-xs-4 col-md-4" style="border: solid 1px black;">
-                        Date
+                        <b>Date</b>
                     </div>
 
                     <div id="kilomQte" class="col-xs-4 col-md-4" style="border: solid 1px black;">
-                        Libelle
+                        <b>Libelle</b>
                     </div>
                     <div id="kilomMu" class="col-xs-4 col-md-4" style="border: solid 1px black;">
-                        Montant
+                        <b>Montant</b>
                     </div>
                 </div>
+                {% set pfhf = 0 %}
+                {% for unfhf in lesfhf %}
+                    <div class="row-fluid">
+                        <div id="kilom" class="col-xs-4 col-md-4" style="border: solid 1px black;">
+                            {{ unfhf.date()|date('d-m-Y') }}
+                        </div>
 
-                <div class="row-fluid">
-                    <div id="kilom" class="col-xs-4 col-md-4" style="border: solid 1px black;">
-                        TODO : DATE
+                        <div id="kilomQte" class="col-xs-4 col-md-4" style="border: solid 1px black;">
+                            {{ unfhf.libelle() }}
+                        </div>
+                        <div id="kilomMu" class="col-xs-4 col-md-4" style="border: solid 1px black;">
+                            {{ unfhf.montant() }}
+                            {# Stockage montants dans la variable pfhf pour total #}
+                            {% set pfhf = pfhf + unfhf.montant() %}
+                        </div>
                     </div>
-
-                    <div id="kilomQte" class="col-xs-4 col-md-4" style="border: solid 1px black;">
-                        TODO : LIBELLE
-                    </div>
-                    <div id="kilomMu" class="col-xs-4 col-md-4" style="border: solid 1px black;">
-                        TODO : MONTANT
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
 
             <div class="row-fluid">
                 <div class="col-xs-offset-8 col-md-offset-8 col-xs-2 col-md-2" style="border: solid 1px black; margin-top: 4%; margin-bottom: 2%;">
-                    TOTAL TODO:DATE
+                    <b>TOTAL</b> {{ mois|slice(4,6) }}-{{ mois|slice(0,4) }}
                 </div>
                 <div class="col-xs-2 col-md-2" style="border: solid 1px black; margin-top: 4%; margin-bottom: 2%;">
-                    TODO : TOTAL
+                    {{ fetp.quantite() * etp.montant() + fnui.quantite() * nui.montant() + frep.quantite() * rep.montant() + fkm.quantite() * km.montant() + pfhf }} €
                 </div>
             </div>
 
