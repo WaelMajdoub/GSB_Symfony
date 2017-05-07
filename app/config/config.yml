@@ -82,6 +82,7 @@ fos_user:
 knp_snappy:
     pdf:
         enabled:    true
-        binary:     \"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+    temporary_folder: %kernel.cache_dir%\snappy
 
-        options:    []
+

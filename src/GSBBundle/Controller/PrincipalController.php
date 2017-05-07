@@ -122,7 +122,7 @@ class PrincipalController extends Controller
      */
     public function guiguiAction()
     {
-
+        // Modifier mois selectionné
         $mois = 200101;
 
         $em = $this->getDoctrine()->getManager();
@@ -146,29 +146,13 @@ class PrincipalController extends Controller
         $lesfhf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('mois' => $mois,
             'idUser' => $iduser));
 
-        return $this->render('GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
-            'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf));
-    }
-
-    /**
-     * @Route("/pdfgen")
-     */
-    public function pdfgenAction()
-    {
-        $html = $this->renderView('GSBBundle:Principal:guigui.html.twig');
-
-        $filename = sprintf('test-%s.pdf', date('d-m-Y'));
-
-        return new Response(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-            200,
-            [
-                'Content-Type'        => 'application/pdf',
-                'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),
-            ]
+        $this->get('knp_snappy.pdf')->generateFromHtml(
+            $this->renderView(
+                'GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
+                    'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf)
+            ),
+            'PDFs/'.$iduser.'-'.$mois.'.pdf'
         );
 
-
     }
-
 }
