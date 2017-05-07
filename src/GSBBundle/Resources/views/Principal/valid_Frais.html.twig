@@ -9,32 +9,36 @@
     {% include('@GSB/Principal/Comptable/sideBarValidFrais.html.twig') %}
     <div name="droite" style="float:left;width:80%;">
         <div name="haut" style="margin: 2 2 2 2 ;height:10%;float:left;"><h1>Validation des Frais</h1></div>
-        <div name="bas" style="margin : 10 2 2 2;clear:left;background-color:EE8844;color:white;height:88%;">
+        <div name="bas" style="margin : 10 2 2 2;clear:left;background-color:EE8844;color:orangered;height:88%;">
             <form name="formValidFrais" method="post" action="enregValidFrais.php">
                 <h1> Validation des frais par visiteur </h1>
                 <label class="titre">Choisir le visiteur :</label>
-                <select id="visiteurSelectionne" class="zone">
+                <select style="color: orangered;" id="visiteurSelectionne" class="zone">
                     {% for user in visiteurs %}
                         <option value={{ user.id }}>{{ user.nom }} - {{ user.prenom }}</option>
                     {% endfor %}
                 </select>
                 <label class="titre">Mois :</label>
 
-                <select id="selectMoisDispo" class="zone">
+                <select style="color: orangered;" id="selectMoisDispo" class="zone">
 
                 </select>
                 <p class="titre"/>
                 <div style="clear:left;"><h2>Frais au forfait </h2></div>
-                <table style="color:white;" border="1">
+                <table style="color: orangered;" border="1" class="table table-condense">
                     <tr>
-
+                        <th>Repas midi</th>
+                        <th>Nuitée</th>
+                        <th>Etape</th>
+                        <th>Km</th>
+                        <th>Situation</th>
                     </tr>
                     <tr align="center">
-                        <td width="80"><input type="text" size="3" name="repas"/></td>
-                        <td width="80"><input type="text" size="3" name="nuitee"/></td>
-                        <td width="80"><input type="text" size="3" name="etape"/></td>
-                        <td width="80"><input type="text" size="3" name="km"/></td>
-                        <td width="80">
+                        <td id="txtRepasMidi" ><input type="text" name="repas" value="dsqdsqdsq"/></td>
+                        <td id="txtNuitee"><input type="text" name="nuitee" value="dsqdsq"/></td>
+                        <td id="txtEtape"><input type="text" name="etape" value=""/></td>
+                        <td><input  id="txtKm" type="text" name="km" value=""/></td>
+                        <td>
                             <select size="3" name="situ">
                                 <option value="E">Enregistré</option>
                                 <option value="V">Validé</option>
@@ -44,7 +48,9 @@
                 </table>
                 <p class="titre"/>
                 <div style="clear:left;"><h2>Hors Forfait</h2></div>
-                <table style="color:white;" border="1">
+
+
+                <table style="color: orangered;" border="1" class="table table-condense">
                     <tr>
                         <th>Date</th>
                         <th>Libellé</th>

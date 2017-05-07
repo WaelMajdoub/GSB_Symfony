@@ -28,10 +28,12 @@ $(document).ready(function () {
             data: {
                 id: $('#visiteurSelectionne').find(':selected').val(),
                 mois: this.value}
-            }).done(function (data) {
-                // remplir les tableaux
-        }).fail(function (data) {
-            //TODO generation de message d'erreur meh
+            }).done(function (datas) {
+                console.log(datas);
+
+                $('#txtKm').html('123');
+        }).fail(function (datas) {
+            console.log(datas);
         })
     })
     }
