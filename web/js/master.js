@@ -5,16 +5,38 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'json',
             data: 'id=' + this.value
-        }).done(function (data) {
-            console.log(data);
-            $.each(data.dates, function (moi) {
-                $('#selectMoisDispo').append($('<option>', {
 
+        }).done(function (data) {
+            $.each(data.dates, function (e, da) {
+                $('#selectMoisDispo').append($('<option>', {
+                        value: da.value,
+                        text: da.text
                     }
                 ))
-            });
-        }).fail(function () {
-            console.log("j'ai fail")
+
+            })
+            console.log(data)
+        }).fail(function (data) {
+            console.log(data);
         })
     });
-});
+    $('#selectMoisDispo').on('change', function () {
+        $.ajax({
+            url: './validFrais/getFiches!Ajax',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: $('#visiteurSelectionne').find(':selected').val(),
+                mois: this.value}
+            }).done(function (data) {
+                // remplir les tableaux
+        }).fail(function (data) {
+            //TODO generation de message d'erreur meh
+        })
+    })
+    }
+
+
+
+)
+;

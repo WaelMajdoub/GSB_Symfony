@@ -31,16 +31,50 @@ class ComptableController extends Controller
      * Méthode Ajax qui va permettre de remplir les mois disponible en fonction du visiteur selectionné
      * @Route("/validFrais/moisDispoParVisiteur!Ajax", name="moisDispoParVisiteur")
      * @param Request $request
-     * @return meh
+     * @return mixed
      */
     public function moisDispoParVisiteurAction(Request $request)
     {
         if (!$request->isXmlHttpRequest()) {
             return new JsonResponse(array('message' => 'You can access to this url with ajax only'), 400);
         }
-        $moisDispo = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais')->getLesMoisDisponibles($request->get('id'));
 
-        return new JsonResponse(array('dates' => $moisDispo));
+        $repoFichefrais = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais');
+        $dateManager = $this->get('gsb.date_manager');
+
+        $dateTimeMoisDisponible = [];
+        foreach ($repoFichefrais->getLesMoisDisponibles($request->get('id')) as $key => $mois) {
+            $dateTimeNow = $dateManager->YYYYMMToDateTime($mois['mois']);
+            $dateTimeMoisDisponible[$key] = ['value' => $mois['mois'],
+                'text' => $dateTimeNow->format('m/Y')];
+        }
+
+        return new JsonResponse(array('dates' => $dateTimeMoisDisponible));
+
+    }
+    /**
+     * Méthode ajax qui va ramener les fiches disponibles par utilisateur et par mois
+     * @Route("/validFrais/getFiches!Ajax", name="getFiches")
+     * @param Request $request
+     * @return mixed
+     */
+    public function getFichesAction(Request $request){
+
+        if (!$request->isXmlHttpRequest()) {
+            return new JsonResponse(array('message' => 'You can access to this url with ajax only'), 400);
+        }
+        $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais')
+            ->getLesInfosFicheFrais($request->get('id'), $request->get('mois'));
+        $ligneFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')
+            ->getLesFraisForfait($request->get('id'), $request->get('mois'));
+        $ligneFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')
+            ->getLesFraisHorsForfait($request->get('id'), $request->get('mois'));
+        return new JsonResponse(array('ficheFrais' => $ficheFrais,
+                                    'ligneFraisForfait' => $ligneFraisForfait,
+                                    'ligneFraisHorsForfait' => $ligneFraisHorsForfait));
+
+
+
     }
 
     /**
