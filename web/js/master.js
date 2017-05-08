@@ -23,6 +23,7 @@ $(document).ready(function () {
                 alert('Erreur lors de la récupération des dates disponibles.');
             })
         });
+
         $('#selectMoisDispo').on('change', function () {
             $.ajax({
                 url: './validFrais/getFiches!Ajax',
@@ -79,17 +80,22 @@ $(document).ready(function () {
                         '<option value="V">Validé</option>' +
                         '<option value="R">Remboursé</option>' +
                         '</select></td>' +
+                        '<td width="90"><input type="text" size="10" name="hfEdit1" value="' + 'TODO' + '"/></td>' +
                         '</tr>')
                 }
 
             }).fail(function () {
                 alert('Erreur lors de la récupération des dates disponibles.');
             });
-        })
+        });
+
         $('#btnReset').on('click', function () {
-                $('#trF').remove();
-                $('.trHF').remove();
-            }
-        );
+            $('#trF').remove();
+            $('.trHF').remove();
+        });
+
+        $('#btnSubmit').on('click'), function () {
+
+        };
     }
 );
