@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +20,7 @@ public class FraisHfAdapter extends BaseAdapter {
 	LayoutInflater inflater ;
 	Integer key ;  // annee et mois (clé dans la liste)
 	Context context ; // contexte pour gérer la sérialisation
-	
+
 	/**
 	 * Constructeur de l'adapter pour valoriser les propriétés
 	 * @param context
@@ -34,7 +33,7 @@ public class FraisHfAdapter extends BaseAdapter {
 		this.key = key ;
 		this.context = context ;
 	}
-	
+
 	/**
 	 * retourne le nombre d'éléments de la listview
 	 */
@@ -66,9 +65,8 @@ public class FraisHfAdapter extends BaseAdapter {
 		TextView txtListJour ;
 		TextView txtListMontant ;
 		TextView txtListMotif ;
-		ImageView btnDelete ;
+		ImageView imgSuppr;
 	}
-	
 	/**
 	 * Affichage dans la liste
 	 */
@@ -81,17 +79,16 @@ public class FraisHfAdapter extends BaseAdapter {
 			holder.txtListJour = (TextView)convertView.findViewById(R.id.txtListJour) ;
 			holder.txtListMontant = (TextView)convertView.findViewById(R.id.txtListMontant) ;
 			holder.txtListMotif = (TextView)convertView.findViewById(R.id.txtListMotif) ;
+			holder.imgSuppr = (ImageView) convertView.findViewById(R.id.imgSuppr);
 			convertView.setTag(holder) ;
 		}else{
 			holder = (ViewHolder)convertView.getTag();
 		}
-
-
-		holder.btnDelete.setTag(index);
+		holder.imgSuppr.setTag(index);
 
 
 
-		holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+		holder.imgSuppr.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -104,16 +101,10 @@ public class FraisHfAdapter extends BaseAdapter {
 			}
 		});
 
-
-
 		holder.txtListJour.setText(String.format(Locale.FRANCE, "%d", lesFrais.get(index).getJour())) ;
 		holder.txtListMontant.setText(String.format(Locale.FRANCE, "%d", lesFrais.get(index).getMontant())) ;
 		holder.txtListMotif.setText(lesFrais.get(index).getMotif()) ;
 		return convertView ;
 	}
-/*
-	public void deleteFrais(int frais) {
-		lesFrais.remove(frais);
 
-	}*/
 }

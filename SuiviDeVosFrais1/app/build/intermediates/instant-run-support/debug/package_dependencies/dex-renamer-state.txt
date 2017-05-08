@@ -1,0 +1,22 @@
+#Mon May 08 18:39:50 CEST 2017
+renamed.6=classes2.dex
+renamed.5=classes4.dex
+renamed.4=classes5.dex
+renamed.3=classes.dex
+renamed.2=classes7.dex
+renamed.1=classes6.dex
+renamed.0=classes3.dex
+base.6=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_21d6431c38c4ae497c03a89f6ae97829421f5f4f
+base.5=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_5e096e7676b53b3b4d96d36116c817429c2e14e6
+base.4=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_a5c84867a2ce2ae6d4edcf7c779257c322e495fe
+base.3=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_1cdb114676112e2a38c3469a65df3ebeeb7026df
+base.2=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-25.1.0_0ff03bc11b5eabd4746a7c08fc8f4d296932e406
+base.1=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_c18a04652d926a3a0e1865811f0e3df02204a098
+base.0=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_3713a2c1a508b537af64206573a5ce81b03d5246
+file.6=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_21d6431c38c4ae497c03a89f6ae97829421f5f4f\\classes.dex
+file.5=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_5e096e7676b53b3b4d96d36116c817429c2e14e6\\classes.dex
+file.4=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_a5c84867a2ce2ae6d4edcf7c779257c322e495fe\\classes.dex
+file.3=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_1cdb114676112e2a38c3469a65df3ebeeb7026df\\classes.dex
+file.2=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-25.1.0_0ff03bc11b5eabd4746a7c08fc8f4d296932e406\\classes.dex
+file.1=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_c18a04652d926a3a0e1865811f0e3df02204a098\\classes.dex
+file.0=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_3713a2c1a508b537af64206573a5ce81b03d5246\\classes.dex

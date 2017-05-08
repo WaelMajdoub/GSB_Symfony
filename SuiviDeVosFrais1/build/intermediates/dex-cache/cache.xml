@@ -2,130 +2,85 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_8f4842a59061146ab5a55e07ced5e48362bbce81.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_a43c3c64ae8c3ed4fb001239b21664bb967ec725.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_990d5c0ecb8f80dedb035e391b1bffbb3335c90d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_54f50840f719f74f372ee69fe03c6bd54470deee.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_a6a84758d3cf101227adbff40e2e0c58e92c92ff.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_7009694e5a0896b74c8ab0374395b993a7c2af05.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_5a043baa881603306150d324bdf5333373f77c3e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_7009694e5a0896b74c8ab0374395b993a7c2af05.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_54f50840f719f74f372ee69fe03c6bd54470deee.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_a6a84758d3cf101227adbff40e2e0c58e92c92ff.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_990d5c0ecb8f80dedb035e391b1bffbb3335c90d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        is-multidex="true"
+        jar="C:\Users\Guillyan\.android\build-cache\f09360abef2caafa4ca8141d9f6f5907b4115d83\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_5a043baa881603306150d324bdf5333373f77c3e.jar" />
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_21d6431c38c4ae497c03a89f6ae97829421f5f4f\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Guillyan\.android\build-cache\2d070a8f7ae3a99a5a1154125eb438f3cf6d9a51\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_8f4842a59061146ab5a55e07ced5e48362bbce81.jar" />
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5e096e7676b53b3b4d96d36116c817429c2e14e6\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        is-multidex="true"
+        jar="C:\Users\Guillyan\.android\build-cache\95ff4136ca47f5d06283fcec2e48fd1944ff3690\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a5c84867a2ce2ae6d4edcf7c779257c322e495fe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Guillyan\.android\build-cache\61cff6500cd42ab47e1f02c81215573f03ecf199\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="C:\Users\chapput.g\Documents\GSB\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_a43c3c64ae8c3ed4fb001239b21664bb967ec725.jar" />
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c18a04652d926a3a0e1865811f0e3df02204a098\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Guillyan\.android\build-cache\1e813091c9d4f969092aeb7af90ea555570f6dd2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3713a2c1a508b537af64206573a5ce81b03d5246\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Guillyan\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_0ff03bc11b5eabd4746a7c08fc8f4d296932e406\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Guillyan\.android\build-cache\2090a481278dbf54598a45a7f48f050b2febf68f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1cdb114676112e2a38c3469a65df3ebeeb7026df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_0444cdcbcac926db58d940cafe3c96bbf4cae28d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2514e3447229a07c9f1e17603f0de844ec176a0d">
+        <dex dex="F:\Logiciels\NetBeans 8.1\Projets\GSB_Symfony\SuiviDeVosFrais1\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_888ec638295dc888a487a7f84f85ee6e672111b5\classes.dex" />
     </item>
 
 </items>
