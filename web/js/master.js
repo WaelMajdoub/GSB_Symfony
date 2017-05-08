@@ -1,17 +1,21 @@
 $(document).ready(function () {
     $('#visiteurSelectionne').on('change', function () {
-        $('.dateVis').remove();
         $.ajax({
             url: './validFrais/moisDispoParVisiteur!Ajax',
             type: 'POST',
             dataType: 'json',
             data: 'id=' + this.value
-
         }).done(function (data) {
             $('#trF').remove();
             $('.trHF').remove();
+            $('#selectMoisDispo').find('option:not(:first)').remove();
+            $('#selectMoisDispo').val('0');
             $.each(data.dates, function (e, da) {
-                $('#selectMoisDispo').append($('<option class="dateVis" value="da.value">' + da.text + '</option>'));
+                $('#selectMoisDispo').append($('<option>', {
+                        value: da.value,
+                        text: da.text
+                    }
+                ))
             })
         }).fail(function (data) {
             console.log(data);
@@ -26,7 +30,6 @@ $(document).ready(function () {
                 id: $('#visiteurSelectionne').find(':selected').val(),
                 mois: this.value}
             }).done(function (datas) {
-                console.log(datas);
                 $('#trF').remove();
                 $('#tableF').append('<tr align="center" id="trF">'+
                     '<td id="txtRepasMidi" ><input type="text" id="repas" name="repas" value=""/></td>'+
