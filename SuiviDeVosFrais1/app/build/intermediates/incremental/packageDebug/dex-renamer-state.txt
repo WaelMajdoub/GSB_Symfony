@@ -1,7 +1,4 @@
-#Mon May 08 19:20:26 CEST 2017
-base.0=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_0444cdcbcac926db58d940cafe3c96bbf4cae28d
-renamed.1=classes2.dex
+#Mon May 08 19:29:28 CEST 2017
+base.0=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.1=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_888ec638295dc888a487a7f84f85ee6e672111b5\\classes.dex
-base.1=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_888ec638295dc888a487a7f84f85ee6e672111b5
-file.0=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_0444cdcbcac926db58d940cafe3c96bbf4cae28d\\classes.dex
+file.0=F\:\\Logiciels\\NetBeans 8.1\\Projets\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
