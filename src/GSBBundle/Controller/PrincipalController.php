@@ -1,4 +1,5 @@
 <?php
+
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity;
@@ -8,6 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\DateTime;
+
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 /**
  * Class PrincipalController
@@ -40,8 +44,7 @@ class PrincipalController extends Controller
      */
     public function deconnexionAction()
     {
-        return $this->render('GSBBundle:Principal:deconnexion.html.twig', array(
-            // ...
+        return $this->render('GSBBundle:Principal:deconnexion.html.twig', array(// ...
         ));
     }
 
@@ -50,8 +53,7 @@ class PrincipalController extends Controller
      */
     public function accueilAction()
     {
-        return $this->render('GSBBundle:Principal:accueil.html.twig', array(
-            // ...
+        return $this->render('GSBBundle:Principal:accueil.html.twig', array(// ...
         ));
     }
 
@@ -60,8 +62,7 @@ class PrincipalController extends Controller
      */
     public function gererFraisAction()
     {
-        return $this->render('GSBBundle:Principal:gerer_frais.html.twig', array(
-            // ...
+        return $this->render('GSBBundle:Principal:gerer_frais.html.twig', array(// ...
         ));
     }
 
@@ -91,8 +92,7 @@ class PrincipalController extends Controller
      */
     public function validFraisAction()
     {
-        return $this->render('GSBBundle:Principal:valid_frais.html.twig', array(
-            // ...
+        return $this->render('GSBBundle:Principal:valid_frais.html.twig', array(// ...
         ));
     }
 
@@ -101,8 +101,7 @@ class PrincipalController extends Controller
      */
     public function consultFraisAction()
     {
-        return $this->render('GSBBundle:Principal:consult_frais.html.twig', array(
-            // ...
+        return $this->render('GSBBundle:Principal:consult_frais.html.twig', array(// ...
         ));
     }
 
@@ -111,8 +110,7 @@ class PrincipalController extends Controller
      */
     public function saisieFraisAction()
     {
-        return $this->render('GSBBundle:Principal:saisie_frais.html.twig', array(
-            // ...
+        return $this->render('GSBBundle:Principal:saisie_frais.html.twig', array(// ...
         ));
     }
 
@@ -122,6 +120,8 @@ class PrincipalController extends Controller
      */
     public function guiguiAction()
     {
+
+
         // Modifier mois selectionné
         $mois = 200101;
 
@@ -146,12 +146,21 @@ class PrincipalController extends Controller
         $lesfhf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('mois' => $mois,
             'idUser' => $iduser));
 
-        $this->get('knp_snappy.pdf')->generateFromHtml(
-            $this->renderView(
-                'GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
-                    'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf)
-            ),
-            'PDFs/'.$iduser.'-'.$mois.'.pdf'
+        //Check si le PDF du mois existe déja
+        $fs = new Filesystem();
+        if (!$fs->exists('PDFs/' . $iduser . '-' . $mois . '.pdf')) {
+
+            $this->get('knp_snappy.pdf')->generateFromHtml(
+                $this->renderView(
+                    'GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
+                        'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf)
+                ),
+                'PDFs/' . $iduser . '-' . $mois . '.pdf'
+            );
+        }
+
+        return $this->render('GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
+                'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf)
         );
 
     }
