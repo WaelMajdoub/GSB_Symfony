@@ -62,7 +62,7 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('ff.mois = :unMois')
             ->setParameter('idUser', $idUser)
             ->setParameter('unMois', $mois)
-            ->getQuery()->getSingleResult();
+            ->getQuery()->getArrayResult();
     }
 
     /**
