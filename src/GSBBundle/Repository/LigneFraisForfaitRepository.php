@@ -21,10 +21,10 @@ class LigneFraisForfaitRepository extends \Doctrine\ORM\EntityRepository
     public function getLesFraisForfait($idUser, $mois){
 
         return $this->createQueryBuilder('lff')
-            ->select('lff')
+            ->select('lff.id', 'lff.mois', 'lff.quantite', 'ff.id')
             ->where('lff.idUser = :idUser')
             ->andWhere('lff.mois = :mois')
-            ->join('lff.idFraisForfait', 'LignesFraisHorsForfait')
+            ->join('lff.idFraisForfait', 'ff')
             ->setParameter('idUser', $idUser)
             ->setParameter('mois', $mois)
             ->getQuery()->getArrayResult();
