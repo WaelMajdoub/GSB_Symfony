@@ -1,5 +1,7 @@
 $(document).ready(function () {
         $('#visiteurSelectionne').on('change', function () {
+            $('#btnSubmit').attr('disabled', true);
+            $('#hcMontant').val('');
             $.ajax({
                 url: './validFrais/moisDispoParVisiteur!Ajax',
                 type: 'POST',
@@ -23,7 +25,7 @@ $(document).ready(function () {
         });
         $('#selectMoisDispo').on('change', function () {
             $.ajax({
-                url: './validFrais/getFiches!Ajax', 
+                url: './validFrais/getFiches!Ajax',
                 type: 'POST',
                 dataType: 'json',
                 data: {
@@ -31,6 +33,8 @@ $(document).ready(function () {
                     mois: this.value
                 }
             }).done(function (datas) {
+                console.log(datas);
+                $('#btnSubmit').attr('disabled', false);
                 $('#hcMontant').val(datas.ficheFrais[0]['nbJustificatifs']);
                 $('#trF').remove();
                 $('#tableF').append('<tr align="center" id="trF">' +
