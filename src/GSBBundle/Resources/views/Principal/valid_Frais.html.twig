@@ -14,6 +14,8 @@
                 <h1> Validation des frais par visiteur </h1>
                 <label class="titre">Choisir le visiteur :</label>
                 <select style="color: orangered;" id="visiteurSelectionne" class="zone">
+                    <option disabled selected value>Selectionnez un visiteur</option>
+
                     {% for user in visiteurs %}
                         <option value={{ user.id }}>{{ user.nom }} - {{ user.prenom }}</option>
                     {% endfor %}
@@ -21,6 +23,7 @@
                 <label class="titre">Mois :</label>
 
                 <select style="color: orangered;" id="selectMoisDispo" class="zone">
+                    <option disabled selected value>Selectionnez une date</option>
 
                 </select>
                 <p class="titre"/>
@@ -34,12 +37,13 @@
                         <th>Situation</th>
                     </tr>
                     <tr align="center">
-                        <td id="txtRepasMidi" ><input type="text" id="repas" name="repas" value="dsqdsqdsq"/></td>
-                        <td id="txtNuitee"><input type="text" id="nuitee" name="nuitee" value="dsqdsq"/></td>
+                        <td id="txtRepasMidi" ><input type="text" id="repas" name="repas" value=""/></td>
+                        <td id="txtNuitee"><input type="text" id="nuitee" name="nuitee" value=""/></td>
                         <td id="txtEtape"><input type="text" id="etape" name="etape" value=""/></td>
                         <td id="txtKm"><input type="text" id="km" name="km" value=""/></td>
                         <td>
                             <select size="3" name="situ">
+
                                 <option value="E">Enregistré</option>
                                 <option value="V">Validé</option>
                                 <option value="R">Remboursé</option>
