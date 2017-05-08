@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $('#visiteurSelectionne').prepend('<option disabled selected>Visiteur</option>');
     $('#visiteurSelectionne').on('change', function () {
+        $('.dateVis').remove();
         $.ajax({
             url: './validFrais/moisDispoParVisiteur!Ajax',
             type: 'POST',
@@ -10,14 +10,8 @@ $(document).ready(function () {
         }).done(function (data) {
             $('#trF').remove();
             $('.trHF').remove();
-            $('#selectMoisDispo').append('<option disabled selected>Date</option>');
             $.each(data.dates, function (e, da) {
-                $('#selectMoisDispo').append($('<option>', {
-                        value: da.value,
-                        text: da.text
-                    }
-                ))
-
+                $('#selectMoisDispo').append($('<option class="dateVis" value="da.value">' + da.text + '</option>'));
             })
         }).fail(function (data) {
             console.log(data);
@@ -32,6 +26,7 @@ $(document).ready(function () {
                 id: $('#visiteurSelectionne').find(':selected').val(),
                 mois: this.value}
             }).done(function (datas) {
+                console.log(datas);
                 $('#trF').remove();
                 $('#tableF').append('<tr align="center" id="trF">'+
                     '<td id="txtRepasMidi" ><input type="text" id="repas" name="repas" value=""/></td>'+

@@ -14,6 +14,8 @@
                 <h1> Validation des frais par visiteur </h1>
                 <label class="titre">Choisir le visiteur :</label>
                 <select style="color: orangered;" id="visiteurSelectionne" class="zone">
+                    <option disabled selected value>Selectionnez un visiteur</option>
+
                     {% for user in visiteurs %}
                         <option value={{ user.id }}>{{ user.nom }} - {{ user.prenom }}</option>
                     {% endfor %}
@@ -21,6 +23,7 @@
                 <label class="titre">Mois :</label>
 
                 <select style="color: orangered;" id="selectMoisDispo" class="zone">
+                    <option disabled selected value>Selectionnez une date</option>
 
                 </select>
                 <p class="titre"/>
