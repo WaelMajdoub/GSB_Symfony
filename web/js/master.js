@@ -30,6 +30,8 @@ $(document).ready(function () {
                 id: $('#visiteurSelectionne').find(':selected').val(),
                 mois: this.value}
             }).done(function (datas) {
+                console.log(datas);
+                $('#hcMontant').val(datas.ficheFrais[0]['nbJustificatifs']);
                 $('#trF').remove();
                 $('#tableF').append('<tr align="center" id="trF">'+
                     '<td id="txtRepasMidi" ><input type="text" id="repas" name="repas" value=""/></td>'+
