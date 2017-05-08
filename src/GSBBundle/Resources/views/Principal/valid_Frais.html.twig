@@ -34,10 +34,10 @@
                         <th>Situation</th>
                     </tr>
                     <tr align="center">
-                        <td id="txtRepasMidi" ><input type="text" name="repas" value="dsqdsqdsq"/></td>
-                        <td id="txtNuitee"><input type="text" name="nuitee" value="dsqdsq"/></td>
-                        <td id="txtEtape"><input type="text" name="etape" value=""/></td>
-                        <td><input  id="txtKm" type="text" name="km" value=""/></td>
+                        <td id="txtRepasMidi" ><input type="text" id="repas" name="repas" value="dsqdsqdsq"/></td>
+                        <td id="txtNuitee"><input type="text" id="nuitee" name="nuitee" value="dsqdsq"/></td>
+                        <td id="txtEtape"><input type="text" id="etape" name="etape" value=""/></td>
+                        <td id="txtKm"><input type="text" id="km" name="km" value=""/></td>
                         <td>
                             <select size="3" name="situ">
                                 <option value="E">Enregistré</option>
@@ -50,23 +50,12 @@
                 <div style="clear:left;"><h2>Hors Forfait</h2></div>
 
 
-                <table style="color: orangered;" border="1" class="table table-condense">
+                <table id="tableHF" style="color: orangered;" border="1" class="table table-condense">
                     <tr>
                         <th>Date</th>
                         <th>Libellé</th>
                         <th>Montant</th>
                         <th>Situation</th>
-                    </tr>
-                    <tr align="center">
-                        <td width="100"><input type="text" size="12" name="hfDate1"/></td>
-                        <td width="220"><input type="text" size="30" name="hfLib1"/></td>
-                        <td width="90"><input type="text" size="10" name="hfMont1"/></td>
-                        <td width="80">
-                            <select size="3" name="hfSitu1">
-                                <option value="E">Enregistré</option>
-                                <option value="V">Validé</option>
-                                <option value="R">Remboursé</option>
-                            </select></td>
                     </tr>
                 </table>
                 <p class="titre"></p>
@@ -78,10 +67,4 @@
         </div>
     </div>
     </body>
-
-    {% block js %}
-        {{ parent() }}
-        <script type="text/javascript" src="{{ asset('js/master.js') }}"></script>
-
-    {% endblock %}
 {% endblock %}
