@@ -79,6 +79,7 @@ $(document).ready(function () {
                         '<option value="V">Validé</option>' +
                         '<option value="R">Remboursé</option>' +
                         '</select></td>' +
+                        '<td width="90"><input type="text" size="10" name="hfMont1" value="' + datas.ligneFraisHorsForfait[aze]['montant'] + '"/></td>' +
                         '</tr>')
                 }
 
