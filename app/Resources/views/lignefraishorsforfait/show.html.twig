@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{% if ligneFraisHorsForfait.date %}{{ ligneFraisHorsForfait.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if ligneFraisHorsForfait.date %}{{ ligneFraisHorsForfait.date|date('Y-m') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Montant</th>
@@ -30,15 +30,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('lignefraishorsforfait_index') }}">Back to the list</a>
+            <a href="{{ path('lignefraishorsforfait_index') }}">Voir la liste complète des Frais Hors Forfait</a>
         </li>
         <li>
-            <a href="{{ path('lignefraishorsforfait_edit', { 'id': ligneFraisHorsForfait.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a href="{{ path('lignefraishorsforfait_edit', { 'id': ligneFraisHorsForfait.id }) }}">Supprimer</a>
         </li>
     </ul>
 {% endblock %}

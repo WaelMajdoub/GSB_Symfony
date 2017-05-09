@@ -3,6 +3,7 @@
 namespace GSBBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,13 @@ class FicheFraisType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('mois')->add('nbJustificatifs')->add('montantValide')->add('dateModif')->add('idEtat')->add('idUser');
+        $builder->add('mois')->add('nbJustificatifs')->add('montantValide')->add('dateModif')->add('idUser')->add('valider', SubmitType::class, array(
+            'label' => 'Valider',
+            'attr' => array(
+                'class' => 'btn btn-success'
+            ),
+            'translation_domain' => false
+        ));
     }
     
     /**

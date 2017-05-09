@@ -73,7 +73,7 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
      */
     public function getLesInfosFicheFrais($idUser, $mois){
         return $this->createQueryBuilder('ff')
-            ->select('ff.id', 'ff.nbJustificatifs', 'ff.mois', 'ff.montantValide', 'e.id as idEtat')
+            ->select('ff.id as idFicheFrais', 'ff.nbJustificatifs', 'ff.mois', 'ff.montantValide', 'e.id as idEtat')
             ->innerJoin('ff.idEtat', 'e')
             ->where('ff.idUser = :idUser')
             ->andWhere('ff.mois = :unMois')

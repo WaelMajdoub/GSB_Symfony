@@ -10,7 +10,6 @@
     <div name="droite" style="float:left;width:80%;">
         <div name="haut" style="margin: 2 2 2 2 ;height:10%;float:left;"><h1>Validation des Frais</h1></div>
         <div name="bas" style="margin : 10 2 2 2;clear:left;background-color:EE8844;color:orangered;height:88%;">
-            <form name="formValidFrais" method="post" action="enregValidFrais.php">
                 <h1> Validation des frais par visiteur </h1>
                 <label class="titre">Choisir le visiteur :</label>
                 <select style="color: orangered;" id="visiteurSelectionne" class="zone">
@@ -55,8 +54,7 @@
                 <input type="text" class="zone" size="4" id="hcMontant" name="hcMontant"/>
                 <p class="titre"/><label class="titre">&nbsp;</label>
                 <input class="zone" id="btnReset" type="reset"/>
-                <input class="zone" id="btnSubmit" type="submit" disabled/>
-            </form>
+            {{ form_widget(formBtn.valider) }}
         </div>
     </div>
     </body>

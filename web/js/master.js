@@ -79,7 +79,7 @@ $(document).ready(function () {
                         '<option value="V">Validé</option>' +
                         '<option value="R">Remboursé</option>' +
                         '</select></td>' +
-                        '<td width="90"><label><a href="../web/lignefraishorsforfait/' + datas.ligneFraisHorsForfait[aze]['id'] + '/edit">Editer / Supprimer le frais</a></label></td>' +
+                        '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[aze]['id'] + '/edit">Editer le frais</a></label></td>' +
                         '</tr>')
                 }
 
@@ -91,6 +91,12 @@ $(document).ready(function () {
                 $('#trF').remove();
                 $('.trHF').remove();
             }
+
         );
+        $('btnSubmit').on('click', function () {
+            responseJSON('123');
+
+        })
+
     }
 );

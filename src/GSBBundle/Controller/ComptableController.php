@@ -2,8 +2,11 @@
 
 namespace GSBBundle\Controller;
 
+use GSBBundle\Entity\FicheFrais;
+use GSBBundle\Form\FicheFraisType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -13,16 +16,34 @@ class ComptableController extends Controller
     /**
      * @Route("/validFrais")
      */
-    public function validFraisAction()
+    public function validFraisAction(Request $request)
     {
         // Recupération des Visiteurs
 
         $lesVisiteurs = $this->getDoctrine()->getRepository('UserBundle:User')
             ->findByRole('ROLE_VISITEUR');
 
+        $formValider = $this->createForm(FicheFraisType::class);
+        $formValider->handleRequest($request);
+
+        if ($formValider->isSubmitted()) {
+            if ($formValider->isValid()) {
+
+                $em = $this->getDoctrine()->getManager();
+                $fiche = $em->findOneBy((array('id' => $request->get('idFicheFrais'),
+                    'mois' => $request->get('mois'))));
+                $fiche->setIdEtat('HUGO');
+
+                $em->persist($fiche);
+
+                $em->flush();
+                dump($fiche);
+            }
+        }
+
 
         return $this->render('GSBBundle:Principal:valid_frais.html.twig',
-            array('visiteurs' => $lesVisiteurs,
+            array('visiteurs' => $lesVisiteurs, 'formBtn' =>$formValider->createView()
             ));
     }
 
@@ -69,6 +90,8 @@ class ComptableController extends Controller
             ->getLesFraisForfait($request->get('id'), $request->get('mois'));
         $ligneFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')
             ->getLesFraisHorsForfait($request->get('id'), $request->get('mois'));
+
+        dump($ficheFrais);
         return new JsonResponse(array('ficheFrais' => $ficheFrais,
                                     'ligneFraisForfait' => $ligneFraisForfait,
                                     'ligneFraisHorsForfait' => $ligneFraisHorsForfait));
