@@ -79,7 +79,7 @@ $(document).ready(function () {
                         '<option value="V">Validé</option>' +
                         '<option value="R">Remboursé</option>' +
                         '</select></td>' +
-                        '<td width="90"><input type="text" size="10" name="hfMont1" value="' + datas.ligneFraisHorsForfait[aze]['montant'] + '"/></td>' +
+                        '<td width="90"><label><a href="../web/lignefraishorsforfait/' + datas.ligneFraisHorsForfait[aze]['id'] + '/edit">Editer / Supprimer le frais</a></label></td>' +
                         '</tr>')
                 }
 
