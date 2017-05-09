@@ -21,9 +21,6 @@
     </div>
 
     <br>
-    <div style="text-align:center">
-        <br><br>REMBOURSEMENT FRAIS ENGAGES
-    </div>
 
     <table class="infos">
         <tr class="infos">
@@ -34,12 +31,18 @@
         </tr>
     </table>
 
-    <br><br>
+    <br>
+
+    <div style="text-align:center">
+        <br><br>REMBOURSEMENT FRAIS ENGAGES
+    </div>
 
     <style>
         .infos {
-            border: none; !important;
+            border: none;
+        !important;
         }
+
         table, tr, th {
             border: 1px solid black;
             border-collapse: collapse;
@@ -56,26 +59,26 @@
         <tr>
             <th>Étape</th>
             <th>{{ fetp.quantite() }}</th>
-            <th>{{ etp.montant() }}</th>
-            <th>{{ fetp.quantite() * etp.montant() }}</th>
+            <th>{{ etp.montant() }} €</th>
+            <th>{{ fetp.quantite() * etp.montant() }} €</th>
         </tr>
         <tr>
             <th>Nuitée</th>
             <th>{{ fnui.quantite() }}</th>
-            <th>{{ nui.montant() }}</th>
-            <th>{{ fnui.quantite() * nui.montant() }}</th>
+            <th>{{ nui.montant() }} €</th>
+            <th>{{ fnui.quantite() * nui.montant() }} €</th>
         </tr>
         <tr>
             <th>Repas Midi</th>
             <th>{{ frep.quantite() }}</th>
-            <th>{{ rep.montant() }}</th>
-            <th>{{ frep.quantite() * rep.montant() }}</th>
+            <th>{{ rep.montant() }} €</th>
+            <th>{{ frep.quantite() * rep.montant() }} €</th>
         </tr>
         <tr>
             <th>Kilométrage</th>
             <th>{{ fkm.quantite() }}</th>
-            <th>{{ km.montant() }}</th>
-            <th>{{ fkm.quantite() * km.montant() }}</th>
+            <th>{{ km.montant() }} €</th>
+            <th>{{ fkm.quantite() * km.montant() }} €</th>
         </tr>
     </table>
 
@@ -94,32 +97,33 @@
             <tr>
                 <th>{{ unfhf.date()|date('d-m-Y') }}</th>
                 <th>{{ unfhf.libelle() }}</th>
-                <th>{{ unfhf.montant() }}</th>
+                <th>{{ unfhf.montant() }} €</th>
             </tr>
         {% endfor %}
     </table>
 
+    <br>
+    <br>
+    <br>
 
-    <div class="row-fluid">
-        <div class="col-xs-offset-8 col-md-offset-8 col-xs-2 col-md-2"
-             style="border: solid 1px black; margin-top: 4%; margin-bottom: 2%;">
-            <b>TOTAL</b> {{ mois|slice(4,6) }}-{{ mois|slice(0,4) }}
-        </div>
-        <div class="col-xs-2 col-md-2" style="border: solid 1px black; margin-top: 4%; margin-bottom: 2%;">
-            {{ fetp.quantite() * etp.montant() + fnui.quantite() * nui.montant() + frep.quantite() * rep.montant() + fkm.quantite() * km.montant() + pfhf }}
-            €
-        </div>
-    </div>
+    <table style="width: 20%; margin-left: 70%">
+        <tr>
+            <th>TOTAL</th>
+            <th>{{ fetp.quantite() * etp.montant() + fnui.quantite() * nui.montant() + frep.quantite() * rep.montant() + fkm.quantite() * km.montant() + pfhf }}
+                €
+            </th>
+        </tr>
+    </table>
 
-    </div><br><br>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
-    <div id="lieuSignDate" class="row-fluid">
-        <div class="col-xs-offset-8 col-md-offset-8 col-xs-4 col-md-4" style="margin-top: 5%;">
-            Fait à LIEU, le DATE <br>
+    <div style="margin-left: 70%">
+            Fait à ..............., le ........... <br>
             Vu l'agent comptable <br>
-            SIGNATURE
-        </div>
+            Signature :
     </div>
 
 {% endblock %}
