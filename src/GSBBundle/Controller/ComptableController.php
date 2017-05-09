@@ -29,14 +29,14 @@ class ComptableController extends Controller
         if ($formValider->isSubmitted()) {
             if ($formValider->isValid()) {
 
-                $em = $this->getDoctrine()->getManager();
+                $em = $this->getDoctrine()->getRepository('GSBBundle:FicheFrais');
                 $fiche = $em->findOneBy((array('id' => $request->get('idFicheFrais'),
                     'mois' => $request->get('mois'))));
-                $fiche->setIdEtat('HUGO');
-
+                $fiche->setIdEtat('AZE');
                 $em->persist($fiche);
-
                 $em->flush();
+
+
                 dump($fiche);
             }
         }

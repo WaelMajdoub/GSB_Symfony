@@ -1,1 +1,1 @@
-select * from user where roles LIKE '%ROLE_VISITEUR%';
+select * from fiche_frais where fiche_frais.idEtat = 'HUGO';
