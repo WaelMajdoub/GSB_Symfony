@@ -18,6 +18,8 @@ class ComptableController extends Controller
      */
     public function validFraisAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_COMPTABLE', null, 'STAHP Access denied!');
+
         // Recupération des Visiteurs
 
         $lesVisiteurs = $this->getDoctrine()->getRepository('UserBundle:User')
@@ -56,6 +58,8 @@ class ComptableController extends Controller
      */
     public function moisDispoParVisiteurAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_COMPTABLE', null, 'STAHP Access denied!');
+
         if (!$request->isXmlHttpRequest()) {
             return new JsonResponse(array('message' => 'You can access to this url with ajax only'), 400);
         }
@@ -79,7 +83,9 @@ class ComptableController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function getFichesAction(Request $request){
+    public function getFichesAction(Request $request)
+    {
+        $this->denyAccessUnlessGranted('ROLE_COMPTABLE', null, 'STAHP Access denied!');
 
         if (!$request->isXmlHttpRequest()) {
             return new JsonResponse(array('message' => 'You can access to this url with ajax only'), 400);
