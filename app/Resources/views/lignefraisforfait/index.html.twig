@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lignefraisforfaits list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mois</th>
+                <th>Quantite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligneFraisForfait in ligneFraisForfaits %}
+            <tr>
+                <td><a href="{{ path('lignefraisforfait_show', { 'id': ligneFraisForfait.id }) }}">{{ ligneFraisForfait.id }}</a></td>
+                <td>{{ ligneFraisForfait.mois }}</td>
+                <td>{{ ligneFraisForfait.quantite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lignefraisforfait_show', { 'id': ligneFraisForfait.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lignefraisforfait_edit', { 'id': ligneFraisForfait.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lignefraisforfait_new') }}">Create a new ligneFraisForfait</a>
+        </li>
+    </ul>
+{% endblock %}

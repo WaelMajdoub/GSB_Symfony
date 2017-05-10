@@ -1,3 +1,11 @@
+user_user:
+    resource: "@UserBundle/Controller/UserController.php"
+    type:     annotation
+
+gsb_etat:
+    resource: "@GSBBundle/Controller/EtatController.php"
+    type:     annotation
+
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation

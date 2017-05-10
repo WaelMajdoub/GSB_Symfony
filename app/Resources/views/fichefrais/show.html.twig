@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fichefrai</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ficheFrai.id }}</td>
+            </tr>
+            <tr>
+                <th>Mois</th>
+                <td>{{ ficheFrai.mois }}</td>
+            </tr>
+            <tr>
+                <th>Nbjustificatifs</th>
+                <td>{{ ficheFrai.nbJustificatifs }}</td>
+            </tr>
+            <tr>
+                <th>Montantvalide</th>
+                <td>{{ ficheFrai.montantValide }}</td>
+            </tr>
+            <tr>
+                <th>Datemodif</th>
+                <td>{% if ficheFrai.dateModif %}{{ ficheFrai.dateModif|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fichefrais_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('fichefrais_edit', { 'id': ficheFrai.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

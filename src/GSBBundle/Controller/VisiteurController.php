@@ -18,6 +18,8 @@ class VisiteurController extends Controller
         // id de l'utilisateur courant
         $idUser = $this->getUser()->getId();
 
+        $roles = $this->getUser()->getRoles();
+
         $ficheFraisRepository = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais');
         // Appel d'un service créé dans le bût de gérer les dates mal foutues ( merci Thomas @Sevenn)
         $dateManager = $this->get('gsb.date_manager');
@@ -51,7 +53,7 @@ class VisiteurController extends Controller
                 $tableauEtatFrais['fraisForfait'] = $fraisForfait;
                 // QUERY + AJOUT DANS LE TABLEAU //
                 $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais')
-                    ->getLesInfosFicheFrais($this->getUser()->getId(), $dateSelectionnee);
+                    ->getLesInfosFicheFraisObject($this->getUser()->getId(), $dateSelectionnee);
                 $tableauEtatFrais['infoFicheFrais'] = $ficheFrais;
                 // QUERY + AJOUT DANS LE TABLEAU //
                 $lignesFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:Lignefraisforfait')
@@ -63,9 +65,11 @@ class VisiteurController extends Controller
                 $tableauEtatFrais['lignesFraisHorsForfait'] = $lignesFraisHorsForfait;
             }
         }
+        dump($tableauEtatFrais);
         return $this->render('@GSB/Principal/etat_frais.html.twig', array(
             'formMois' => $formMois->createView(),
-            'infoEtatFrais' => $tableauEtatFrais
+            'infoEtatFrais' => $tableauEtatFrais,
+            'roles' => $roles
         ));
     }
 

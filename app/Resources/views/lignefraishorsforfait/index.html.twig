@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lignefraishorsforfaits list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mois</th>
+                <th>Libelle</th>
+                <th>Date</th>
+                <th>Montant</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligneFraisHorsForfait in ligneFraisHorsForfaits %}
+            <tr>
+                <td><a href="{{ path('lignefraishorsforfait_show', { 'id': ligneFraisHorsForfait.id }) }}">{{ ligneFraisHorsForfait.id }}</a></td>
+                <td>{{ ligneFraisHorsForfait.mois }}</td>
+                <td>{{ ligneFraisHorsForfait.libelle }}</td>
+                <td>{% if ligneFraisHorsForfait.date %}{{ ligneFraisHorsForfait.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ ligneFraisHorsForfait.montant }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lignefraishorsforfait_show', { 'id': ligneFraisHorsForfait.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lignefraishorsforfait_edit', { 'id': ligneFraisHorsForfait.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lignefraishorsforfait_new') }}">Create a new ligneFraisHorsForfait</a>
+        </li>
+    </ul>
+{% endblock %}

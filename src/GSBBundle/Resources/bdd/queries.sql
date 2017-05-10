@@ -1,1 +1,1 @@
-select * from fiche_frais inner join ligne_frais_forfait ;
+select * from fiche_frais where fiche_frais.idEtat = 'HUGO';

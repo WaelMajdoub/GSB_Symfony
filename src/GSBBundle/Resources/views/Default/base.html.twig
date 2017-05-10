@@ -17,6 +17,9 @@
         <link href="{{ asset('css/bootstrap/bootstrap.css') }}" rel="stylesheet" type="text/css"/>
         <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
     {% endblock %}
+    {% block stylePerso %}
+
+    {% endblock %}
 
 </head>
 <body>
@@ -25,8 +28,9 @@
 </div>
 <footer>
     {% block js %}
-        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/master.js') }}"></script>
     {% endblock %}
 
 
