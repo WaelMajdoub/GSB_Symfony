@@ -2,11 +2,9 @@
 
 namespace GSBBundle\Controller;
 
-use GSBBundle\Entity\FicheFrais;
 use GSBBundle\Form\FicheFraisType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,7 +16,6 @@ class ComptableController extends Controller
      */
     public function validFraisAction(Request $request)
     {
-        $this->denyAccessUnlessGranted('ROLE_COMPTABLE', null, 'STAHP Access denied!');
 
         // Recupération des Visiteurs
 
