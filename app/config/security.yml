@@ -34,4 +34,4 @@ security:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: ROLE_USER }
         - { path: ^/etatFrais, roles: ROLE_COMPTABLE }
-        - { path: ^/etat, roles: ROLE_PITCHOUNE}
+        - { path: ^/etat, roles: ROLE_VISITEUR}
