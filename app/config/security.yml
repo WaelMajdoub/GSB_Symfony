@@ -30,8 +30,9 @@ security:
             anonymous:   true
     access_control:
         # redirection au /login si l'utilisateur n'est pas authentifié
-        # TODO: Autoriser ou non l'accès à certaines routes en fonction des roles
+        # Il faut aller du plus spécifique au plus général, bien joué l'aveugle
+        - { path: ^/etatFrais, roles: ROLE_VISITEUR }
+        - { path: ^/etat, roles: ROLE_VISITEUR}
+        - { path: ^/validFrais, roles: ROLE_VISITEUR}
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: ROLE_USER }
-        - { path: ^/etatFrais, roles: ROLE_COMPTABLE }
-        - { path: ^/etat, roles: ROLE_VISITEUR}
