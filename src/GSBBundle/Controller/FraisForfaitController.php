@@ -3,13 +3,15 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity\FraisForfait;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Fraisforfait controller.
- *
+ * @Security("has_role('ROLE_COMPTABLE')")
+
  * @Route("fraisforfait")
  */
 class FraisForfaitController extends Controller

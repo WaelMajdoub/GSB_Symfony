@@ -3,13 +3,14 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity\FicheFrais;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Fichefrai controller.
- *
+ * @Security("has_role('ROLE_COMPTABLE')")
  * @Route("fichefrais")
  */
 class FicheFraisController extends Controller

@@ -31,6 +31,7 @@ security:
     access_control:
         # redirection au /login si l'utilisateur n'est pas authentifié
         # TODO: Autoriser ou non l'accès à certaines routes en fonction des roles
-        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, role: ROLE_USER }
-        - { path: ^/etatFrais, role: ROLE_COMPTABLE }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }
+        - { path: ^/etatFrais, roles: ROLE_COMPTABLE }
+        - { path: ^/etat, roles: ROLE_PITCHOUNE}

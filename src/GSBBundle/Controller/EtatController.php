@@ -3,19 +3,21 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity\Etat;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Etat controller.
- *
+ * @Security("has_role('ROLE_SUPER_ADMIN')")
  * @Route("etat")
  */
 class EtatController extends Controller
 {
     /**
-     * Lists all etat entities.
+     * Recupère tous les Etats
      *
      * @Route("/", name="etat_index")
      * @Method("GET")
