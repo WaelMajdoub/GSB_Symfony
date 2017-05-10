@@ -12,7 +12,7 @@ class ComptableController extends Controller
 {
 
     /**
-     * @Route("/validFrais")
+     * @Route("/validFrais",name="validFrais")
      */
     public function validFraisAction(Request $request)
     {
@@ -108,7 +108,7 @@ class ComptableController extends Controller
     }
 
     /**
-     * @Route("/consultFrais")
+     * @Route("/consultFrais", ,name="consultFrais")
      */
     public function consultFraisAction()
     {
