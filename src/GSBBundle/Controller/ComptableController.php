@@ -103,12 +103,9 @@ class ComptableController extends Controller
 
     }
 
-    public function valideFicheAction(){
-
-    }
 
     /**
-     * @Route("/consultFrais", ,name="consultFrais")
+     * @Route("/consultFrais", name="consultFrais")
      */
     public function consultFraisAction()
     {
