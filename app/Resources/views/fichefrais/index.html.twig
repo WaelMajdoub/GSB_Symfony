@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fichefrais list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mois</th>
+                <th>Nbjustificatifs</th>
+                <th>Montantvalide</th>
+                <th>Datemodif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ficheFrai in ficheFrais %}
+            <tr>
+                <td><a href="{{ path('fichefrais_show', { 'id': ficheFrai.id }) }}">{{ ficheFrai.id }}</a></td>
+                <td>{{ ficheFrai.mois }}</td>
+                <td>{{ ficheFrai.nbJustificatifs }}</td>
+                <td>{{ ficheFrai.montantValide }}</td>
+                <td>{% if ficheFrai.dateModif %}{{ ficheFrai.dateModif|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fichefrais_show', { 'id': ficheFrai.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fichefrais_edit', { 'id': ficheFrai.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fichefrais_new') }}">Create a new ficheFrai</a>
+        </li>
+    </ul>
+{% endblock %}

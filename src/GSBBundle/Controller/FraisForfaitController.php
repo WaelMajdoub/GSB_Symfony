@@ -1,0 +1,136 @@
+<?php
+
+namespace GSBBundle\Controller;
+
+use GSBBundle\Entity\FraisForfait;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Fraisforfait controller.
+ *
+ * @Route("fraisforfait")
+ */
+class FraisForfaitController extends Controller
+{
+    /**
+     * Lists all fraisForfait entities.
+     *
+     * @Route("/", name="fraisforfait_index")
+     * @Method("GET")
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $fraisForfaits = $em->getRepository('GSBBundle:FraisForfait')->findAll();
+
+        return $this->render('fraisforfait/index.html.twig', array(
+            'fraisForfaits' => $fraisForfaits,
+        ));
+    }
+
+    /**
+     * Creates a new fraisForfait entity.
+     *
+     * @Route("/new", name="fraisforfait_new")
+     * @Method({"GET", "POST"})
+     */
+    public function newAction(Request $request)
+    {
+        $fraisForfait = new Fraisforfait();
+        $form = $this->createForm('GSBBundle\Form\FraisForfaitType', $fraisForfait);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($fraisForfait);
+            $em->flush();
+
+            return $this->redirectToRoute('fraisforfait_show', array('id' => $fraisForfait->getId()));
+        }
+
+        return $this->render('fraisforfait/new.html.twig', array(
+            'fraisForfait' => $fraisForfait,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a fraisForfait entity.
+     *
+     * @Route("/{id}", name="fraisforfait_show")
+     * @Method("GET")
+     */
+    public function showAction(FraisForfait $fraisForfait)
+    {
+        $deleteForm = $this->createDeleteForm($fraisForfait);
+
+        return $this->render('fraisforfait/show.html.twig', array(
+            'fraisForfait' => $fraisForfait,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Displays a form to edit an existing fraisForfait entity.
+     *
+     * @Route("/{id}/edit", name="fraisforfait_edit")
+     * @Method({"GET", "POST"})
+     */
+    public function editAction(Request $request, FraisForfait $fraisForfait)
+    {
+        $deleteForm = $this->createDeleteForm($fraisForfait);
+        $editForm = $this->createForm('GSBBundle\Form\FraisForfaitType', $fraisForfait);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('fraisforfait_edit', array('id' => $fraisForfait->getId()));
+        }
+
+        return $this->render('fraisforfait/edit.html.twig', array(
+            'fraisForfait' => $fraisForfait,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Deletes a fraisForfait entity.
+     *
+     * @Route("/{id}", name="fraisforfait_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Request $request, FraisForfait $fraisForfait)
+    {
+        $form = $this->createDeleteForm($fraisForfait);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($fraisForfait);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('fraisforfait_index');
+    }
+
+    /**
+     * Creates a form to delete a fraisForfait entity.
+     *
+     * @param FraisForfait $fraisForfait The fraisForfait entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(FraisForfait $fraisForfait)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('fraisforfait_delete', array('id' => $fraisForfait->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
+    }
+}
