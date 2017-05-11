@@ -1,21 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lignefraishorsforfait edit</h1>
+    <div class="container">
+            <h1>Modification d'un élément hors forfaits</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+            {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+            <input class="btn btn-success" type="submit" value="Modifier le frais "/>
+            {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('lignefraishorsforfait_index') }}">Back to the list</a>
-        </li>
-        <li>
+            <a class="btn btn-warning" href="{{ path('validFrais') }}">Retour à la validation des Frais</a>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input class="btn btn-danger" type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </div>
+
 {% endblock %}

@@ -39,21 +39,8 @@ class LigneFraisHorsForfaitType extends AbstractType
                     'class' => 'form-control'
                 ),
                 'translation_domain' => false
-            ))
-            ->add('ajouter', SubmitType::class, array(
-                'label' => 'Ajouter frais hors forfait',
-                'attr' => array(
-                    'class' => 'btn btn-success'
-                ),
-                'translation_domain' => false
-            ))
-            ->add('effacer', ResetType::class, array(
-                'label' => 'Effacer',
-                'attr' => array(
-                    'class' => 'btn btn-danger'
-                ),
-                'translation_domain' => false
             ));
+
     }
 
     /**
