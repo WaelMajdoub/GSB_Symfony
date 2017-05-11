@@ -50,6 +50,11 @@ class LigneFraisHorsForfait
     private $idFicheFrais;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $situation;
+
+    /**
      * Get id
      *
      * @return integer

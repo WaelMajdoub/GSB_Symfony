@@ -50,6 +50,11 @@ class LigneFraisHorsForfait
     private $idFicheFrais;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $situation;
+
+    /**
      * Get id
      *
      * @return integer
@@ -201,5 +206,29 @@ class LigneFraisHorsForfait
     public function getIdFicheFrais()
     {
         return $this->idFicheFrais;
+    }
+
+    /**
+     * Set situation
+     *
+     * @param string $situation
+     *
+     * @return LigneFraisHorsForfait
+     */
+    public function setSituation($situation)
+    {
+        $this->situation = $situation;
+
+        return $this;
+    }
+
+    /**
+     * Get situation
+     *
+     * @return string
+     */
+    public function getSituation()
+    {
+        return $this->situation;
     }
 }

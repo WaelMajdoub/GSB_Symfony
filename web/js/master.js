@@ -1,5 +1,7 @@
 $(document).ready(function () {
-        $('#visiteurSelectionne').on('change', function () {
+    $('#ficheInfos').hide();
+   // $('#ficheEtat').hide();// On cache l'Id de l'état de la fiche pour des besoins précis
+    $('#visiteurSelectionne').on('change', function () {
             $('#btnSubmit').attr('disabled', true);
             $('#hcMontant').val('');
             $.ajax({
@@ -82,8 +84,13 @@ $(document).ready(function () {
                         '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[aze]['id'] + '/edit">Editer le frais</a></label></td>' +
                         '</tr>')
                 }
+                $('#ficheInfos').show();
+                $('#ficheEtat').hide();
 
                 $('#FicheFraisId').text(datas.ficheFrais[0]['idFicheFrais']);
+                $('#ficheEtat').text(datas.ficheFrais[0]['idEtat']);
+
+                setLibelleEtat();
 
             }).fail(function () {
                 alert('Erreur lors de la récupération des dates disponibles.');
@@ -104,23 +111,27 @@ $(document).ready(function () {
                     idFicheFrais: $('#FicheFraisId').text()
                 }
             }).done(function (dtx) {
-                alert('success');
+                alert('La fiche de frais a été validée et est mise en paiement');
                 console.log(dtx);
             }).fail(function (dtx) {
                 console.log(dtx);
             })
-
-
-
-
-
             } // END FUNCTION
         ) // end OnClick
-
-
     }
 
-
-
-
 );
+
+
+function setLibelleEtat() {
+    if ($('#ficheEtat').text() === 'VA') {
+        $('#libelleEtat').text('Validée et mise en paiement');
+    } else if ($('#ficheEtat').text() === 'CL') {
+        $('#libelleEtat').text('Saisie clôturée');
+    } else if ($('#ficheEtat').text() === 'RB') {
+        $('#libelleEtat').text('Remboursée');
+    } else if ($('#ficheEtat').text() === 'CR') {
+        $('#libelleEtat').text('Fiche créée, saisie en cours');
+    }else
+        $('#libelleEtat').text('Etat pour cette fiche non disponible');
+}
