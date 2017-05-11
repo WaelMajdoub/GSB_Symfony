@@ -37,15 +37,7 @@ class PrincipalController extends Controller
 
 
     /**
-     * @Route("/deconnexion")
-     */
-    public function deconnexionAction()
-    {
-        return $this->render('GSBBundle:Principal:deconnexion.html.twig', array(// ...
-        ));
-    }
-
-    /**
+     * Route d'accueil qui mène vers l'indexAction
      * @Route("/accueil")
      */
     public function accueilAction()
@@ -57,6 +49,7 @@ class PrincipalController extends Controller
 
 
     /**
+     * Route principale de saisie de Frais
      * @Route("/saisieFrais",name="saisieFrais")
      */
     public function saisieFraisAction(Request $request)

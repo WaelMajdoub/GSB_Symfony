@@ -17,7 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class FraisForfaitController extends Controller
 {
     /**
-     * Lists all fraisForfait entities.
+     * Liste toutss les FraisForfaits.
      *
      * @Route("/", name="fraisforfait_index")
      * @Method("GET")
@@ -34,7 +34,7 @@ class FraisForfaitController extends Controller
     }
 
     /**
-     * Creates a new fraisForfait entity.
+     * Crée un nouveau fraisForfait.
      *
      * @Route("/new", name="fraisforfait_new")
      * @Method({"GET", "POST"})
@@ -60,7 +60,7 @@ class FraisForfaitController extends Controller
     }
 
     /**
-     * Finds and displays a fraisForfait entity.
+     * Recherche et affiche un fraisForfait.
      *
      * @Route("/{id}", name="fraisforfait_show")
      * @Method("GET")
@@ -76,7 +76,7 @@ class FraisForfaitController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing fraisForfait entity.
+     * Affiche un formulaire pour éditer un fraisForfait particulier
      *
      * @Route("/{id}/edit", name="fraisforfait_edit")
      * @Method({"GET", "POST"})
@@ -101,7 +101,7 @@ class FraisForfaitController extends Controller
     }
 
     /**
-     * Deletes a fraisForfait entity.
+     * Supprime un fraisForfait particulier
      *
      * @Route("/{id}", name="fraisforfait_delete")
      * @Method("DELETE")
@@ -117,11 +117,11 @@ class FraisForfaitController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('fraisforfait_index');
+        return $this->redirectToRoute('validFrais');
     }
 
     /**
-     * Creates a form to delete a fraisForfait entity.
+     * Crée un formulaire pour supprimer un fraisForfait
      *
      * @param FraisForfait $fraisForfait The fraisForfait entity
      *

@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Etat controller.
+ * Controlleur du Crud Etat réservé au super admin qui permet d'avoir les interfaces de gestions des Etats
  * @Security("has_role('ROLE_SUPER_ADMIN')")
  * @Route("etat")
  */
@@ -34,7 +34,7 @@ class EtatController extends Controller
     }
 
     /**
-     * Creates a new etat entity.
+     * Crée un nouvel Etat
      *
      * @Route("/new", name="etat_new")
      * @Method({"GET", "POST"})
@@ -60,7 +60,7 @@ class EtatController extends Controller
     }
 
     /**
-     * Finds and displays a etat entity.
+     * Recherche et Affiche l'état choisi
      *
      * @Route("/{id}", name="etat_show")
      * @Method("GET")
@@ -76,7 +76,7 @@ class EtatController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing etat entity.
+     * Rend un formulaire pour éditer un état particulier
      *
      * @Route("/{id}/edit", name="etat_edit")
      * @Method({"GET", "POST"})
@@ -101,7 +101,7 @@ class EtatController extends Controller
     }
 
     /**
-     * Deletes a etat entity.
+     * Supprime un Objet de Type Etat de la base de données
      *
      * @Route("/{id}", name="etat_delete")
      * @Method("DELETE")
@@ -121,7 +121,7 @@ class EtatController extends Controller
     }
 
     /**
-     * Creates a form to delete a etat entity.
+     * Crée un formulaire pour la suppression d'un état
      *
      * @param Etat $etat The etat entity
      *

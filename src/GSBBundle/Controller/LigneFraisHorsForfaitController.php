@@ -116,7 +116,7 @@ class LigneFraisHorsForfaitController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('lignefraishorsforfait_index');
+        return $this->redirectToRoute('validFrais');
     }
 
     /**

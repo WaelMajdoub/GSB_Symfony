@@ -7,11 +7,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ComptableController extends Controller
 {
 
     /**
+     * Route principale de validation d'une fiche de Frais,
+     * Elle recupère principalement la liste des visiteurs et fait des appels ajax pour récupérer les mois disponibles
+     * En fonction du visteur sélectionné, Les elements forfaitisés et hors forfait correspondant à la fiche en question.
      * @Route("/validFrais",name="validFrais")
      */
     public function validFraisAction(Request $request)
@@ -75,14 +79,14 @@ class ComptableController extends Controller
 
     }
     /**
-     * Méthode ajax qui va ramener les fiches disponibles par utilisateur et par mois
+     * Méthode ajax qui va ramener la ficheFrais d'après un ID Utilisateur recupéré en Ajax et
+     * et le mois en sélectionné pour afficher les éléments forfaitisés et Hors Forfaits
      * @Route("/validFrais/getFiches!Ajax", name="getFiches")
      * @param Request $request
      * @return mixed
      */
     public function getFichesAction(Request $request)
     {
-        $this->denyAccessUnlessGranted('ROLE_COMPTABLE', null, 'STAHP Access denied!');
 
         if (!$request->isXmlHttpRequest()) {
             return new JsonResponse(array('message' => 'You can access to this url with ajax only'), 400);
@@ -105,6 +109,7 @@ class ComptableController extends Controller
 
 
     /**
+     * Route principale de consultation des Frais
      * @Route("/consultFrais", name="consultFrais")
      */
     public function consultFraisAction()
@@ -114,6 +119,7 @@ class ComptableController extends Controller
     }
 
     /**
+     * Route principale de gestion de Frais
      * @Route("/gererFrais")
      */
     public function gererFraisAction()

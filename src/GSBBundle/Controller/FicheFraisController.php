@@ -16,7 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class FicheFraisController extends Controller
 {
     /**
-     * Lists all ficheFrai entities.
+     * Lists toutes les ficheFrais.
      *
      * @Route("/", name="fichefrais_index")
      * @Method("GET")
@@ -33,7 +33,7 @@ class FicheFraisController extends Controller
     }
 
     /**
-     * Creates a new ficheFrai entity.
+     * Crée une nouvelle FicheFrais.
      *
      * @Route("/new", name="fichefrais_new")
      * @Method({"GET", "POST"})
@@ -59,7 +59,7 @@ class FicheFraisController extends Controller
     }
 
     /**
-     * Finds and displays a ficheFrai entity.
+     * Recherche et affiche une ficheFrais.
      *
      * @Route("/{id}", name="fichefrais_show")
      * @Method("GET")
@@ -75,7 +75,7 @@ class FicheFraisController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing ficheFrai entity.
+     * Affiche un formulaire pour éditer une ficheFrais particulière
      *
      * @Route("/{id}/edit", name="fichefrais_edit")
      * @Method({"GET", "POST"})
@@ -100,7 +100,7 @@ class FicheFraisController extends Controller
     }
 
     /**
-     * Deletes a ficheFrai entity.
+     * Supprime une fiche Frais particulière
      *
      * @Route("/{id}", name="fichefrais_delete")
      * @Method("DELETE")
@@ -120,7 +120,7 @@ class FicheFraisController extends Controller
     }
 
     /**
-     * Creates a form to delete a ficheFrai entity.
+     * Crée un formulaire pour supprimer une ficheFrais
      *
      * @param FicheFrais $ficheFrai The ficheFrai entity
      *

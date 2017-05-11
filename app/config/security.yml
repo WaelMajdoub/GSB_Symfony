@@ -33,6 +33,6 @@ security:
         # Il faut aller du plus spécifique au plus général, bien joué l'aveugle
         - { path: ^/etatFrais, roles: ROLE_VISITEUR }
         - { path: ^/etat, roles: ROLE_VISITEUR}
-        - { path: ^/validFrais, roles: ROLE_VISITEUR}
+        - { path: ^/validFrais, roles: ROLE_COMPTABLE}
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: ROLE_USER }
