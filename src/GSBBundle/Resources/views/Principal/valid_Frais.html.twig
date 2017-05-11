@@ -27,7 +27,8 @@
                 </select>
                 <p class="titre"/>
                 <div style="clear:left;"><h2>Frais au forfait </h2></div>
-                <table id="tableF" style="color: orangered;" border="1" class="table table-condense">
+                    <div>Numéro : <p id="FicheFraisId" style="display: inline;!important"></p></div>
+            <table id="tableF" style="color: orangered;" border="1" class="table table-condense">
                     <tr>
                         <th>Repas midi</th>
                         <th>Nuitée</th>
@@ -53,7 +54,7 @@
                 <input type="text" class="zone" size="4" id="hcMontant" name="hcMontant"/>
                 <p class="titre"/><label class="titre">&nbsp;</label>
                 <input class="btn btn-warning" id="btnReset" type="reset"/>
-                {{ form_widget(formBtn.valider) }}
+                <input class="btn btn-success" id="btnValider" type="submit"/>
         </div>
     </div>
     </body>

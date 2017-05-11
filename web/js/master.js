@@ -83,6 +83,8 @@ $(document).ready(function () {
                         '</tr>')
                 }
 
+                $('#FicheFraisId').text(datas.ficheFrais[0]['idFicheFrais']);
+
             }).fail(function () {
                 alert('Erreur lors de la récupération des dates disponibles.');
             });
@@ -91,12 +93,34 @@ $(document).ready(function () {
                 $('#trF').remove();
                 $('.trHF').remove();
             }
-
         );
-        $('btnSubmit').on('click', function () {
-            responseJSON('123');
 
-        })
+        $('#btnValider').on('click', function () {
+            $.ajax({
+                url: './validFrais/validerFiche!Ajax',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    idFicheFrais: $('#FicheFraisId').text()
+                }
+            }).done(function (dtx) {
+                alert('success');
+                console.log(dtx);
+            }).fail(function (dtx) {
+                console.log(dtx);
+            })
+
+
+
+
+
+            } // END FUNCTION
+        ) // end OnClick
+
 
     }
+
+
+
+
 );

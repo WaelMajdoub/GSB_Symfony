@@ -1,1 +1,1 @@
-select * from fiche_frais where fiche_frais.idEtat = 'HUGO';
+select * from fiche_frais where fiche_frais.id = 192;

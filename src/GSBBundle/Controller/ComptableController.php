@@ -59,7 +59,6 @@ class ComptableController extends Controller
      */
     public function moisDispoParVisiteurAction(Request $request)
     {
-        $this->denyAccessUnlessGranted('ROLE_COMPTABLE', null, 'STAHP Access denied!');
 
         if (!$request->isXmlHttpRequest()) {
             return new JsonResponse(array('message' => 'You can access to this url with ajax only'), 400);
@@ -93,6 +92,8 @@ class ComptableController extends Controller
         }
         $ficheFrais = $this->getDoctrine()->getRepository('GSBBundle:Fichefrais')
             ->getLesInfosFicheFrais($request->get('id'), $request->get('mois'));
+
+
         $ligneFraisForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisForfait')
             ->getLesFraisForfait($request->get('id'), $request->get('mois'));
         $ligneFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')
@@ -126,6 +127,32 @@ class ComptableController extends Controller
     {
         return $this->render('GSBBundle:Principal:gerer_frais.html.twig', array(// ...
         ));
+    }
+
+
+    /**
+     * Méthode ajax qui va récupérer la fiche selectionnée et la valider
+     * @Route("/validFrais/validerFiche!Ajax", name="validerFiche")
+     * @param Request $request
+     * @return mixed
+     */
+    public function validFicheAction(Request $request){
+
+        // Recherche de l'état Valider
+        $etat = $this->getDoctrine()->getRepository('GSBBundle:Etat')->findOneById('VA');
+
+        // set de l'état valider à la fiche chargée
+        $em = $this->getDoctrine()->getManager();
+        $laFiche = $em->getRepository('GSBBundle:FicheFrais')->find($request->get('idFicheFrais'));
+        $laFiche->setIdEtat($etat);
+
+        $em->persist($laFiche);
+        $em->flush();
+
+        return new JsonResponse(array('laFiche' => $laFiche));
+
+
+
     }
 
 }

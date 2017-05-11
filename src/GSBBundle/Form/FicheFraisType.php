@@ -14,13 +14,7 @@ class FicheFraisType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('mois')->add('nbJustificatifs')->add('montantValide')->add('dateModif')->add('idUser')->add('valider', SubmitType::class, array(
-            'label' => 'Valider',
-            'attr' => array(
-                'class' => 'btn btn-success'
-            ),
-            'translation_domain' => false
-        ));
+        $builder->add('mois')->add('nbJustificatifs')->add('montantValide')->add('dateModif')->add('idUser');
     }
     
     /**
