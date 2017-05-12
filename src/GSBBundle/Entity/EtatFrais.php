@@ -13,10 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class EtatFrais
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\Column(type="string")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -44,6 +42,21 @@ class EtatFrais
     public function getId()
     {
         return $this->id;
+    }
+
+
+    /**
+     * Set Id
+     *
+     * @param string $id
+     *
+     * @return EtatFrais
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**

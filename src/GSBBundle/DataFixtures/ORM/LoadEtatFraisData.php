@@ -8,28 +8,23 @@
  */
 namespace GSBBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use GSBBundle\Entity\EtatFrais;
 
-class LoadEtatFraisData implements FixtureInterface
+class LoadEtatFraisData extends AbstractFixture implements OrderedFixtureInterface
 {
-    public function load(ObjectManager $manager)
-    {
-        $etatFraisEnrengistre = new EtatFrais();
-        $etatFraisEnrengistre->setLibelle('Enrengistré');
-        $manager->persist($etatFraisEnrengistre);
 
+    public function load(ObjectManager $manager) {
+        $filename = 'web/sql/etatsFrais.sql';
 
-        $etatFraisValide = new EtatFrais();
-        $etatFraisValide->setLibelle('Validé');
-        $manager->persist($etatFraisValide);
-
-
-        $etatFraisRembourse = new EtatFrais();
-        $etatFraisRembourse->setLibelle('Remboursé');
-        $manager->persist($etatFraisRembourse);
+        $sql = file_get_contents($filename);  // Read file contents
+        $manager->getConnection()->exec($sql);  // Execute native SQL
 
         $manager->flush();
+    }
+
+    public function getOrder() {
+        return 1;  // Order in which this fixture will be executed
     }
 }

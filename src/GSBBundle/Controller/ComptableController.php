@@ -3,6 +3,7 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Form\FicheFraisType;
+use GSBBundle\Entity\LigneFraisHorsForfait;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -211,6 +212,28 @@ class ComptableController extends Controller
         $em->flush();
 
         return new JsonResponse(array('laFiche' => $laFiche));
+
+    }
+
+    /**
+     *
+     * @Route("/updateFHF", name="updateFHF")
+     */
+    public function updateFHFAction(){
+
+        $etat = $this->getDoctrine()->getRepository('GSBBundle:EtatFrais')->findOneById('E');
+
+        $me = $this->getDoctrine()->getManager();
+        $fhf = $me->getRepository('GSBBundle:LigneFraisHorsForfait')->findAll();
+
+        foreach ($fhf as $f) {
+
+            $f->setIdEtatFrais($etat);
+            $me->persist($f);
+        }
+        $me->flush();
+
+        return $this->render('@FOSUser/done.html.twig');
 
     }
 

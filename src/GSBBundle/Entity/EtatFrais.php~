@@ -13,10 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class EtatFrais
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\Column(type="string")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -69,5 +67,45 @@ class EtatFrais
     {
         return $this->libelle;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ficheFrais = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add ficheFrai
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ficheFrai
+     *
+     * @return EtatFrais
+     */
+    public function addFicheFrai(\GSBBundle\Entity\LigneFraisHorsForfait $ficheFrai)
+    {
+        $this->ficheFrais[] = $ficheFrai;
+
+        return $this;
+    }
+
+    /**
+     * Remove ficheFrai
+     *
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ficheFrai
+     */
+    public function removeFicheFrai(\GSBBundle\Entity\LigneFraisHorsForfait $ficheFrai)
+    {
+        $this->ficheFrais->removeElement($ficheFrai);
+    }
+
+    /**
+     * Get ficheFrais
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFicheFrais()
+    {
+        return $this->ficheFrais;
+    }
+}
