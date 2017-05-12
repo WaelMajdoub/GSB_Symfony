@@ -160,15 +160,13 @@ class PrincipalController extends Controller
             );
         }
 
-        $fileContent = ''; // Je comprends pas quoi mettre la dedans. . . . . . . . . . . . . . . . .
-        $response = new Response($fileContent);
-
-        $disposition = $response->headers->makeDisposition(
-            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
-            $iduser . '-' . $mois . '.pdf'
+        return $this->render('GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
+                'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf)
         );
 
-        $response->headers->set('Content-Disposition', $disposition);
+        // PB dl bien mais fichier corrompu
+        //$response = new BinaryFileResponse('PDFs/' . $iduser . '-' . $mois . '.pdf');
+        //$response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT); Pour le dl
 
     }
 }
