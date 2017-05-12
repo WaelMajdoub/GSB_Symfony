@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $('#ficheInfos').hide();
-   // $('#ficheEtat').hide();// On cache l'Id de l'état de la fiche pour des besoins précis
-    $('#visiteurSelectionne').on('change', function () {
+        $('#ficheInfos').hide();
+        // $('#ficheEtat').hide();// On cache l'Id de l'état de la fiche pour des besoins précis
+        $('#visiteurSelectionne').on('change', function () {
             $('#btnSubmit').attr('disabled', true);
             $('#hcMontant').val('');
             $.ajax({
@@ -72,8 +72,8 @@ $(document).ready(function () {
                 $('.trHF').remove();
                 for (ligne in datas.ligneFraisHorsForfait) {
 
-                    if(datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'E'){
-                        $('#tableHF').append('<tr align="center" class="trHF">' +
+                    if (datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'E') {
+                        $str = '<tr align="center" class="trHF">' +
                             '<td width="100"><input type="text" size="12" name="hfDate1" value="' + datas.ligneFraisHorsForfait[ligne]['date']['date'].substring(0, 10) + '"/></td>' +
                             '<td width="220"><input type="text" size="30" name="hfLib1" value="' + datas.ligneFraisHorsForfait[ligne]['libelle'] + '"/></td>' +
                             '<td width="90"><input type="text" size="10" name="hfMont1" value="' + datas.ligneFraisHorsForfait[ligne]['montant'] + '"/></td>' +
@@ -84,8 +84,15 @@ $(document).ready(function () {
                             '<option value="R">Remboursé</option>' +
                             '</select></td>' +
                             '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
-                            '</tr>')
-                    } else if(datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'V'){
+                            '<td width="90">';
+
+                        if (datas.ligneFraisHorsForfait[ligne]['libelle'].substring(0, 6) !== 'REFUSE') {
+                            $str += '<label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/refuse">Refuser le frais</a></label>';
+                        }
+                        $str += '</td></tr>';
+
+                        $('#tableHF').append($str);
+                    } else if (datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'V') {
                         $('#tableHF').append('<tr align="center" class="trHF">' +
                             '<td width="100"><input type="text" size="12" name="hfDate1" value="' + datas.ligneFraisHorsForfait[ligne]['date']['date'].substring(0, 10) + '"/></td>' +
                             '<td width="220"><input type="text" size="30" name="hfLib1" value="' + datas.ligneFraisHorsForfait[ligne]['libelle'] + '"/></td>' +
@@ -97,8 +104,9 @@ $(document).ready(function () {
                             '<option value="R">Remboursé</option>' +
                             '</select></td>' +
                             '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
+                            '<td width="90"></td>' +
                             '</tr>')
-                    } else if(datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'R'){
+                    } else if (datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'R') {
                         $('#tableHF').append('<tr align="center" class="trHF">' +
                             '<td width="100"><input type="text" size="12" name="hfDate1" value="' + datas.ligneFraisHorsForfait[ligne]['date']['date'].substring(0, 10) + '"/></td>' +
                             '<td width="220"><input type="text" size="30" name="hfLib1" value="' + datas.ligneFraisHorsForfait[ligne]['libelle'] + '"/></td>' +
@@ -110,6 +118,7 @@ $(document).ready(function () {
                             '<option value="R" selected>Remboursé</option>' +
                             '</select></td>' +
                             '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
+                            '<td width="90"></td>' +
                             '</tr>')
                     }
                 }
@@ -132,23 +141,22 @@ $(document).ready(function () {
         );
 
         $('#btnValider').on('click', function () {
-            $.ajax({
-                url: './validFrais/validerFiche!Ajax',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    idFicheFrais: $('#FicheFraisId').text()
-                }
-            }).done(function (dtx) {
-                alert('La fiche de frais a été validée et est mise en paiement');
-                console.log(dtx);
-            }).fail(function (dtx) {
-                console.log(dtx);
-            })
+                $.ajax({
+                    url: './validFrais/validerFiche!Ajax',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        idFicheFrais: $('#FicheFraisId').text()
+                    }
+                }).done(function (dtx) {
+                    alert('La fiche de frais a été validée et est mise en paiement');
+                    console.log(dtx);
+                }).fail(function (dtx) {
+                    console.log(dtx);
+                })
             } // END FUNCTION
         ) // end OnClick
     }
-
 );
 
 /**
@@ -163,8 +171,8 @@ function setLibelleEtat() {
         $('#libelleEtat').text('Remboursée');
     } else if ($('#ficheEtat').text() === 'CR') {
         $('#libelleEtat').text('Fiche créée, saisie en cours');
-    }else if ($('#ficheEtat').text() === 'MP') {
+    } else if ($('#ficheEtat').text() === 'MP') {
         $('#libelleEtat').text('Fiche mise en paiement');
-    }else
+    } else
         $('#libelleEtat').text('Etat pour cette fiche non disponible');
 }
