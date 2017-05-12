@@ -145,6 +145,7 @@ class ComptableController extends Controller
         $em = $this->getDoctrine()->getManager();
         $laFiche = $em->getRepository('GSBBundle:FicheFrais')->find($request->get('idFicheFrais'));
         $laFiche->setIdEtat($etat);
+        $laFiche->setDateModif(new \DateTime('now'));
 
         $em->persist($laFiche);
         $em->flush();

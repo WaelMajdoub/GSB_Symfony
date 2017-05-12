@@ -122,7 +122,9 @@ $(document).ready(function () {
 
 );
 
-
+/**
+ * Fonction qui va set les Libelle en fonction de l'état de la fiche pour une meilleure ergonomie
+ */
 function setLibelleEtat() {
     if ($('#ficheEtat').text() === 'VA') {
         $('#libelleEtat').text('Validée et mise en paiement');
@@ -132,6 +134,8 @@ function setLibelleEtat() {
         $('#libelleEtat').text('Remboursée');
     } else if ($('#ficheEtat').text() === 'CR') {
         $('#libelleEtat').text('Fiche créée, saisie en cours');
+    }else if ($('#ficheEtat').text() === 'MP') {
+        $('#libelleEtat').text('Fiche mise en paiement');
     }else
         $('#libelleEtat').text('Etat pour cette fiche non disponible');
 }
