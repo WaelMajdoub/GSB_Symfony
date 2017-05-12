@@ -105,14 +105,14 @@ $(document).ready(function () {
 
         $('#btnValider').on('click', function () {
                 $.ajax({
-                    url: './validFrais/validerFiche!Ajax',
+                    url: './validFrais/mettreFicheEnPaiement!Ajax',
                     type: 'POST',
                     dataType: 'json',
                     data: {
                         idFicheFrais: $('#FicheFraisId').text()
                     }
                 }).done(function (dtx) {
-                    alert('La fiche de frais a été validée et est mise en paiement');
+                    alert('La fiche a bien été mise en Paiement');
                     console.log(dtx);
                 }).fail(function (dtx) {
                     console.log(dtx);

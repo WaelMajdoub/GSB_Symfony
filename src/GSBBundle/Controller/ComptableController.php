@@ -189,4 +189,29 @@ class ComptableController extends Controller
     }
 
 
+
+    /**
+     * Méthode ajax qui va récupérer la fiche selectionnée et la mettre en paiement
+     * @Route("/validFrais/mettreFicheEnPaiement!Ajax", name="mettreFicheEnPaiement")
+     * @param Request $request
+     * @return mixed
+     */
+    public function mettreFicheEnPaiementAction(Request $request){
+
+        // Recherche de l'état Valider
+        $etat = $this->getDoctrine()->getRepository('GSBBundle:Etat')->findOneById('MP');
+
+        // set de l'état valider à la fiche chargée
+        $em = $this->getDoctrine()->getManager();
+        $laFiche = $em->getRepository('GSBBundle:FicheFrais')->find($request->get('idFicheFrais'));
+        $laFiche->setIdEtat($etat);
+        $laFiche->setDateModif(new \DateTime('now'));
+
+        $em->persist($laFiche);
+        $em->flush();
+
+        return new JsonResponse(array('laFiche' => $laFiche));
+
+    }
+
 }
