@@ -166,8 +166,6 @@ class PrincipalController extends Controller
      */
     public function pdfAction()
     {
-
-
         // Modifier mois selectionné
         $mois = 200101;
 

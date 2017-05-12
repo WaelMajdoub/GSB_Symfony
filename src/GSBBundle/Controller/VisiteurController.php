@@ -65,7 +65,6 @@ class VisiteurController extends Controller
                 $tableauEtatFrais['lignesFraisHorsForfait'] = $lignesFraisHorsForfait;
             }
         }
-        dump($tableauEtatFrais);
         return $this->render('@GSB/Principal/etat_frais.html.twig', array(
             'formMois' => $formMois->createView(),
             'infoEtatFrais' => $tableauEtatFrais,
