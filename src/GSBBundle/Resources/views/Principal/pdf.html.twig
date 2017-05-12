@@ -1,0 +1,129 @@
+{% block head %}
+    {# On n'utilise pas le template de Twig pour le CSS
+    car le Bundle Knp (qui génère le PDF) a besoin du chemin absolu #}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Intranet du Laboratoire Galaxy-Swiss Bourdin{% endblock %}</title>
+    <meta name="description" content="Intranet du Laboratoire Galaxy-Swiss Bourdin"/>
+    <meta name="author" content="HGD"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <div class="row vertical-align">
+            <div class="col-md-4">
+                {# Conserver uniquement le logo GSB #}
+                <h1><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/logo.jpg') }}" class="img-responsive" alt="Laboratoire Galaxy-Swiss Bourdin"
+                         title="Laboratoire Galaxy-Swiss Bourdin"></h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <table class="infos">
+        <tr class="infos">
+            <th class="infos">Visiteur : {{ user.nom() }} {{ user.prenom() }} / {{ user.username() }}</th>
+        </tr>
+        <tr class="infos">
+            <th class="infos">Mois : {{ mois|slice(4,6) }}-{{ mois|slice(0,4) }}</th>
+        </tr>
+    </table>
+
+    <br>
+
+    <div style="text-align:center">
+        <br><br>REMBOURSEMENT FRAIS ENGAGES
+    </div>
+
+    <style>
+        .infos {
+            border: none;
+        !important;
+        }
+
+        table, tr, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+    <table style="width:100%">
+        <tr>
+            <th>Frais Forfaitaires</th>
+            <th>Quantité</th>
+            <th>Montant Unitaire</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <th>Étape</th>
+            <th>{{ fetp.quantite() }}</th>
+            <th>{{ etp.montant() }} €</th>
+            <th>{{ fetp.quantite() * etp.montant() }} €</th>
+        </tr>
+        <tr>
+            <th>Nuitée</th>
+            <th>{{ fnui.quantite() }}</th>
+            <th>{{ nui.montant() }} €</th>
+            <th>{{ fnui.quantite() * nui.montant() }} €</th>
+        </tr>
+        <tr>
+            <th>Repas Midi</th>
+            <th>{{ frep.quantite() }}</th>
+            <th>{{ rep.montant() }} €</th>
+            <th>{{ frep.quantite() * rep.montant() }} €</th>
+        </tr>
+        <tr>
+            <th>Kilométrage</th>
+            <th>{{ fkm.quantite() }}</th>
+            <th>{{ km.montant() }} €</th>
+            <th>{{ fkm.quantite() * km.montant() }} €</th>
+        </tr>
+    </table>
+
+    <div style="text-align:center">
+        <br><br>Autres frais :
+    </div>
+
+    <table style="width:100%">
+        <tr>
+            <th>Date</th>
+            <th>Libelle</th>
+            <th>Montant</th>
+        </tr>
+        {% set pfhf = 0 %}
+        {% for unfhf in lesfhf %}
+            <tr>
+                <th>{{ unfhf.date()|date('d-m-Y') }}</th>
+                <th>{{ unfhf.libelle() }}</th>
+                <th>{{ unfhf.montant() }} €</th>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <br>
+    <br>
+
+    <table style="width: 20%; margin-left: 70%">
+        <tr>
+            <th>TOTAL</th>
+            <th>{{ fetp.quantite() * etp.montant() + fnui.quantite() * nui.montant() + frep.quantite() * rep.montant() + fkm.quantite() * km.montant() + pfhf }}
+                €
+            </th>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div style="margin-left: 70%">
+        Fait à ..............., le ........... <br>
+        Vu l'agent comptable <br>
+        Signature :
+    </div>
+
+{% endblock %}
