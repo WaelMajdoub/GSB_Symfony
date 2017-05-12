@@ -34,6 +34,7 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
 
 
     /**
+     * retourne les mois disponibles de l'utilisateur selectioné
      * @param $idVisiteur
      * @return array
      */
@@ -47,6 +48,22 @@ class FicheFraisRepository extends \Doctrine\ORM\EntityRepository
                 ->getQuery()->getArrayResult();
     }
 
+
+    /**
+     * Retourne les Mois disponibles de toutes les Fiches validées et mises en paiement de l'utilisateur voulu
+     * @param $idUser
+     * @return array
+     */
+    public function getLesMoisDisponiblesDesFichesValidees($idUser){
+        return $this->createQueryBuilder('fflmd')
+            ->select('fflmd.mois')
+            ->where('fflmd.idUser =:idUser')
+            ->andWhere('fflmd.idEtat = \'VA\'')
+            ->orderBy('fflmd.mois', 'DESC')
+            ->setParameter('idUser', $idUser)
+            ->getQuery()->getArrayResult();
+
+    }
 
     /**
      * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
