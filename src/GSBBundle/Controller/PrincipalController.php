@@ -139,7 +139,7 @@ class PrincipalController extends Controller
             $em->flush();
         }
 
-        return $this->render('GSBBundle:Principal:saisie_frais.html.twig', array(
+        return $this->render('@GSB/Principal/saisie_Frais.html.twig', array(
             'mois' => $mois,
             'lesfraishf' => $lesfraishf,
             'formfhf' => $formfhf->createView(),
