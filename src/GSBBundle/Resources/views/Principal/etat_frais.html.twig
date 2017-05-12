@@ -2,5 +2,53 @@
 {% block body %}
     {{ include('@GSB/Default/head.html.twig') }}
     {{ include('@GSB/Principal/Visiteur/listemois.html.twig') }}
-    {{ include('@GSB/Principal/Visiteur/etatFicheFrais.html.twig') }}
+    <div class="row">
+        {% if infoEtatFrais is not empty %}
+            <div class="panel panel-primary">
+                <div class="panel-heading">Fiche de frais du mois {{ infoEtatFrais.dateSelectionnee|date('m-Y') }} :
+                </div>
+                <div class="panel-body">
+                    <strong><u>Etat :</u></strong> {{ infoEtatFrais.infoFicheFrais.idEtat.libelle }} depuis
+                    le {{ infoEtatFrais.infoFicheFrais.datemodif|date('d/m/Y') }}<br>
+                    <strong><u>Montant validé :</u></strong> {{ infoEtatFrais.infoFicheFrais.montantvalide }} €
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Eléments forfaitisés</div>
+                <table class="table table-bordered table-responsive">
+                    <tr>
+                        {% for de in infoEtatFrais.fraisForfait %}
+                            <th>{{ de.libelle }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for unFraisForfait in infoEtatFrais.lignesFraisForfait %}
+                            <td class="qteForfait">{{ unFraisForfait.quantite }} €</td>
+                        {% endfor %}
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Descriptif des éléments hors forfait
+                    - {{ infoEtatFrais.infoFicheFrais.nbjustificatifs }} justificatifs reçus
+                </div>
+                <table class="table table-bordered table-responsive">
+                    <tr>
+                        <th class="date">Date</th>
+                        <th class="libelle">Libellé</th>
+                        <th class='montant'>Montant</th>
+                    </tr>
+                    {% for unFraisHorsForfait in infoEtatFrais.lignesFraisHorsForfait %}
+                        <tr>
+                            <td>{{ unFraisHorsForfait.date|date('d/m/Y') }}</td>
+                            <td>{{ unFraisHorsForfait.libelle|e }}</td>
+                            <td>{{ unFraisHorsForfait.montant }} €</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
 {% endblock body %}
