@@ -100,6 +100,17 @@ class LigneFraisHorsForfaitController extends Controller
     }
 
     /**
+     * Refuses an existing ligneFraisHorsForfait entity.
+     *
+     * @Route("/{id}/refuse", name="lignefraishorsforfait_refuse")
+     * @Method({"GET", "POST"})
+     */
+    public function refuseAction(Request $request, LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $ligneFraisHorsForfait->setLibelle('REFUSE '. $ligneFraisHorsForfait->getLibelle());
+    }
+
+    /**
      * Deletes a ligneFraisHorsForfait entity.
      *
      * @Route("/{id}", name="lignefraishorsforfait_delete")

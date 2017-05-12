@@ -1,9 +1,5 @@
 {% extends "@GSB/Default/base.html.twig" %}
-{% block stylePerso %}
-    <style type="text/css">
 
-    </style>
-{% endblock %}
 {% block body %}
     <body>
     {% include('@GSB/Principal/Comptable/sideBarValidFrais.html.twig') %}
@@ -25,9 +21,13 @@
                     <option disabled selected value="0">Selectionnez une date</option>
 
                 </select>
-                <p class="titre"/>
+
+
+            <p id="ficheEtat"></p>
+            <div id="ficheInfos"> <h4>Fiche de Frais numéro : <p id="FicheFraisId" style="display: inline;!important"></p>  Etat de la fiche : <p id="libelleEtat" style="display: inline;!important"></p> </h4></div>
+
+            <p class="titre"/>
                 <div style="clear:left;"><h2>Frais au forfait </h2></div>
-                    <div>Numéro : <p id="FicheFraisId" style="display: inline;!important"></p></div>
             <table id="tableF" style="color: orangered;" border="1" class="table table-condense">
                     <tr>
                         <th>Repas midi</th>

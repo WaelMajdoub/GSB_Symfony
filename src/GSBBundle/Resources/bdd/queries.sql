@@ -1,1 +1,1 @@
-select * from fiche_frais where fiche_frais.id = 192;
+select * from USER ;

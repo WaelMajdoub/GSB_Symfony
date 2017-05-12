@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    $('#ficheInfos').hide();
-   // $('#ficheEtat').hide();// On cache l'Id de l'état de la fiche pour des besoins précis
-    $('#visiteurSelectionne').on('change', function () {
+        $('#ficheInfos').hide();
+        // $('#ficheEtat').hide();// On cache l'Id de l'état de la fiche pour des besoins précis
+        $('#visiteurSelectionne').on('change', function () {
             $('#btnSubmit').attr('disabled', true);
             $('#hcMontant').val('');
             $.ajax({
-                url: './validFrais/moisDispoParVisiteur!Ajax',
+                url: './validFrais/moisDispoParVisiteurFichesValides!Ajax',
                 type: 'POST',
                 dataType: 'json',
                 data: 'id=' + this.value
@@ -14,7 +14,8 @@ $(document).ready(function () {
                 $('.trHF').remove();
                 $('#selectMoisDispo').find('option:not(:first)').remove();
                 $('#selectMoisDispo').val('0');
-                $.each(data.dates, function (e, da) {
+                $.each(data.datesValides, function (e, da) {
+                    console.log(da);
                     $('#selectMoisDispo').append($('<option>', {
                             value: da.value,
                             text: da.text
@@ -132,19 +133,19 @@ $(document).ready(function () {
         );
 
         $('#btnValider').on('click', function () {
-            $.ajax({
-                url: './validFrais/validerFiche!Ajax',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    idFicheFrais: $('#FicheFraisId').text()
-                }
-            }).done(function (dtx) {
-                alert('La fiche de frais a été validée et est mise en paiement');
-                console.log(dtx);
-            }).fail(function (dtx) {
-                console.log(dtx);
-            })
+                $.ajax({
+                    url: './validFrais/mettreFicheEnPaiement!Ajax',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        idFicheFrais: $('#FicheFraisId').text()
+                    }
+                }).done(function (dtx) {
+                    alert('La fiche a bien été mise en Paiement');
+                    console.log(dtx);
+                }).fail(function (dtx) {
+                    console.log(dtx);
+                })
             } // END FUNCTION
         ) // end OnClick
     }

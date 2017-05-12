@@ -40,20 +40,14 @@ class LigneFraisHorsForfaitType extends AbstractType
                 ),
                 'translation_domain' => false
             ))
-            ->add('ajouter', SubmitType::class, array(
-                'label' => 'Ajouter frais hors forfait',
+            ->add('idEtatFrais', EtatFraisType::class, array(
+                'label' => 'Etat du frais',
                 'attr' => array(
-                    'class' => 'btn btn-success'
-                ),
-                'translation_domain' => false
-            ))
-            ->add('effacer', ResetType::class, array(
-                'label' => 'Effacer',
-                'attr' => array(
-                    'class' => 'btn btn-danger'
+                    'class' => 'form-control'
                 ),
                 'translation_domain' => false
             ));
+
     }
 
     /**

@@ -1,0 +1,66 @@
+{% extends "@GSB/Default/base.html.twig" %}
+{% block body %}
+    <body>
+    {% include('@GSB/Principal/Comptable/sideBarValidFrais.html.twig') %}
+    <div name="droite" style="float:left;width:80%;">
+        <div name="haut" style="margin: 2 2 2 2 ;height:10%;float:left;"><h1>Validation des Frais</h1></div>
+        <div name="bas" style="margin : 10 2 2 2;clear:left;background-color:EE8844;color:cornflowerblue;height:88%;">
+            <h1> Validation des frais par visiteur </h1>
+            <label class="titre">Choisir le visiteur :</label>
+            <select style="color: cornflowerblue;" id="visiteurSelectionne" class="zone">
+                <option disabled selected value="0">Selectionnez un visiteur</option>
+
+                {% for user in visiteurs %}
+                    <option value={{ user.id }}>{{ user.nom }} - {{ user.prenom }}</option>
+                {% endfor %}
+            </select>
+            <label class="titre">Mois :</label>
+
+            <select style="color: cornflowerblue;" id="selectMoisDispo" class="zone">
+                <option disabled selected value="0">Selectionnez une date</option>
+
+            </select>
+
+
+            <p id="ficheEtat"></p>
+            <div id="ficheInfos"> <h4>Fiche de Frais numéro : <p id="FicheFraisId" style="display: inline;!important"></p>  Etat de la fiche : <p id="libelleEtat" style="display: inline;!important"></p> </h4></div>
+
+            <p class="titre"/>
+            <div style="clear:left;"><h2>Frais au forfait </h2></div>
+            <table id="tableF" style="color: cornflowerblue;" border="1" class="table table-condense">
+                <tr>
+                    <th>Repas midi</th>
+                    <th>Nuitée</th>
+                    <th>Etape</th>
+                    <th>Km</th>
+                    <th>Situation</th>
+                </tr>
+            </table>
+            <p class="titre"/>
+            <div style="clear:left;"><h2>Hors Forfait</h2></div>
+
+            <table id="tableHF" style="color: cornflowerblue;" border="1" class="table table-condense">
+                <tr>
+                    <th>Date</th>
+                    <th>Libellé</th>
+                    <th>Montant</th>
+                    <th>Situation</th>
+                    <th>Edit</th>
+                </tr>
+            </table>
+            <p class="titre"></p>
+            <div class="titre">Nb Justificatifs</div>
+            <input type="text" class="zone" size="4" id="hcMontant" name="hcMontant"/>
+            <p class="titre"/><label class="titre">&nbsp;</label>
+            <input class="btn btn-warning" id="btnReset" type="reset"/>
+            <input class="btn btn-success" id="btnValider" type="submit"/>
+        </div>
+    </div>
+    </body>
+
+{% endblock %}
+    {% block js %}
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/suivreFrais.js') }}"></script>
+    {% endblock %}

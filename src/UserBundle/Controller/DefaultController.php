@@ -9,23 +9,11 @@ use Symfony\Component\Security\Core\Role\Role;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/connexion")
-     */
-    public function indexAction()
-    {
-
-    }
-
-    /**
      * Quelques tests de queries
      * @Route("/test", name="test")
      */
     public function testAction(){
-
-
         $user = $this->getUser();
-
-
         $em2 = $this->getDoctrine()->getManager();
         $FicheFraisFindAll = $em2->getRepository('GSBBundle:FicheFrais')->findAll();
         $FicheFraisFindId1 = $em2->getRepository('GSBBundle:FicheFrais')->find(1);
@@ -64,22 +52,9 @@ class DefaultController extends Controller
             $userRepo->persist($user);
         }
         $userRepo->flush();
-
         return $this->render('@FOSUser/done.html.twig', array('users' => $allUsers));
 
     }
 
 
-    /**
-     * @Route("/visite")
-     */
-    public function testRolesAction(){
-        $user = $this->getUser();
-        if($user->hasRole('ROLE_VISITEUR')){
-            return $this->render('@FOSUser/done.html.twig', array('valueOfRole' => 'OUI'));
-        }
-        else return $this->render('@FOSUser/done.html.twig', array('valueOfRole' => 'NON'));
-
-
-    }
 }

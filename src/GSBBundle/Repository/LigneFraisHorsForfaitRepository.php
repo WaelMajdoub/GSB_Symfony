@@ -23,7 +23,8 @@ class LigneFraisHorsForfaitRepository extends \Doctrine\ORM\EntityRepository
     public function getLesFraisHorsForfait($idUser, $mois) {
 
         return $this->createQueryBuilder('lesFraisHorsForfait')
-                    ->select('lesFraisHorsForfait')
+                    ->select('lesFraisHorsForfait.id', 'lesFraisHorsForfait.libelle', 'lesFraisHorsForfait.mois', 'lesFraisHorsForfait.montant','lesFraisHorsForfait.date', 'e.id as idEtatFrais')
+                    ->innerJoin('lesFraisHorsForfait.idEtatFrais', 'e')
                     ->where('lesFraisHorsForfait.idUser = :idUser')
                     ->andWhere('lesFraisHorsForfait.mois = :mois')
                     ->setParameter('idUser', $idUser)
