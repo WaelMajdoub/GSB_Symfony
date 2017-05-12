@@ -1,20 +1,21 @@
 Projet GSB Symfony
 ========================
 
+Procédure d'installation de l'application
+
 ```bash
 composer install
 ```
-   En cas de soucis avec la base de données :
 ```bash
 php bin/console doctrine:database:drop --force
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:update --force
+php bin/console doctrine:fixtures:load
 ```
 
-TODO LIST :
---------------
+Ensuite aller sur la route 
+/updateFHF
 
-A FAIRE :
-  * meh
-  * M1 à faire
+
+Explication : Le jeu d'essai est bien trop grand pour s'amuser à tout modifier en base de données, j'ai créé une route qui va faire les modifications voulues à ma place.
 
