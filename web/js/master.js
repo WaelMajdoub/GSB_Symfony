@@ -84,6 +84,7 @@ $(document).ready(function () {
                             '<option value="R">Remboursé</option>' +
                             '</select></td>' +
                             '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
+                            '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/refuse">Refuser le frais</a></label></td>' +
                             '</tr>')
                     } else if(datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'V'){
                         $('#tableHF').append('<tr align="center" class="trHF">' +
@@ -97,6 +98,7 @@ $(document).ready(function () {
                             '<option value="R">Remboursé</option>' +
                             '</select></td>' +
                             '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
+                            '<td width="90"></td>' +
                             '</tr>')
                     } else if(datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'R'){
                         $('#tableHF').append('<tr align="center" class="trHF">' +
@@ -110,6 +112,7 @@ $(document).ready(function () {
                             '<option value="R" selected>Remboursé</option>' +
                             '</select></td>' +
                             '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
+                            '<td width="90"></td>' +
                             '</tr>')
                     }
                 }

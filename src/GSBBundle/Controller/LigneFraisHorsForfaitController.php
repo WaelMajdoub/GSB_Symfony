@@ -6,7 +6,8 @@ use GSBBundle\Entity\LigneFraisHorsForfait;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Lignefraishorsforfait controller.
@@ -107,7 +108,11 @@ class LigneFraisHorsForfaitController extends Controller
      */
     public function refuseAction(Request $request, LigneFraisHorsForfait $ligneFraisHorsForfait)
     {
-        $ligneFraisHorsForfait->setLibelle('REFUSE '. $ligneFraisHorsForfait->getLibelle());
+        $ligneFraisHorsForfait->setLibelle('REFUSE ' . $ligneFraisHorsForfait->getLibelle());
+
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('validFrais');
     }
 
     /**
@@ -142,7 +147,6 @@ class LigneFraisHorsForfaitController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('lignefraishorsforfait_delete', array('id' => $ligneFraisHorsForfait->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
