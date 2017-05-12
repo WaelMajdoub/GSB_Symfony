@@ -39,13 +39,6 @@ class LigneFraisHorsForfaitType extends AbstractType
                     'class' => 'form-control'
                 ),
                 'translation_domain' => false
-            ))
-            ->add('idEtatFrais', EtatFraisType::class, array(
-                'label' => 'Etat du frais',
-                'attr' => array(
-                    'class' => 'form-control'
-                ),
-                'translation_domain' => false
             ));
 
     }
