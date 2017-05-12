@@ -101,7 +101,6 @@ class ComptableController extends Controller
         $ligneFraisHorsForfait = $this->getDoctrine()->getRepository('GSBBundle:LigneFraisHorsForfait')
             ->getLesFraisHorsForfait($request->get('id'), $request->get('mois'));
 
-        dump($ficheFrais);
         return new JsonResponse(array('ficheFrais' => $ficheFrais,
                                     'ligneFraisForfait' => $ligneFraisForfait,
                                     'ligneFraisHorsForfait' => $ligneFraisHorsForfait));
