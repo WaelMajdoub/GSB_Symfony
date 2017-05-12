@@ -15,7 +15,7 @@
                     <li><a href={{ path('etatFrais') }}><span class="glyphicon glyphicon-list-alt"></span> Afficher mes fiches de frais</a></li>
                 {% elseif is_granted('ROLE_COMPTABLE') %}
                     <li><a href={{ path('validFrais') }}><span class="glyphicon glyphicon-pencil"></span> Valider les fiches de frais</a></li>
-                    <li><a href={{ path('consultFrais') }}><span class="glyphicon glyphicon-list-alt"></span> Suivre les fiches de frais</a></li>
+                    <li><a href={{ path('suivreFrais') }}><span class="glyphicon glyphicon-list-alt"></span> Suivre les fiches de frais</a></li>
                 {% endif %}
                 <li><a href={{ path('fos_user_security_logout') }}>Déconnexion</a></li>
             </ul>
