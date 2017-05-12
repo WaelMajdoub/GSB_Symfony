@@ -12,6 +12,8 @@ use Symfony\Component\Validator\Constraints\DateTime;
 
 use Symfony\Component\Filesystem\Filesystem;
 
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+
 /**
  * Class PrincipalController
  * @package GSBBundle\Controller
@@ -158,9 +160,15 @@ class PrincipalController extends Controller
             );
         }
 
-        return $this->render('GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
-                'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf)
+        $fileContent = ''; // Je comprends pas quoi mettre la dedans. . . . . . . . . . . . . . . . .
+        $response = new Response($fileContent);
+
+        $disposition = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            $iduser . '-' . $mois . '.pdf'
         );
+
+        $response->headers->set('Content-Disposition', $disposition);
 
     }
 }
