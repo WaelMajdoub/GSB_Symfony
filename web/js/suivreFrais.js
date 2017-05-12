@@ -72,18 +72,47 @@ $(document).ready(function () {
                 }
                 $('.trHF').remove();
                 for (ligne in datas.ligneFraisHorsForfait) {
-                    $('#tableHF').append('<tr align="center" class="trHF">' +
-                        '<td width="100"><input type="text" size="12" name="hfDate1" value="' + datas.ligneFraisHorsForfait[ligne]['date']['date'].substring(0, 10) + '"/></td>' +
-                        '<td width="220"><input type="text" size="30" name="hfLib1" value="' + datas.ligneFraisHorsForfait[ligne]['libelle'] + '"/></td>' +
-                        '<td width="90"><input type="text" size="10" name="hfMont1" value="' + datas.ligneFraisHorsForfait[ligne]['montant'] + '"/></td>' +
-                        '<td width="80">' +
-                        '<select size="3" name="hfSitu1">' +
-                        '<option value="E">Enregistré</option>' +
-                        '<option value="V">Validé</option>' +
-                        '<option value="R">Remboursé</option>' +
-                        '</select></td>' +
-                        '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
-                        '</tr>')
+
+                    if(datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'E'){
+                        $('#tableHF').append('<tr align="center" class="trHF">' +
+                            '<td width="100"><input type="text" size="12" name="hfDate1" value="' + datas.ligneFraisHorsForfait[ligne]['date']['date'].substring(0, 10) + '"/></td>' +
+                            '<td width="220"><input type="text" size="30" name="hfLib1" value="' + datas.ligneFraisHorsForfait[ligne]['libelle'] + '"/></td>' +
+                            '<td width="90"><input type="text" size="10" name="hfMont1" value="' + datas.ligneFraisHorsForfait[ligne]['montant'] + '"/></td>' +
+                            '<td width="80">' +
+                            '<select size="3" name="hfSitu1">' +
+                            '<option value="E" selected>Enregistré</option>' +
+                            '<option value="V">Validé</option>' +
+                            '<option value="R">Remboursé</option>' +
+                            '</select></td>' +
+                            '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
+                            '</tr>')
+                    } else if(datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'V'){
+                        $('#tableHF').append('<tr align="center" class="trHF">' +
+                            '<td width="100"><input type="text" size="12" name="hfDate1" value="' + datas.ligneFraisHorsForfait[ligne]['date']['date'].substring(0, 10) + '"/></td>' +
+                            '<td width="220"><input type="text" size="30" name="hfLib1" value="' + datas.ligneFraisHorsForfait[ligne]['libelle'] + '"/></td>' +
+                            '<td width="90"><input type="text" size="10" name="hfMont1" value="' + datas.ligneFraisHorsForfait[ligne]['montant'] + '"/></td>' +
+                            '<td width="80">' +
+                            '<select size="3" name="hfSitu1">' +
+                            '<option value="E">Enregistré</option>' +
+                            '<option value="V" selected>Validé</option>' +
+                            '<option value="R">Remboursé</option>' +
+                            '</select></td>' +
+                            '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
+                            '</tr>')
+                    } else if(datas.ligneFraisHorsForfait[ligne]['idEtatFrais'] === 'R'){
+                        $('#tableHF').append('<tr align="center" class="trHF">' +
+                            '<td width="100"><input type="text" size="12" name="hfDate1" value="' + datas.ligneFraisHorsForfait[ligne]['date']['date'].substring(0, 10) + '"/></td>' +
+                            '<td width="220"><input type="text" size="30" name="hfLib1" value="' + datas.ligneFraisHorsForfait[ligne]['libelle'] + '"/></td>' +
+                            '<td width="90"><input type="text" size="10" name="hfMont1" value="' + datas.ligneFraisHorsForfait[ligne]['montant'] + '"/></td>' +
+                            '<td width="80">' +
+                            '<select size="3" name="hfSitu1">' +
+                            '<option value="E" selected>Enregistré</option>' +
+                            '<option value="V">Validé</option>' +
+                            '<option value="R" selected>Remboursé</option>' +
+                            '</select></td>' +
+                            '<td width="90"><label><a href="./lignefraishorsforfait/' + datas.ligneFraisHorsForfait[ligne]['id'] + '/edit">Editer le frais</a></label></td>' +
+                            '</tr>')
+                    }
                 }
                 $('#ficheInfos').show();
                 $('#ficheEtat').hide();
