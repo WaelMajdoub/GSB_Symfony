@@ -1,35 +1,45 @@
 <?php
+
 namespace GSBBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="GSBBundle\Repository\EtatRepository")
+ * EtatFrais
+ *
+ * @ORM\Table(name="etat_frais")
+ * @ORM\Entity(repositoryClass="GSBBundle\Repository\EtatFraisRepository")
  */
-class Etat
+class EtatFrais
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="string")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="libelle", type="string", length=255)
      */
     private $libelle;
+
 
     /**
      * @var ficheFrais
      *
-     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\FicheFrais", mappedBy="idEtat")
+     * @ORM\OneToMany(targetEntity="GSBBundle\Entity\LigneFraisHorsForfait", mappedBy="idEtatFrais")
      */
     private $ficheFrais;
 
     /**
      * Get id
      *
-     * @return string
+     * @return int
      */
     public function getId()
     {
@@ -41,7 +51,7 @@ class Etat
      *
      * @param string $libelle
      *
-     * @return Etat
+     * @return EtatFrais
      */
     public function setLibelle($libelle)
     {
@@ -64,34 +74,32 @@ class Etat
      */
     public function __construct()
     {
-        $this->fichefrais = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->ficheFrais = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add fichefrai
+     * Add ficheFrai
      *
-     * @param \GSBBundle\Entity\FicheFrais $fichefrai
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ficheFrai
      *
-     * @return Etat
+     * @return EtatFrais
      */
-    public function addFichefrai(\GSBBundle\Entity\FicheFrais $fichefrai)
+    public function addFicheFrai(\GSBBundle\Entity\LigneFraisHorsForfait $ficheFrai)
     {
-        $this->fichefrais[] = $fichefrai;
+        $this->ficheFrais[] = $ficheFrai;
 
         return $this;
     }
 
     /**
-     * Remove fichefrai
+     * Remove ficheFrai
      *
-     * @param \GSBBundle\Entity\FicheFrais $fichefrai
+     * @param \GSBBundle\Entity\LigneFraisHorsForfait $ficheFrai
      */
-    public function removeFichefrai(\GSBBundle\Entity\FicheFrais $fichefrai)
+    public function removeFicheFrai(\GSBBundle\Entity\LigneFraisHorsForfait $ficheFrai)
     {
-        $this->fichefrais->removeElement($fichefrai);
+        $this->ficheFrais->removeElement($ficheFrai);
     }
-
-
 
     /**
      * Get ficheFrais
