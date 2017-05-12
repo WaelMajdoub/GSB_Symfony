@@ -50,9 +50,11 @@ class LigneFraisHorsForfait
     private $idFicheFrais;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @var Etat
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\EtatFrais", inversedBy="ficheFrais", fetch="EAGER")
+     * @ORM\JoinColumn(name="idEtatFrais", referencedColumnName="id")
      */
-    private $situation;
+    private $idEtatFrais;
 
     /**
      * Get id
@@ -207,28 +209,29 @@ class LigneFraisHorsForfait
     {
         return $this->idFicheFrais;
     }
+    
 
     /**
-     * Set situation
+     * Set idEtatFrais
      *
-     * @param string $situation
+     * @param \GSBBundle\Entity\EtatFrais $idEtatFrais
      *
      * @return LigneFraisHorsForfait
      */
-    public function setSituation($situation)
+    public function setIdEtatFrais(\GSBBundle\Entity\EtatFrais $idEtatFrais = null)
     {
-        $this->situation = $situation;
+        $this->idEtatFrais = $idEtatFrais;
 
         return $this;
     }
 
     /**
-     * Get situation
+     * Get idEtatFrais
      *
-     * @return string
+     * @return \GSBBundle\Entity\EtatFrais
      */
-    public function getSituation()
+    public function getIdEtatFrais()
     {
-        return $this->situation;
+        return $this->idEtatFrais;
     }
 }

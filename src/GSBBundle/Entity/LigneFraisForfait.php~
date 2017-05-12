@@ -28,6 +28,7 @@ class LigneFraisForfait
     private $quantite;
 
     /**
+     * @var FraisForfait
      * @ORM\ManyToOne(targetEntity="FraisForfait")
      * @ORM\JoinColumn(name="idFraisForfait", referencedColumnName="id")
      *
@@ -43,8 +44,8 @@ class LigneFraisForfait
     private $idUser;
 
     /**
-     * @var
-     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\FicheFrais", inversedBy="ligneFraisForfait")
+     * @var FicheFrais
+     * @ORM\OneToOne(targetEntity="GSBBundle\Entity\FicheFrais", inversedBy="ligneFraisForfait")
      * @ORM\JoinColumn(name="idFicheFrais", referencedColumnName="id")
      */
 

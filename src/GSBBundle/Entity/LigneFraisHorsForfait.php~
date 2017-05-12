@@ -50,9 +50,11 @@ class LigneFraisHorsForfait
     private $idFicheFrais;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @var Etat
+     * @ORM\ManyToOne(targetEntity="GSBBundle\Entity\EtatFrais", inversedBy="ficheFrais", fetch="EAGER")
+     * @ORM\JoinColumn(name="idEtatFrais", referencedColumnName="id")
      */
-    private $situation;
+    private $idEtatFrais;
 
     /**
      * Get id
@@ -207,4 +209,5 @@ class LigneFraisHorsForfait
     {
         return $this->idFicheFrais;
     }
+    
 }

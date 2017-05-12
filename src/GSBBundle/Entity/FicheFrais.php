@@ -318,4 +318,18 @@ class FicheFrais
     {
         return $this->idEtat;
     }
+
+    /**
+     * Set ligneFraisForfait
+     *
+     * @param \GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait
+     *
+     * @return FicheFrais
+     */
+    public function setLigneFraisForfait(\GSBBundle\Entity\LigneFraisForfait $ligneFraisForfait = null)
+    {
+        $this->ligneFraisForfait = $ligneFraisForfait;
+
+        return $this;
+    }
 }
