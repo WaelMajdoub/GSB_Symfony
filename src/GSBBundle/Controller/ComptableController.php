@@ -46,7 +46,7 @@ class ComptableController extends Controller
         }
 
 
-        return $this->render('GSBBundle:Principal:valid_frais.html.twig',
+        return $this->render('@GSB/Principal/valid_Frais.html.twig',
             array('visiteurs' => $lesVisiteurs, 'formBtn' =>$formValider->createView()
             ));
     }
@@ -158,7 +158,7 @@ class ComptableController extends Controller
             ->findByRole('ROLE_VISITEUR');
 
 
-        return $this->render('GSBBundle:Principal:suivie_fiche.html.twig', array('visiteurs' => $lesVisiteurs));
+        return $this->render('@GSB/Principal/suivie_fiche.html.twig', array('visiteurs' => $lesVisiteurs));
     }
 
 
