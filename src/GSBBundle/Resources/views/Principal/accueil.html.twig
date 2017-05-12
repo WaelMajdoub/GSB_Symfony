@@ -13,6 +13,10 @@
             <h2>Gestion des frais
                 <small> - Comptable : {{ app.user.prenom }} {{ app.user.nom|upper }} </small>
             </h2>
+        {% elseif is_granted("ROLE_SUPER_ADMIN") %}
+            <h2>Gestion des frais
+                <small> - Administrateur : {{ app.user.prenom }} {{ app.user.nom|upper }} </small>
+            </h2>
         {% endif %}
 
     </div>
