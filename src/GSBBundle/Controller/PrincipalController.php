@@ -160,13 +160,17 @@ class PrincipalController extends Controller
             );
         }
 
-        return $this->render('GSBBundle:Principal:guigui.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
-                'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf)
-        );
+        $path = $this->get('kernel')->getRootDir(). "/../web/PDFs/";
+        $content = file_get_contents($path.$iduser . '-' . $mois . '.pdf');
 
-        // PB dl bien mais fichier corrompu
-        //$response = new BinaryFileResponse('PDFs/' . $iduser . '-' . $mois . '.pdf');
-        //$response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT); Pour le dl
+        $response = new Response();
+
+        //set headers
+        $response->headers->set('Content-Type', 'mime/type');
+        $response->headers->set('Content-Disposition', 'attachment;filename="'.$iduser . '-' . $mois . '.pdf');
+
+        $response->setContent($content);
+        return $response;
 
     }
 }
