@@ -47,14 +47,9 @@ class ComptableController extends Controller
             }
         }
 
-
-<<<<<<< HEAD
         return $this->render('@GSB/Principal/valid_Frais.html.twig',
             array('visiteurs' => $lesVisiteurs, 'formBtn' =>$formValider->createView()
-=======
-        return $this->render('GSBBundle:Principal:valid_frais.html.twig',
-            array('visiteurs' => $lesVisiteurs, 'formBtn' => $formValider->createView()
->>>>>>> frais
+
             ));
     }
 

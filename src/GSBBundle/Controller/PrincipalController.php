@@ -157,7 +157,6 @@ class PrincipalController extends Controller
 
         return $this->redirectToRoute('saisieFrais');
     }
-<<<<<<< HEAD
 
     /**
      * @Route("/pdf")
@@ -214,6 +213,4 @@ class PrincipalController extends Controller
         return $response;
 
     }
-=======
->>>>>>> frais
 }
