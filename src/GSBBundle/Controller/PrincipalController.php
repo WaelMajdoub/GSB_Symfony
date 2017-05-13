@@ -6,13 +6,10 @@ use GSBBundle\Entity;
 use GSBBundle\Form;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Filesystem\Filesystem;
 
 /**
- * Class PrincipalController
+ * Class PrincipalController qui regroupe toutes les actions communes aux Visiteurs & Comptables
  * @package GSBBundle\Controller
  */
 class PrincipalController extends Controller
@@ -46,7 +43,6 @@ class PrincipalController extends Controller
         return $this->render('GSBBundle:Principal:accueil.html.twig', array(// ...
         ));
     }
-
 
 
     /**
@@ -148,6 +144,7 @@ class PrincipalController extends Controller
     }
 
     /**
+     * Action permettant de supprimer un fraisHorsForfait
      * @Route("/deleteHorsForfait/{id}", name="deleteLigneHorsForfait", requirements={"id": "\d+"})
      */
     public function deleteLigneHorsForfaitAction($id)
@@ -160,6 +157,7 @@ class PrincipalController extends Controller
 
         return $this->redirectToRoute('saisieFrais');
     }
+<<<<<<< HEAD
 
     /**
      * @Route("/pdf")
@@ -216,4 +214,6 @@ class PrincipalController extends Controller
         return $response;
 
     }
+=======
+>>>>>>> frais
 }

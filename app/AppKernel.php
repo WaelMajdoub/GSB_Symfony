@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new GSBBundle\GSBBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
 

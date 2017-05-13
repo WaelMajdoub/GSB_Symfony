@@ -3,13 +3,14 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity\LigneFraisForfait;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Lignefraisforfait controller.
+ * Controlleur du Crud lignefraisforfait réservé au super admin qui permet d'avoir les interfaces de gestions des lignefraisforfait
  * @Security("has_role('ROLE_COMPTABLE')")
  * @Route("lignefraisforfait")
  */

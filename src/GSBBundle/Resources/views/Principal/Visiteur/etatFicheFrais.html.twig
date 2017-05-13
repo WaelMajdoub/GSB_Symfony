@@ -45,5 +45,7 @@
                 {% endfor %}
             </table>
         </div>
+        <a href="{{ path('gsb_visiteur_pdf', {'id': iduser, 'mois': mois}) }}">Télécharger le PDF</a>
+
     {% endif %}
 </div>

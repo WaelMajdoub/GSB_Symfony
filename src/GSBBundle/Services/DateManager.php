@@ -1,5 +1,9 @@
 <?php
 namespace GSBBundle\Services;
+/**
+ * Class DateManager
+ * @package GSBBundle\Services
+ */
 class DateManager
 {
     /**

@@ -7,10 +7,17 @@ use GSBBundle\Form\MoisType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Filesystem\Filesystem;
 
+/**
+ * Class VisiteurController qui regroupe toutes les actions réservées aux visiteurs
+ * @package GSBBundle\Controller
+ */
 class VisiteurController extends Controller
 {
     /**
+     * Action qui permet de générer la view etatFrais
      * @Route("/etatFrais", name="etatFrais")
      */
     public function etatFraisAction(Request $request)
@@ -40,6 +47,7 @@ class VisiteurController extends Controller
 
 
         $tableauEtatFrais = [];
+        $dateSelectionnee = 200101;
         if ($formMois->isSubmitted()) {
             if ($formMois->isValid()) {
                 // Récupération de la date envoyée dans le form
@@ -68,11 +76,69 @@ class VisiteurController extends Controller
         return $this->render('@GSB/Principal/etat_frais.html.twig', array(
             'formMois' => $formMois->createView(),
             'infoEtatFrais' => $tableauEtatFrais,
-            'roles' => $roles
+            'roles' => $roles,
+            'iduser' => $idUser,
+            'mois' => $dateSelectionnee
         ));
     }
 
+    /**
+     * Action qui permet de gérer le PDF
+     * @Route("/etatFrais/pdf/{id}/{mois}")
+     */
+    public function pdfAction(Request $request)
+    {
+        // Modifier mois selectionné
+        $mois = $request->get('mois');
 
+        $iduser = $request->get('id');
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $iduser));
+
+        $etp = $em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id' => 'ETP'));
+        $nui = $em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id' => 'NUI'));
+        $km = $em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id' => 'KM'));
+        $rep = $em->getRepository('GSBBundle:FraisForfait')->findOneBy(array('id' => 'REP'));
+
+        $fetp = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
+            'idUser' => $iduser, 'idFraisForfait' => $etp));
+        $fnui = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
+            'idUser' => $iduser, 'idFraisForfait' => $nui));
+        $fkm = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
+            'idUser' => $iduser, 'idFraisForfait' => $km));
+        $frep = $em->getRepository('GSBBundle:LigneFraisForfait')->findOneBy(array('mois' => $mois,
+            'idUser' => $iduser, 'idFraisForfait' => $rep));
+
+        $lesfhf = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findBy(array('mois' => $mois,
+            'idUser' => $iduser));
+
+        //Check si le PDF du mois existe déja
+        $fs = new Filesystem();
+        if (!$fs->exists('PDFs/' . $iduser . '-' . $mois . '.pdf')) {
+
+            $this->get('knp_snappy.pdf')->generateFromHtml(
+                $this->renderView(
+                    'GSBBundle:Principal:pdf.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
+                        'fetp' => $fetp, 'fnui' => $fnui, 'fkm' => $fkm, 'frep' => $frep, 'mois' => $mois, 'lesfhf' => $lesfhf)
+                ),
+                'PDFs/' . $iduser . '-' . $mois . '.pdf'
+            );
+        }
+
+        $path = $this->get('kernel')->getRootDir(). "/../web/PDFs/";
+        $content = file_get_contents($path.$iduser . '-' . $mois . '.pdf');
+
+        $response = new Response();
+
+        //set headers
+        $response->headers->set('Content-Type', 'mime/type');
+        $response->headers->set('Content-Disposition', 'attachment;filename="'.$iduser . '-' . $mois . '.pdf');
+
+        $response->setContent($content);
+        return $response;
+
+    }
 
 
 }
