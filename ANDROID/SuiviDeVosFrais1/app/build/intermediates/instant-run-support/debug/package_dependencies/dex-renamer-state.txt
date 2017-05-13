@@ -1,0 +1,22 @@
+#Fri May 12 20:16:17 CEST 2017
+renamed.6=classes.dex
+renamed.5=classes7.dex
+renamed.4=classes2.dex
+renamed.3=classes5.dex
+renamed.2=classes6.dex
+renamed.1=classes3.dex
+renamed.0=classes4.dex
+base.6=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_12d89d4b82f0d2870ddf129917e38d0d459e779c
+base.5=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-25.1.0_6c66c04399d17a8b9718487bd14efe1968634751
+base.4=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_23db5489e13ced5bf4ddcb370968f692f8959867
+base.3=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_b2b89059dec6d6f84fb26390ab0a976e49185fb1
+base.2=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_b84cd379d2ac017c27cc69ec65b098c8a74026fe
+base.1=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_2a5f410c92ec35c961379951138b6285efa1d9c8
+base.0=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_3b9a06fa18f14d2d9f5d4f2c1d3366d7052e61d7
+file.6=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_12d89d4b82f0d2870ddf129917e38d0d459e779c\\classes.dex
+file.5=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-25.1.0_6c66c04399d17a8b9718487bd14efe1968634751\\classes.dex
+file.4=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_23db5489e13ced5bf4ddcb370968f692f8959867\\classes.dex
+file.3=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_b2b89059dec6d6f84fb26390ab0a976e49185fb1\\classes.dex
+file.2=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_b84cd379d2ac017c27cc69ec65b098c8a74026fe\\classes.dex
+file.1=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_2a5f410c92ec35c961379951138b6285efa1d9c8\\classes.dex
+file.0=C\:\\Users\\Davvm\\Documents\\GSB_Symfony\\SuiviDeVosFrais1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_3b9a06fa18f14d2d9f5d4f2c1d3366d7052e61d7\\classes.dex
