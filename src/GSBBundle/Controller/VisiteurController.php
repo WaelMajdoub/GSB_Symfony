@@ -116,8 +116,6 @@ class VisiteurController extends Controller
         //Check si le PDF du mois existe déja
         $fs = new Filesystem();
         if (!$fs->exists('PDFs/' . $iduser . '-' . $mois . '.pdf')) {
-            $session = $this->getRequest()->getSession();
-            $session->save();
             $this->get('knp_snappy.pdf')->generateFromHtml(
                 $this->renderView(
                     'GSBBundle:Principal:pdf.html.twig', array('user' => $user, 'etp' => $etp, 'nui' => $nui, 'km' => $km, 'rep' => $rep,
