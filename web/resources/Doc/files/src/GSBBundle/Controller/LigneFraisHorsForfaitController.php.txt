@@ -1,0 +1,153 @@
+<?php
+
+namespace GSBBundle\Controller;
+
+use GSBBundle\Entity\LigneFraisHorsForfait;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Controlleur du Crud lignefraishorsforfait réservé au super admin qui permet d'avoir les interfaces de gestions des lignefraishorsforfait
+ * @Security("has_role('ROLE_COMPTABLE')")
+ * @Route("lignefraishorsforfait")
+ */
+class LigneFraisHorsForfaitController extends Controller
+{
+    /**
+     * Lists all ligneFraisHorsForfait entities.
+     *
+     * @Route("/", name="lignefraishorsforfait_index")
+     * @Method("GET")
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $ligneFraisHorsForfaits = $em->getRepository('GSBBundle:LigneFraisHorsForfait')->findAll();
+
+        return $this->render('lignefraishorsforfait/index.html.twig', array(
+            'ligneFraisHorsForfaits' => $ligneFraisHorsForfaits,
+        ));
+    }
+
+    /**
+     * Creates a new ligneFraisHorsForfait entity.
+     *
+     * @Route("/new", name="lignefraishorsforfait_new")
+     * @Method({"GET", "POST"})
+     */
+    public function newAction(Request $request)
+    {
+        $ligneFraisHorsForfait = new Lignefraishorsforfait();
+        $form = $this->createForm('GSBBundle\Form\LigneFraisHorsForfaitType', $ligneFraisHorsForfait);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ligneFraisHorsForfait);
+            $em->flush();
+
+            return $this->redirectToRoute('lignefraishorsforfait_show', array('id' => $ligneFraisHorsForfait->getId()));
+        }
+
+        return $this->render('lignefraishorsforfait/new.html.twig', array(
+            'ligneFraisHorsForfait' => $ligneFraisHorsForfait,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a ligneFraisHorsForfait entity.
+     *
+     * @Route("/{id}", name="lignefraishorsforfait_show")
+     * @Method("GET")
+     */
+    public function showAction(LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $deleteForm = $this->createDeleteForm($ligneFraisHorsForfait);
+
+        return $this->render('lignefraishorsforfait/show.html.twig', array(
+            'ligneFraisHorsForfait' => $ligneFraisHorsForfait,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Displays a form to edit an existing ligneFraisHorsForfait entity.
+     *
+     * @Route("/{id}/edit", name="lignefraishorsforfait_edit")
+     * @Method({"GET", "POST"})
+     */
+    public function editAction(Request $request, LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $deleteForm = $this->createDeleteForm($ligneFraisHorsForfait);
+        $editForm = $this->createForm('GSBBundle\Form\LigneFraisHorsForfaitType', $ligneFraisHorsForfait);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('lignefraishorsforfait_edit', array('id' => $ligneFraisHorsForfait->getId()));
+        }
+
+        return $this->render('lignefraishorsforfait/edit.html.twig', array(
+            'ligneFraisHorsForfait' => $ligneFraisHorsForfait,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Refuses an existing ligneFraisHorsForfait entity.
+     *
+     * @Route("/{id}/refuse", name="lignefraishorsforfait_refuse")
+     * @Method({"GET", "POST"})
+     */
+    public function refuseAction(Request $request, LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $ligneFraisHorsForfait->setLibelle('REFUSE ' . $ligneFraisHorsForfait->getLibelle());
+
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('validFrais');
+    }
+
+    /**
+     * Deletes a ligneFraisHorsForfait entity.
+     *
+     * @Route("/{id}", name="lignefraishorsforfait_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Request $request, LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        $form = $this->createDeleteForm($ligneFraisHorsForfait);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($ligneFraisHorsForfait);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('validFrais');
+    }
+
+    /**
+     * Creates a form to delete a ligneFraisHorsForfait entity.
+     *
+     * @param LigneFraisHorsForfait $ligneFraisHorsForfait The ligneFraisHorsForfait entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(LigneFraisHorsForfait $ligneFraisHorsForfait)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('lignefraishorsforfait_delete', array('id' => $ligneFraisHorsForfait->getId())))
+            ->setMethod('DELETE')
+            ->getForm();
+    }
+}
+

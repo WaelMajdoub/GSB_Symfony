@@ -1,0 +1,152 @@
+<?php
+
+/* GSBBundle:Principal:accueil.html.twig */
+class __TwigTemplate_e3bffa615d83cd136e16b0521dfca2f64627fbacb8adbd3e0143ef4a9937e271 extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 1
+        $this->parent = $this->loadTemplate("@GSB/Default/base.html.twig", "GSBBundle:Principal:accueil.html.twig", 1);
+        $this->blocks = array(
+            'body' => array($this, 'block_body'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "@GSB/Default/base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 4
+    public function block_body($context, array $blocks = array())
+    {
+        // line 5
+        echo "    ";
+        echo twig_include($this->env, $context, "@GSB/Default/head.html.twig");
+        echo "
+    ";
+        // line 7
+        echo "    <div id=\"accueil\">
+        ";
+        // line 8
+        if ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_VISITEUR")) {
+            // line 9
+            echo "            <h2>Gestion des frais
+                <small> - Visiteur : ";
+            // line 10
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "prenom", array()), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "nom", array())), "html", null, true);
+            echo " </small>
+            </h2>
+        ";
+        } elseif ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_COMPTABLE")) {
+            // line 13
+            echo "            <h2>Gestion des frais
+                <small> - Comptable : ";
+            // line 14
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "prenom", array()), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "nom", array())), "html", null, true);
+            echo " </small>
+            </h2>
+        ";
+        } elseif ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_SUPER_ADMIN")) {
+            // line 17
+            echo "            <h2>Gestion des frais
+                <small> - Administrateur : ";
+            // line 18
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "prenom", array()), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array()), "nom", array())), "html", null, true);
+            echo " </small>
+            </h2>
+        ";
+        }
+        // line 21
+        echo "
+    </div>
+    <div class=\"row\">
+    <div class=\"col-md-12\">
+        <div class=\"panel panel-primary\">
+            <div class=\"panel-heading\">
+                <h3 class=\"panel-title\"><span class=\"glyphicon glyphicon-bookmark\"></span> Navigation</h3>
+            </div>
+            <div class=\"panel-body\">
+                <div class=\"row\">
+                    <div class=\"col-xs-12 col-md-12\">
+                        ";
+        // line 32
+        if ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_VISITEUR")) {
+            // line 33
+            echo "                            <a href=";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("saisieFrais");
+            echo " class=\"btn btn-success btn-lg\" role=\"button\"><span
+                                class=\"glyphicon glyphicon-pencil\"></span> <br/>Renseigner la fiche de frais</a>
+                            <a href=";
+            // line 35
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("etatFrais");
+            echo " class=\"btn btn-primary btn-lg\" role=\"button\"><span
+                                class=\"glyphicon glyphicon-list-alt\"></span> <br/>Afficher mes fiches de frais</a>
+                        ";
+        } elseif ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_COMPTABLE")) {
+            // line 38
+            echo "                            <a href=";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("validFrais");
+            echo " class=\"btn btn-success btn-lg\" role=\"button\"><span
+                                class=\"glyphicon glyphicon-pencil\"></span> <br/>Valider les fiches de frais</a>
+                            <a href=";
+            // line 40
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("suivreFrais");
+            echo " class=\"btn btn-primary btn-lg\" role=\"button\"><span
+                                class=\"glyphicon glyphicon-list-alt\"></span> <br/>Suivre les fiches de frais</a>
+                        ";
+        }
+        // line 43
+        echo "
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "GSBBundle:Principal:accueil.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  113 => 43,  107 => 40,  101 => 38,  95 => 35,  89 => 33,  87 => 32,  74 => 21,  66 => 18,  63 => 17,  55 => 14,  52 => 13,  44 => 10,  41 => 9,  39 => 8,  36 => 7,  31 => 5,  28 => 4,  11 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "GSBBundle:Principal:accueil.html.twig", "C:\\Users\\Asshritt\\Documents\\__Projets\\GSB_Symfony\\src\\GSBBundle/Resources/views/Principal/accueil.html.twig");
+    }
+}
+

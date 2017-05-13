@@ -1,0 +1,281 @@
+<?php
+
+/* GSBBundle:Principal:saisie_Frais.html.twig */
+class __TwigTemplate_2146b5836037126e32f228c5b32a92303bf70ee16adb313095d4129e090e61ef extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 1
+        $this->parent = $this->loadTemplate("@GSB/Default/base.html.twig", "GSBBundle:Principal:saisie_Frais.html.twig", 1);
+        $this->blocks = array(
+            'title' => array($this, 'block_title'),
+            'style' => array($this, 'block_style'),
+            'body' => array($this, 'block_body'),
+            'js' => array($this, 'block_js'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "@GSB/Default/base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        // line 3
+        echo "    Saisie/Gestion des frais de visite
+";
+    }
+
+    // line 5
+    public function block_style($context, array $blocks = array())
+    {
+        // line 6
+        echo "    ";
+        $this->displayParentBlock("style", $context, $blocks);
+        echo "
+";
+    }
+
+    // line 8
+    public function block_body($context, array $blocks = array())
+    {
+        // line 9
+        echo "    ";
+        echo twig_include($this->env, $context, "@GSB/Default/head.html.twig");
+        echo "
+
+    <div class=\"row\">
+        <h2>Renseigner ma fiche de frais du mois ";
+        // line 12
+        echo twig_escape_filter($this->env, twig_slice($this->env, (isset($context["mois"]) ? $context["mois"] : null), 4, 6), "html", null, true);
+        echo "-";
+        echo twig_escape_filter($this->env, twig_slice($this->env, (isset($context["mois"]) ? $context["mois"] : null), 0, 4), "html", null, true);
+        echo "</h2>
+        <h3>Eléments forfaitisés</h3>
+        <div class=\"col-md-4\">
+            ";
+        // line 15
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["formff"]) ? $context["formff"] : null), 'form_start');
+        echo "
+            <div class=\"form-group\">
+                ";
+        // line 17
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formff"]) ? $context["formff"] : null), "etape", array()), 'label');
+        echo "
+                <div class=\"input-group\">
+                    <span class=\"input-group-addon\">Nb</span>
+                    ";
+        // line 20
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formff"]) ? $context["formff"] : null), "etape", array()), 'widget');
+        echo "
+                </div>
+            </div>
+            <div class=\"form-group\">
+                ";
+        // line 24
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formff"]) ? $context["formff"] : null), "kilometre", array()), 'label');
+        echo "
+                <div class=\"input-group\">
+                    <span class=\"input-group-addon\">Nb</span>
+                    ";
+        // line 27
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formff"]) ? $context["formff"] : null), "kilometre", array()), 'widget');
+        echo "
+                </div>
+            </div>
+            <div class=\"form-group\">
+                ";
+        // line 31
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formff"]) ? $context["formff"] : null), "hotel", array()), 'label');
+        echo "
+                <div class=\"input-group\">
+                    <span class=\"input-group-addon\">Nb</span>
+                    ";
+        // line 34
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formff"]) ? $context["formff"] : null), "hotel", array()), 'widget');
+        echo "
+                </div>
+            </div>
+            <div class=\"form-group\">
+                ";
+        // line 38
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formff"]) ? $context["formff"] : null), "restaurant", array()), 'label');
+        echo "
+                <div class=\"input-group\">
+                    <span class=\"input-group-addon\">Nb</span>
+                    ";
+        // line 41
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formff"]) ? $context["formff"] : null), "restaurant", array()), 'widget');
+        echo "
+                </div>
+            </div>
+
+
+            ";
+        // line 46
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["formff"]) ? $context["formff"] : null), 'form_end');
+        echo "
+        </div>
+    </div>
+
+    <div class=\"row\">
+        <div class=\"panel panel-info\">
+            <div class=\"panel-heading\">Descriptif des éléments hors forfait</div>
+            <table class=\"table table-bordered table-responsive\">
+                <thead>
+                <tr>
+                    <th class=\"date\">Date</th>
+                    <th class=\"libelle\">Libellé</th>
+                    <th class=\"montant\">Montant</th>
+                    <th class=\"action\">&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                ";
+        // line 63
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["lesfraishf"]) ? $context["lesfraishf"] : null));
+        foreach ($context['_seq'] as $context["_key"] => $context["unfraishf"]) {
+            // line 64
+            echo "                    <tr>
+                        <td>";
+            // line 65
+            echo twig_escape_filter($this->env, twig_slice($this->env, $this->getAttribute($context["unfraishf"], "mois", array()), 4, 6), "html", null, true);
+            echo "-";
+            echo twig_escape_filter($this->env, twig_slice($this->env, $this->getAttribute($context["unfraishf"], "mois", array()), 0, 4), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 66
+            echo twig_escape_filter($this->env, $this->getAttribute($context["unfraishf"], "libelle", array()), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 67
+            echo twig_escape_filter($this->env, $this->getAttribute($context["unfraishf"], "montant", array()), "html", null, true);
+            echo "</td>
+                        <td>
+                            <a href=\"";
+            // line 69
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("deleteLigneHorsForfait", array("id" => $this->getAttribute($context["unfraishf"], "id", array()))), "html", null, true);
+            echo "\"
+                               onclick=\"return confirm('Supprimer ce frais?');\">
+                                Supprimer ce frais
+                            </a>
+                        </td>
+                    </tr>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['unfraishf'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 76
+        echo "                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class=\"row\">
+        <h3>Nouvel élément hors forfait</h3>
+        <div class=\"col-md-4\">
+            ";
+        // line 84
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["formfhf"]) ? $context["formfhf"] : null), 'form_start');
+        echo "
+            <div class=\"form-group\">
+                ";
+        // line 86
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formfhf"]) ? $context["formfhf"] : null), "date", array()), 'label');
+        echo "
+                <div class=\"input-group\">
+                    <span class=\"input-group-addon glyphicon glyphicon-th\"></span>
+                    ";
+        // line 89
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formfhf"]) ? $context["formfhf"] : null), "date", array()), 'widget');
+        echo "
+                </div>
+            </div>
+            <div class=\"form-group\">
+                ";
+        // line 93
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formfhf"]) ? $context["formfhf"] : null), "libelle", array()), 'label');
+        echo "
+                <div class=\"input-group\">
+                    <span class=\"input-group-addon\">L</span>
+                    ";
+        // line 96
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formfhf"]) ? $context["formfhf"] : null), "libelle", array()), 'widget');
+        echo "
+                </div>
+            </div>
+            <div class=\"form-group\">
+                ";
+        // line 100
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formfhf"]) ? $context["formfhf"] : null), "montant", array()), 'label');
+        echo "
+                <div class=\"input-group\">
+                    <span class=\"input-group-addon\">€</span>
+                    ";
+        // line 103
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute((isset($context["formfhf"]) ? $context["formfhf"] : null), "montant", array()), 'widget');
+        echo "
+                </div>
+            </div>
+            <button class=\"btn btn-success\" type=\"submit\">Ajouter le frais Hors Forfait</button>
+            <button class=\"btn btn-danger\" type=\"reset\">Effacer</button>
+
+            ";
+        // line 109
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["formfhf"]) ? $context["formfhf"] : null), 'form_end');
+        echo "
+        </div>
+    </div>
+";
+    }
+
+    // line 114
+    public function block_js($context, array $blocks = array())
+    {
+        // line 115
+        echo "    ";
+        $this->displayParentBlock("js", $context, $blocks);
+        echo "
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "GSBBundle:Principal:saisie_Frais.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  247 => 115,  244 => 114,  236 => 109,  227 => 103,  221 => 100,  214 => 96,  208 => 93,  201 => 89,  195 => 86,  190 => 84,  180 => 76,  167 => 69,  162 => 67,  158 => 66,  152 => 65,  149 => 64,  145 => 63,  125 => 46,  117 => 41,  111 => 38,  104 => 34,  98 => 31,  91 => 27,  85 => 24,  78 => 20,  72 => 17,  67 => 15,  59 => 12,  52 => 9,  49 => 8,  42 => 6,  39 => 5,  34 => 3,  31 => 2,  11 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "GSBBundle:Principal:saisie_Frais.html.twig", "C:\\Users\\Asshritt\\Documents\\__Projets\\GSB_Symfony\\src\\GSBBundle/Resources/views/Principal/saisie_Frais.html.twig");
+    }
+}
+
