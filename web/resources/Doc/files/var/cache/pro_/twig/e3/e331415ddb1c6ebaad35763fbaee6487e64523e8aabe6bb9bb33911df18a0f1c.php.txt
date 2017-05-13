@@ -1,0 +1,139 @@
+<?php
+
+/* GSBBundle:Principal:valid_Frais.html.twig */
+class __TwigTemplate_6c73f8cacc3fcfe15c37eb75fa184d47d610071434737799cd4bcda2f3d27f6b extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 1
+        $this->parent = $this->loadTemplate("@GSB/Default/base.html.twig", "GSBBundle:Principal:valid_Frais.html.twig", 1);
+        $this->blocks = array(
+            'body' => array($this, 'block_body'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "@GSB/Default/base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_body($context, array $blocks = array())
+    {
+        // line 4
+        echo "    <body>
+    ";
+        // line 5
+        $this->loadTemplate("@GSB/Principal/Comptable/sideBarValidFrais.html.twig", "GSBBundle:Principal:valid_Frais.html.twig", 5)->display($context);
+        // line 6
+        echo "    <div name=\"droite\" style=\"float:left;width:80%;\">
+        <div name=\"haut\" style=\"margin: 2 2 2 2 ;height:10%;float:left;\"><h1>Validation des Frais</h1></div>
+        <div name=\"bas\" style=\"margin : 10 2 2 2;clear:left;background-color:EE8844;color:orangered;height:88%;\">
+                <h1> Validation des frais par visiteur </h1>
+                <label class=\"titre\">Choisir le visiteur :</label>
+                <select style=\"color: orangered;\" id=\"visiteurSelectionne\" class=\"zone\">
+                    <option disabled selected value=\"0\">Selectionnez un visiteur</option>
+
+                    ";
+        // line 14
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["visiteurs"]) ? $context["visiteurs"] : null));
+        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
+            // line 15
+            echo "                        <option value=";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "id", array()), "html", null, true);
+            echo ">";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "nom", array()), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "prenom", array()), "html", null, true);
+            echo "</option>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
+        echo "                </select>
+                <label class=\"titre\">Mois :</label>
+
+                <select style=\"color: orangered;\" id=\"selectMoisDispo\" class=\"zone\">
+                    <option disabled selected value=\"0\">Selectionnez une date</option>
+
+                </select>
+
+
+            <p id=\"ficheEtat\"></p>
+            <div id=\"ficheInfos\"> <h4>Fiche de Frais numéro : <p id=\"FicheFraisId\" style=\"display: inline;!important\"></p>  Etat de la fiche : <p id=\"libelleEtat\" style=\"display: inline;!important\"></p> </h4></div>
+
+            <p class=\"titre\"/>
+                <div style=\"clear:left;\"><h2>Frais au forfait </h2></div>
+            <table id=\"tableF\" style=\"color: orangered;\" border=\"1\" class=\"table table-condense\">
+                    <tr>
+                        <th>Repas midi</th>
+                        <th>Nuitée</th>
+                        <th>Etape</th>
+                        <th>Km</th>
+                        <th>Situation</th>
+                    </tr>
+                </table>
+                <p class=\"titre\"/>
+                <div style=\"clear:left;\"><h2>Hors Forfait</h2></div>
+
+                <table id=\"tableHF\" style=\"color: orangered;\" border=\"1\" class=\"table table-condense\">
+                    <tr>
+                        <th>Date</th>
+                        <th>Libellé</th>
+                        <th>Montant</th>
+                        <th>Situation</th>
+                        <th>Edit</th>
+                        <th>Refuser</th>
+                    </tr>
+                </table>
+                <p class=\"titre\"></p>
+                <div class=\"titre\">Nb Justificatifs</div>
+                <input type=\"text\" class=\"zone\" size=\"4\" id=\"hcMontant\" name=\"hcMontant\"/>
+                <p class=\"titre\"/><label class=\"titre\">&nbsp;</label>
+                <input class=\"btn btn-warning\" id=\"btnReset\" type=\"reset\"/>
+                <input class=\"btn btn-success\" id=\"btnValider\" type=\"submit\"/>
+        </div>
+    </div>
+    </body>
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "GSBBundle:Principal:valid_Frais.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  63 => 17,  50 => 15,  46 => 14,  36 => 6,  34 => 5,  31 => 4,  28 => 3,  11 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "GSBBundle:Principal:valid_Frais.html.twig", "C:\\Users\\Asshritt\\Documents\\__Projets\\GSB_Symfony\\src\\GSBBundle/Resources/views/Principal/valid_Frais.html.twig");
+    }
+}
+

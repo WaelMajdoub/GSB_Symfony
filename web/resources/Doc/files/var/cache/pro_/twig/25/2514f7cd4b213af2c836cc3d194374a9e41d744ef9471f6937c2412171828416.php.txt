@@ -1,0 +1,161 @@
+<?php
+
+/* GSBBundle:Principal/Visiteur:etatFicheFrais.html.twig */
+class __TwigTemplate_d3811d053daf1214821694a20e40ac70d3e4de73b8eb0c698c7002e0ba178ecd extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->parent = false;
+
+        $this->blocks = array(
+        );
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        // line 1
+        echo "<div class=\"row\">
+    ";
+        // line 2
+        if ( !twig_test_empty((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null))) {
+            // line 3
+            echo "        <div class=\"panel panel-primary\">
+            <div class=\"panel-heading\">Fiche de frais du mois ";
+            // line 4
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null), "dateSelectionnee", array()), "m-Y"), "html", null, true);
+            echo " :
+            </div>
+            <div class=\"panel-body\">
+                <strong><u>Etat :</u></strong> ";
+            // line 7
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null), "infoFicheFrais", array()), "idEtat", array()), "libelle", array()), "html", null, true);
+            echo " depuis
+                le ";
+            // line 8
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null), "infoFicheFrais", array()), "datemodif", array()), "d/m/Y"), "html", null, true);
+            echo "<br>
+                <strong><u>Montant validé :</u></strong> ";
+            // line 9
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null), "infoFicheFrais", array()), "montantvalide", array()), "html", null, true);
+            echo " €
+            </div>
+        </div>
+        <div class=\"panel panel-info\">
+            <div class=\"panel-heading\">Eléments forfaitisés</div>
+            <table class=\"table table-bordered table-responsive\">
+                <tr>
+                    ";
+            // line 16
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null), "fraisForfait", array()));
+            foreach ($context['_seq'] as $context["_key"] => $context["de"]) {
+                // line 17
+                echo "                        <th>";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["de"], "libelle", array()), "html", null, true);
+                echo "</th>
+                    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['de'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 19
+            echo "                </tr>
+                <tr>
+                    ";
+            // line 21
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null), "lignesFraisForfait", array()));
+            foreach ($context['_seq'] as $context["_key"] => $context["unFraisForfait"]) {
+                // line 22
+                echo "                        <td class=\"qteForfait\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["unFraisForfait"], "quantite", array()), "html", null, true);
+                echo " €</td>
+                    ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['unFraisForfait'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 24
+            echo "                </tr>
+
+            </table>
+        </div>
+
+        <div class=\"panel panel-info\">
+            <div class=\"panel-heading\">Descriptif des éléments hors forfait
+                - ";
+            // line 31
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null), "infoFicheFrais", array()), "nbjustificatifs", array()), "html", null, true);
+            echo " justificatifs reçus
+            </div>
+            <table class=\"table table-bordered table-responsive\">
+                <tr>
+                    <th class=\"date\">Date</th>
+                    <th class=\"libelle\">Libellé</th>
+                    <th class='montant'>Montant</th>
+                </tr>
+                ";
+            // line 39
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["infoEtatFrais"]) ? $context["infoEtatFrais"] : null), "lignesFraisHorsForfait", array()));
+            foreach ($context['_seq'] as $context["_key"] => $context["unFraisHorsForfait"]) {
+                // line 40
+                echo "                    <tr>
+                        <td>";
+                // line 41
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["unFraisHorsForfait"], "date", array()), "d/m/Y"), "html", null, true);
+                echo "</td>
+                        <td>";
+                // line 42
+                echo twig_escape_filter($this->env, $this->getAttribute($context["unFraisHorsForfait"], "libelle", array()));
+                echo "</td>
+                        <td>";
+                // line 43
+                echo twig_escape_filter($this->env, $this->getAttribute($context["unFraisHorsForfait"], "montant", array()), "html", null, true);
+                echo " €</td>
+                    </tr>
+                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['unFraisHorsForfait'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 46
+            echo "            </table>
+        </div>
+    ";
+        }
+        // line 49
+        echo "</div>";
+    }
+
+    public function getTemplateName()
+    {
+        return "GSBBundle:Principal/Visiteur:etatFicheFrais.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  130 => 49,  125 => 46,  116 => 43,  112 => 42,  108 => 41,  105 => 40,  101 => 39,  90 => 31,  81 => 24,  72 => 22,  68 => 21,  64 => 19,  55 => 17,  51 => 16,  41 => 9,  37 => 8,  33 => 7,  27 => 4,  24 => 3,  22 => 2,  19 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "GSBBundle:Principal/Visiteur:etatFicheFrais.html.twig", "C:\\Users\\Asshritt\\Documents\\__Projets\\GSB_Symfony\\src\\GSBBundle/Resources/views/Principal/Visiteur/etatFicheFrais.html.twig");
+    }
+}
+

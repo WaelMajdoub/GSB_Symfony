@@ -1,0 +1,73 @@
+<?php
+
+/* GSBBundle:Principal:etat_frais.html.twig */
+class __TwigTemplate_9b35cb086736ea0decb003ec2039279081229187be8fc00b1dfcdc5428b0b5b8 extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 1
+        $this->parent = $this->loadTemplate("@GSB/Default/base.html.twig", "GSBBundle:Principal:etat_frais.html.twig", 1);
+        $this->blocks = array(
+            'body' => array($this, 'block_body'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "@GSB/Default/base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_body($context, array $blocks = array())
+    {
+        // line 3
+        echo "    ";
+        echo twig_include($this->env, $context, "@GSB/Default/head.html.twig");
+        echo "
+    ";
+        // line 4
+        echo twig_include($this->env, $context, "@GSB/Principal/Visiteur/listemois.html.twig");
+        echo "
+    ";
+        // line 5
+        echo twig_include($this->env, $context, "@GSB/Principal/Visiteur/etatFicheFrais.html.twig");
+        echo "
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "GSBBundle:Principal:etat_frais.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  40 => 5,  36 => 4,  31 => 3,  28 => 2,  11 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "GSBBundle:Principal:etat_frais.html.twig", "C:\\Users\\Asshritt\\Documents\\__Projets\\GSB_Symfony\\src\\GSBBundle/Resources/views/Principal/etat_frais.html.twig");
+    }
+}
+

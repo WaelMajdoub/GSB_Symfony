@@ -1,0 +1,52 @@
+<?php
+
+/* GSBBundle:Principal:deconnexion.html.twig */
+class __TwigTemplate_79101c4729d4979e58f3ea01b96869fa00153448803045478fbb0c7926256448 extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->parent = false;
+
+        $this->blocks = array(
+        );
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        // line 1
+        echo "<?php
+deconnecter();
+?>
+<div class=\"alert alert-info\" role=\"alert\">
+    <p>Vous avez bien été déconnecté ! <a href=\"index.php\">Cliquez ici</a> pour revenir à la page de connexion.</p>
+</div>
+<?php header (\"Refresh: 3;URL=index.php\");
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "GSBBundle:Principal:deconnexion.html.twig";
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  19 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "GSBBundle:Principal:deconnexion.html.twig", "C:\\Users\\Asshritt\\Documents\\__Projets\\GSB_Symfony\\src\\GSBBundle/Resources/views/Principal/deconnexion.html.twig");
+    }
+}
+

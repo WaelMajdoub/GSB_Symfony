@@ -1,0 +1,120 @@
+<?php
+
+/* GSBBundle:Principal:consult_Frais.html.twig */
+class __TwigTemplate_d54b46c339c0b08d607a933e22816c6dc7f8ad688bca5771aa67d5e91be3313f extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 1
+        $this->parent = $this->loadTemplate("@GSB/Default/base.html.twig", "GSBBundle:Principal:consult_Frais.html.twig", 1);
+        $this->blocks = array(
+            'stylePerso' => array($this, 'block_stylePerso'),
+            'body' => array($this, 'block_body'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "@GSB/Default/base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_stylePerso($context, array $blocks = array())
+    {
+        // line 3
+        echo "\t<head>
+\t\t<style type=\"text/css\">
+\t\t\t<!-- body {background-color: white; color:5599EE; }
+\t\t\t.titre { width : 180 ;  clear:left; float:left; }
+\t\t\t.zone { float : left; color:7091BB } -->
+\t\t</style>
+\t</head>
+";
+    }
+
+    // line 11
+    public function block_body($context, array $blocks = array())
+    {
+        // line 12
+        echo twig_include($this->env, $context, "@GSB/Principal/Comptable/sideBarConsult.html.twig");
+        echo "
+\t\t\t<div name=\"droite\" style=\"float:left;width:80%;\">
+\t\t\t\t<div name=\"haut\" style=\"margin: 2 2 2 2 ;height:10%;float:left;\"><h1>Suivi de remboursement des Frais</h1></div>
+\t\t\t\t<div name=\"bas\" style=\"margin : 10 2 2 2;clear:left;background-color:white;color:orangered;height:88%;\">
+
+\t\t\t\t\t<form name=\"formConsultFrais\" method=\"post\" action=\"chercheFrais.php\">
+\t\t\t\t\t\t<h1> Période </h1>
+\t\t\t\t\t\t<label class=\"titre\">Mois/Année :</label> <input class=\"zone\" type=\"text\" name=\"dateConsult\" size=\"12\" />
+\t\t\t\t\t\t<p class=\"titre\" />
+\t\t\t\t\t\t<div style=\"clear:left;\"><h2>Frais au forfait </h2></div>
+\t\t\t\t\t\t<table style=\"color:orangered;\" border=\"1\">
+\t\t\t\t\t\t\t<tr><th>Repas midi</th><th>Nuitée </th><th>Etape</th><th>Km </th><th>Situation</th><th>Date opération</th><th>Remboursement</th></tr>
+\t\t\t\t\t\t\t<tr align=\"center\"><td width=\"80\"><label  size=\"3\" name=\"repas\"/></td>
+\t\t\t\t\t\t\t\t<td width=\"80\"><label size=\"3\" name=\"nuitee\"/></td>
+\t\t\t\t\t\t\t\t<td width=\"80\"> <label size=\"3\" name=\"etape\"/></td>
+\t\t\t\t\t\t\t\t<td width=\"80\"> <label size=\"3\" name=\"km\" /></td>
+\t\t\t\t\t\t\t\t<td width=\"80\"> <label size=\"3\" name=\"situation\" /></td>
+\t\t\t\t\t\t\t\t<td width=\"80\"> <label size=\"3\" name=\"dateOper\" /></td>
+\t\t\t\t\t\t\t\t<td width=\"80\"> <label size=\"3\" name=\"dateOper\" /></td>
+\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t</table>
+
+\t\t\t\t\t\t<p class=\"titre\" /><div style=\"clear:left;\"><h2>Hors Forfait</h2></div>
+
+
+\t\t\t\t\t\t<table style=\"color:orangered;\" border=\"1\">
+\t\t\t\t\t\t\t<tr><th>Date</th><th>Libellé </th><th>Montant</th><th>Situation</th><th>Date opération</th></tr>
+\t\t\t\t\t\t\t<tr align=\"center\"><td width=\"100\" ><label size=\"12\" name=\"hfDate1\"/></td>
+\t\t\t\t\t\t\t\t<td width=\"220\"><label size=\"30\" name=\"hfLib1\"/></td>
+\t\t\t\t\t\t\t\t<td width=\"90\" ><label size=\"10\" name=\"hfMont1\"/></td>
+\t\t\t\t\t\t\t\t<td width=\"80\"> <label size=\"3\" name=\"hfSitu1\" /></td>
+\t\t\t\t\t\t\t\t<td width=\"80\"> <label size=\"3\" name=\"hfDateOper1\" /></td>
+\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t</table>
+
+
+\t\t\t\t\t\t<p class=\"titre\"></p>
+\t\t\t\t\t\t<div class=\"titre\">Nb Justificatifs</div><input type=\"text\" class=\"zone\" size=\"4\" name=\"hcMontant\"/>
+\t\t\t\t\t</form>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t</body>
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "GSBBundle:Principal:consult_Frais.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  46 => 12,  43 => 11,  32 => 3,  29 => 2,  11 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "GSBBundle:Principal:consult_Frais.html.twig", "C:\\Users\\Asshritt\\Documents\\__Projets\\GSB_Symfony\\src\\GSBBundle/Resources/views/Principal/consult_Frais.html.twig");
+    }
+}
+

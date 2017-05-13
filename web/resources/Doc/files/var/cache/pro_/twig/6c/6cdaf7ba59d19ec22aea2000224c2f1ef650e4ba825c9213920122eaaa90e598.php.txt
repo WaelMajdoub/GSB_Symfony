@@ -1,0 +1,66 @@
+<?php
+
+/* GSBBundle:Principal:gerer_frais.html.twig */
+class __TwigTemplate_02dce3d6783dc096c90f5cf34f4925cafd51dab71e0befd99c17e4361e1e6d62 extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 1
+        $this->parent = $this->loadTemplate("@GSB/Default/base.html.twig", "GSBBundle:Principal:gerer_frais.html.twig", 1);
+        $this->blocks = array(
+            'body' => array($this, 'block_body'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "@GSB/Default/base.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_body($context, array $blocks = array())
+    {
+        // line 3
+        echo "    ";
+        $this->loadTemplate("@GSB/Default/head.html.twig", "GSBBundle:Principal:gerer_frais.html.twig", 3)->display($context);
+        // line 4
+        echo "    TODO
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "GSBBundle:Principal:gerer_frais.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  34 => 4,  31 => 3,  28 => 2,  11 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "GSBBundle:Principal:gerer_frais.html.twig", "C:\\Users\\Asshritt\\Documents\\__Projets\\GSB_Symfony\\src\\GSBBundle/Resources/views/Principal/gerer_frais.html.twig");
+    }
+}
+
