@@ -12,7 +12,10 @@ namespace UserBundle\Services;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 
-
+/**
+ * Class RoleService
+ * @package UserBundle\Services
+ */
 class RoleService
 {
     private $roleHierarchy;

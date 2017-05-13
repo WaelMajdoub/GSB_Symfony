@@ -3,13 +3,14 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity\FicheFrais;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Fichefrai controller.
+ * Controlleur du Crud FicheFrais réservé au super admin qui permet d'avoir les interfaces de gestions des FichesFrais
  * @Security("has_role('ROLE_COMPTABLE')")
  * @Route("fichefrais")
  */

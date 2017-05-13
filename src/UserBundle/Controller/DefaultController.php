@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Security\Core\Role\Role;
 
+/**
+ * Class DefaultController qui sert pour faire quelques tests
+ * @package UserBundle\Controller
+ */
 class DefaultController extends Controller
 {
     /**

@@ -3,13 +3,14 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Entity\FraisForfait;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Fraisforfait controller.
+ * Controlleur du Crud fraisforfait réservé au super admin qui permet d'avoir les interfaces de gestions des fraisforfait
  * @Security("has_role('ROLE_COMPTABLE')")
 
  * @Route("fraisforfait")

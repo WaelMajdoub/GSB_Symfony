@@ -12,9 +12,17 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
+/**
+ * Class LoadFicheFraisData qui va charger toutes les données sql en DB
+
+ * @package GSBBundle\DataFixtures\ORM
+ */
 class LoadFicheFraisData extends AbstractFixture implements OrderedFixtureInterface
 {
-
+    /**
+     * Méthode qui charge les données en DB
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager) {
         $filename = 'web/sql/ficheFrais.sql';
 
@@ -24,6 +32,10 @@ class LoadFicheFraisData extends AbstractFixture implements OrderedFixtureInterf
         $manager->flush();
     }
 
+    /**
+     * Méthode qui fixe l'ordre de priorités aux insert
+     * @return int
+     */
     public function getOrder() {
         return 3;  // Order in which this fixture will be executed
     }

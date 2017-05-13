@@ -10,9 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Filesystem\Filesystem;
 
+/**
+ * Class VisiteurController qui regroupe toutes les actions réservées aux visiteurs
+ * @package GSBBundle\Controller
+ */
 class VisiteurController extends Controller
 {
     /**
+     * Action qui permet de générer la view etatFrais
      * @Route("/etatFrais", name="etatFrais")
      */
     public function etatFraisAction(Request $request)
@@ -78,6 +83,7 @@ class VisiteurController extends Controller
     }
 
     /**
+     * Action qui permet de gérer le PDF
      * @Route("/etatFrais/pdf/{id}/{mois}")
      */
     public function pdfAction(Request $request)

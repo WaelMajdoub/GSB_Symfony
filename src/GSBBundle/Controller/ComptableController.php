@@ -3,13 +3,15 @@
 namespace GSBBundle\Controller;
 
 use GSBBundle\Form\FicheFraisType;
-use GSBBundle\Entity\LigneFraisHorsForfait;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * Class ComptableController qui regroupe toutes les actions nécessaires aux comptables
+ * @package GSBBundle\Controller
+ */
 class ComptableController extends Controller
 {
 
@@ -47,13 +49,13 @@ class ComptableController extends Controller
 
 
         return $this->render('GSBBundle:Principal:valid_frais.html.twig',
-            array('visiteurs' => $lesVisiteurs, 'formBtn' =>$formValider->createView()
+            array('visiteurs' => $lesVisiteurs, 'formBtn' => $formValider->createView()
             ));
     }
 
 
-
     /**
+     *
      * Méthode Ajax qui va permettre de remplir les mois disponible en fonction du visiteur selectionné
      * @Route("/validFrais/moisDispoParVisiteur!Ajax", name="moisDispoParVisiteur")
      * @param Request $request
@@ -79,6 +81,7 @@ class ComptableController extends Controller
         return new JsonResponse(array('dates' => $dateTimeMoisDisponible));
 
     }
+
     /**
      * Méthode ajax qui va ramener la ficheFrais d'après un ID Utilisateur recupéré en Ajax et
      * et le mois en sélectionné pour afficher les éléments forfaitisés et Hors Forfaits
@@ -103,23 +106,11 @@ class ComptableController extends Controller
 
         dump($ficheFrais);
         return new JsonResponse(array('ficheFrais' => $ficheFrais,
-                                    'ligneFraisForfait' => $ligneFraisForfait,
-                                    'ligneFraisHorsForfait' => $ligneFraisHorsForfait));
-
+            'ligneFraisForfait' => $ligneFraisForfait,
+            'ligneFraisHorsForfait' => $ligneFraisHorsForfait));
 
 
     }
-
-    /**
-     * Route principale de gestion de Frais
-     * @Route("/gererFrais")
-     */
-    public function gererFraisAction()
-    {
-        return $this->render('GSBBundle:Principal:gerer_frais.html.twig', array(// ...
-        ));
-    }
-
 
     /**
      * Méthode ajax qui va récupérer la fiche selectionnée et la valider
@@ -127,7 +118,8 @@ class ComptableController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function validFicheAction(Request $request){
+    public function validFicheAction(Request $request)
+    {
 
         // Recherche de l'état Valider
         $etat = $this->getDoctrine()->getRepository('GSBBundle:Etat')->findOneById('VA');
@@ -143,9 +135,7 @@ class ComptableController extends Controller
 
         return new JsonResponse(array('laFiche' => $laFiche));
 
-}
-
-
+    }
 
 
     /**
@@ -170,7 +160,8 @@ class ComptableController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function moisDisponiblesFichesValidesAction(Request $request){
+    public function moisDisponiblesFichesValidesAction(Request $request)
+    {
         if (!$request->isXmlHttpRequest()) {
             return new JsonResponse(array('message' => 'You can access to this url with ajax only'), 400);
         }
@@ -190,14 +181,14 @@ class ComptableController extends Controller
     }
 
 
-
     /**
      * Méthode ajax qui va récupérer la fiche selectionnée et la mettre en paiement
      * @Route("/validFrais/mettreFicheEnPaiement!Ajax", name="mettreFicheEnPaiement")
      * @param Request $request
      * @return mixed
      */
-    public function mettreFicheEnPaiementAction(Request $request){
+    public function mettreFicheEnPaiementAction(Request $request)
+    {
 
         // Recherche de l'état Valider
         $etat = $this->getDoctrine()->getRepository('GSBBundle:Etat')->findOneById('MP');
@@ -216,10 +207,11 @@ class ComptableController extends Controller
     }
 
     /**
-     *
+     * Action utilitaires qui permet de set tous les frais hors forfait à un état précis
      * @Route("/updateFHF", name="updateFHF")
      */
-    public function updateFHFAction(){
+    public function updateFHFAction()
+    {
 
         $etat = $this->getDoctrine()->getRepository('GSBBundle:EtatFrais')->findOneById('E');
 
