@@ -26,7 +26,9 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "pugx/multi-user-bundle": "3.0.*@dev",
         "symfony/filesystem": "^3.2",
-        "knplabs/knp-snappy-bundle": "^1.4"
+        "knplabs/knp-snappy-bundle": "^1.4",
+        "doctrine/doctrine-fixtures-bundle": "^2.3"
+
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
