@@ -94,11 +94,14 @@
         </tr>
         {% set pfhf = 0 %}
         {% for unfhf in lesfhf %}
+            {% if unfhf.libelle()|slice(0,6) != 'REFUSE' %}
             <tr>
                 <th>{{ unfhf.date()|date('d-m-Y') }}</th>
                 <th>{{ unfhf.libelle() }}</th>
                 <th>{{ unfhf.montant() }} €</th>
             </tr>
+            {% set pfhf = pfhf + unfhf.montant() %}
+            {% endif %}
         {% endfor %}
     </table>
 
